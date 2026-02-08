@@ -1,0 +1,171 @@
+
+\clubpenalty = 10000 % schliesst Schusterjungen aus
+\widowpenalty = 10000 % schliesst Hurenkinder aus
+\hyphenpenalty = 1000 % Keine Silbentrennung
+
+\setbeamercovered{transparent}
+%\beamertemplatenavigationsymbolsempty
+
+\useoutertheme{split}
+%    default | infolines | miniframes |
+%    shadow | sidebar | smoothbars |
+%    smoothtree | split | tree
+
+\useinnertheme{default}
+%    circles | default | inmargin |
+%    rectangles | rounded
+%\setbeamertemplate{blocks}[default]
+%\setbeamertemplate{items}[ball]
+%\setbeamertemplate{sections/subsections in toc}[ball]
+%\setbeamertemplate{title page}[default][colsep=-4bp]
+%\setbeamertemplate{part page}[default][colsep=-4bp]
+
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+
+\usefonttheme{professionalfonts}
+%    default | professionalfonts | serif |
+%    structurebold | structureitalicserif |
+%    structuresmallcapsserif
+
+
+% ###### color definition ######
+\definecolor{fbtechnik}{gray}{.2}
+\definecolor{logobg}{rgb}{0.537,0.7765,0.796}
+
+\definecolor{cHSblue}{RGB}{0,93,164}
+\definecolor{cHSmint}{RGB}{138,198,203}
+\definecolor{cHSfont}{RGB}{88,88,90}
+
+% ###### font definition ######
+%\setbeamerfont{subsection in head/foot}{size=\tiny}
+% Farben für den Fortschrittsbalken definieren (kannst du anpassen)
+\setbeamercolor{progress bar background}{bg=gray!30}
+\setbeamercolor{progress bar foreground}{bg=blue!80!black}
+
+% Die Fußzeile (footline) neu definieren, um den Balken zu enthalten
+% --- KORRIGIERT: Robuste Berechnungsmethode für den Fortschrittsbalken ---
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.5ex,dp=0ex]{progress bar background}%
+    % Prüfen, ob die Gesamtzahl der Folien > 0 ist, um Fehler bei der ersten Kompilierung zu vermeiden
+    \ifnum\inserttotalframenumber>0%
+      % Berechne die Breite des Balkens mit TeX-internen Befehlen
+      \begin{beamercolorbox}[wd=\dimexpr\paperwidth*\insertframenumber/\inserttotalframenumber\relax,ht=1.5ex,dp=0ex]{progress bar foreground}%
+      \end{beamercolorbox}%
+    \fi
+  \end{beamercolorbox}%
+}
+
+% Entfernt die Standard-Navigationssymbole unten rechts
+\setbeamertemplate{navigation symbols}{}
+
+
+% ###### headline definition ######
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \@tempdimb=2.4375ex%
+  \ifnum\beamer@subsectionmax<\beamer@sectionmax%
+    \multiply\@tempdimb by\beamer@sectionmax%
+  \else%
+    \multiply\@tempdimb by\beamer@subsectionmax%
+  \fi%
+  \ifdim\@tempdimb<.09\paperwidth % define min. height to occupy LOGO: logoheight/logowidth * 0.2
+      \@tempdimb=.09\paperwidth
+  \fi
+  \ifdim\@tempdimb>0pt%
+    \advance\@tempdimb by 1.125ex%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ht=\@tempdimb]{section in head/foot}%
+        \hfil
+      \vbox to\@tempdimb{\vfil\hspace{0.4cm} \includegraphics[height=1cm]{logo_rolf-janssen_2024.pdf}\vfil}%
+      %\vbox to\@tempdimb{\vfil\hspace{0.5625ex}\includegraphics[width=0.2\paperwidth]{logo.png}\vfil}%
+        \hfil
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.25\paperwidth,ht=\@tempdimb]{section in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsectionnavigation{.25\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[wd=.5\paperwidth,ht=\@tempdimb]{subsection in head/foot}%
+      \vbox to\@tempdimb{\vfil\insertsubsectionnavigation{.5\paperwidth}\vfil}%
+    \end{beamercolorbox}%
+  \fi%
+  \vspace{0.01cm}        % separator between headline and frametitle
+}
+
+\setbeamertemplate{frametitle}{\leavevmode\vbox{%
+    \begin{beamercolorbox}[wd=1\paperwidth,ht=3ex,dp=1.125ex,leftskip=0.4cm,rightskip=.15cm plus1fil]{frametitle}
+        \usebeamerfont{frametitle}%
+        \vbox{} \vspace{-0.1cm}
+        \strut\Large{}\insertframetitle\strut\par%
+        \vskip6pt
+        {%
+            \ifx\insertframesubtitle\@empty%
+            \else%
+            {\usebeamerfont{framesubtitle}\usebeamercolor[fg]{framesubtitle}\insertframesubtitle\strut\par}%
+            \fi
+        }%
+        \vskip-1ex%
+        %\vskip-.3cm
+    \end{beamercolorbox}%
+    %\vskip-.3cm
+    %\begin{beamercolorbox}[wd=1\paperwidth,ht=1pt,dp=0pt,leftskip=.5cm,rightskip=.15cm plus1fil]{frametitle}
+    %\vskip-1ex%
+    %   \vskip-.3cm
+    %\end{beamercolorbox}%
+}\vskip0pt}
+
+\setbeamercolor{section in head/foot}{bg=white,fg=black}
+%\setbeamercolor{subsection in head/foot}{bg=cHSblue!40,fg=black}
+\setbeamercolor{subsection in head/foot}{bg=cHSmint,fg=white}
+
+\setbeamercolor{block body}{bg=white,fg=black}
+\setbeamercolor{block title}{bg=white,fg=cHSblue}
+\setbeamercolor{item projected}{fg=black,bg=black!20}
+\setbeamercolor{item}{fg=cHSblue,bg=black!20}
+
+\setbeamercolor{frametitle}{bg=cHSblue,fg=white}
+\setbeamercolor{framesubtitle}{bg=cHSblue!25,fg=black!80}
+%\setbeamercolor{title}{bg=cHSblue!25,fg=black}
+\setbeamercolor{title}{bg=cHSblue,fg=white}
+\setbeamercolor{subtitle}{bg=cHSblue,fg=white}
+
+\setbeamercolor{logo}{fg=logobg,bg=logobg}
+\setbeamercolor{title in head/foot}{bg=cHSblue,fg=black}
+\setbeamercolor{author in head/foot}{bg=cHSblue,fg=red}
+
+\setbeamercolor{structure}{bg=white,fg=black}
+\setbeamercolor{normal text}{bg=white,fg=black}
+
+
+\newenvironment{eblock}{
+    \setbeamercolor{block body}{bg=cHSblue!40,fg=black}
+    \begin{block}{}
+    \vspace{-3px}
+}{
+    \end{block}
+}
+
+\newenvironment{wblock}{
+    \setbeamercolor{block body}{bg=logobg!2,fg=black}
+    \begin{block}{}
+    \vspace{-3px}
+}{
+    \end{block}
+}
+
+\parindent0.0cm
+%\parskip1,5ex plus0.5ex minus0.5ex
+\parskip1.5ex plus0.5ex minus0.5ex
+
+\newcommand{\titleframe}{
+    \setbeamertemplate{background canvas}{\includegraphics[width=1\paperwidth]{hintergrund}}
+    \begin{frame}[squeeze,plain]
+        \begin{center}
+            \includegraphics[width=3cm]{technik.png}%\\
+            \includegraphics[width=3cm]{logo_rolf-janssen_2024.pdf}%\
+            \color{fbtechnik}
+            %\textsf{\Large{}Fachbereich Technik}\\
+            %\textsf{\small{}Abteilung Elektrotechnik und Informatik}\vspace{-15pt}
+        \end{center}
+        \maketitle
+    \end{frame}
+    \setbeamertemplate{background canvas}{}
+}

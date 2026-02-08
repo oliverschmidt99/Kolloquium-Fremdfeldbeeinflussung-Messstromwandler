@@ -1,0 +1,14 @@
+# LaTeX Build Artifacts
+*.pdf
+*.log
+*.aux
+*.synctex.gz
+*.nav
+*.snm
+*.toc
+*.out
+*.fdb_latexmk
+*.fls
+.vscode/
+.DS_Store
+*.zip

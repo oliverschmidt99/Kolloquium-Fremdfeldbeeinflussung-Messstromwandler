@@ -1,0 +1,31 @@
+% main.tex
+\documentclass[mathserif,8pt]{beamer}
+
+% 1 EINSTELLUNGEN
+\input{01_Einstellungen/praeambel.tex}
+\input{01_Einstellungen/layout.tex}
+\input{01_Einstellungen/befehle.tex}
+
+% 3 DOKUMENTEN INHALT
+\begin{document}
+
+% 3.1 VORSPANN
+\input{02_Inhalt/01_Vorspann/00_titel.tex}
+\input{02_Inhalt/01_Vorspann/01_agenda.tex}
+\input{02_Inhalt/01_Vorspann/02_motivation_problem.tex}
+
+% 3.2 HAUPTTEIL
+\input{02_Inhalt/02_Hauptteil/10_grundlagen_und_zielsetzung.tex}
+\input{02_Inhalt/02_Hauptteil/20_fremdfeld_und_mechanismus.tex}
+\input{02_Inhalt/02_Hauptteil/30_methodik_und_aufbau.tex}
+\input{02_Inhalt/02_Hauptteil/40_ergebnisse_und_ranking.tex}
+
+% 3.3 NACHSPANN
+\input{02_Inhalt/03_Nachspann/90_fazit.tex}
+\input{02_Inhalt/03_Nachspann/91_ausblick.tex}
+\input{02_Inhalt/03_Nachspann/99_danke_qa.tex}
+
+% 3.4 BACKUP
+\input{02_Inhalt/03_Nachspann/92_backup.tex}
+
+\end{document}

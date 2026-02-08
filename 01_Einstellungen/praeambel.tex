@@ -1,0 +1,32 @@
+% --- 01_Einstellungen/praeambel.tex ---
+% Lädt alle Pakete für die BEAMER-Präsentation
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}      % German style for date, sections ...
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{graphicx} % Wichtig für \includegraphics
+\usepackage[export]{adjustbox}
+
+% Nützliche Pakete aus der Repo-Vorlage (Beamer-kompatibel)
+\usepackage{siunitx}  % Für korrekten Satz von Einheiten, z.B. \SI{10}{\volt}
+\usepackage{booktabs} % Für schöne Tabellen
+\usepackage{svg}      % Um SVG-Grafiken einzubinden
+\usepackage{csquotes} % Für \enquote{}
+
+
+
+% Du kannst hier alle weiteren \usepackage-Befehle hinzufügen
+\usepackage{hyperref} % (Lädt Beamer i.d.R. automatisch)
+\usepackage{listings}
+
+% --- NEUE DEFINITIONEN (AUS BEISPIELCODE) ---
+
+% Farben für den Fortschrittsbalken definieren
+\setbeamercolor{progress bar background}{bg=gray!30}
+\setbeamercolor{progress bar foreground}{bg=blue!80!black}
+
+% NEUE FARBDEFINITION FÜR DIE BEISPIEL-COLORBOX
+\definecolor{myexamplecolor}{RGB}{220,230,250} % Ein helles Beispiel-Blau
+\setbeamercolor{examplebox}{bg=myexamplecolor,fg=black}
