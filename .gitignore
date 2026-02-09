@@ -1,5 +1,5 @@
 # LaTeX Build Artifacts
-*.pdf
+
 *.log
 *.aux
 *.synctex.gz
