@@ -15,8 +15,6 @@
 \usepackage{svg}      % Um SVG-Grafiken einzubinden
 \usepackage{csquotes} % Für \enquote{}
 
-
-
 % Du kannst hier alle weiteren \usepackage-Befehle hinzufügen
 \usepackage{hyperref} % (Lädt Beamer i.d.R. automatisch)
 \usepackage{listings}
@@ -30,3 +28,101 @@
 % NEUE FARBDEFINITION FÜR DIE BEISPIEL-COLORBOX
 \definecolor{myexamplecolor}{RGB}{220,230,250} % Ein helles Beispiel-Blau
 \setbeamercolor{examplebox}{bg=myexamplecolor,fg=black}
+
+
+\makeatletter
+
+% --- 1. FARBEN ---
+\definecolor{MyPastelBackground}{RGB}{225, 250, 225} 
+\definecolor{MySeparator}{RGB}{0, 0, 0} % Aktuell Schwarz (wie in deinem Code)
+\definecolor{CrimsonRed}{RGB}{220, 20, 60}
+
+% --- 2. LOGIK FÜR INHALTE (Keynote & Zeit) ---
+% Variablen initialisieren
+\gdef\insertkeynote{}
+\gdef\inserttimestart{--:--} % Platzhalter, falls keine Zeit angegeben
+\gdef\inserttimeend{--:--}
+
+% Befehl 1: Wichtige Notiz (Links oben)
+\newcommand{\keynote}[1]{\gdef\insertkeynote{#1}}
+
+% Befehl 2: Zeitplanung (Rechts oben) - Nutzung: \slidetime{05:00}{07:30}
+\newcommand{\slidetime}[2]{%
+  \gdef\inserttimestart{#1}%
+  \gdef\inserttimeend{#2}%
+}
+
+% AUTOMATISCHER RESET NACH JEDER SEITE
+% Löscht Text und setzt Zeit auf --:-- zurück
+\addtobeamertemplate{note page}{}{
+   \gdef\insertkeynote{}
+   \gdef\inserttimestart{--:--}
+   \gdef\inserttimeend{--:--}
+}
+
+
+% --- 3. DAS NEUE LAYOUT (T-Form: Keynote (breit) | Zeit (schmal) // Notes) ---
+\setbeamertemplate{note page}{
+  % A) Hintergrund färben
+  \insertvrule{\paperheight}{MyPastelBackground}%
+  \vskip-\paperheight%
+  \nointerlineskip%
+
+  % B) Hauptcontainer
+  \vbox to \paperheight{%
+    
+    % === REIHE 1: OBEN (45% der Höhe) ===
+    \hbox to \paperwidth{%
+        
+        % --- FELD 1: LINKS OBEN (Keynote) -> JETZT BREITER (ca. 65%) ---
+        \begin{minipage}[t][0.45\paperheight]{0.65\paperwidth}
+            \vspace{0.5em}
+            \centering
+            \textbf{\large \color{CrimsonRed} Wichtig / Note 1:}
+            \par \vspace{0.5em}
+            % Text linksbündig (Breite anpassen auf 0.6)
+            \begin{minipage}[t]{0.6\paperwidth}
+                \raggedright \normalfont \small
+                \insertkeynote
+            \end{minipage}
+        \end{minipage}%
+        
+        % ROTE LINIE (Vertikal)
+        \textcolor{MySeparator}{\vrule width 1.5pt}%
+        
+        % --- FELD 2: RECHTS OBEN (Zeitplanung) -> JETZT SCHMALER (ca. 33%) ---
+        \begin{minipage}[t][0.45\paperheight]{0.33\paperwidth}
+            \vspace{1em}
+            \centering
+            \textbf{\large Zeitplanung}
+            \par \vspace{1.em} % Abstand nach unten, damit Zeit mittig wirkt
+            
+            % Zeitanzeige (Sehr groß und gut lesbar)
+            \begingroup
+                \color{black}
+                \Huge \textbf{\inserttimestart} \\[0.2em]
+                \large \color{gray} bis \\[0.2em]
+                \Huge \textbf{\inserttimeend}
+            \endgroup
+        \end{minipage}%
+    }%
+    
+    \nointerlineskip
+    % === ROTE LINIE (Horizontal) ===
+    \textcolor{MySeparator}{\hrule height 1.5pt}%
+    \nointerlineskip
+    
+    % === REIHE 2: UNTEN (Details / Note 2) ===
+    \begin{minipage}[t][0.54\paperheight]{\paperwidth}
+        \vspace{1em}
+        \centering
+        \textbf{\large Details / Notes 2:}
+        \par \vspace{0.5em}
+        \begin{minipage}[t]{0.95\paperwidth}
+            \raggedright \normalfont \small \setlength{\parskip}{0.5em}
+            \insertnote
+        \end{minipage}
+    \end{minipage}%
+  }%
+}
+\makeatother

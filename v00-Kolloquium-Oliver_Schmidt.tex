@@ -1,10 +1,24 @@
-% main.tex
-\documentclass[mathserif,8pt]{beamer}
+\documentclass{beamer}
+\usefonttheme[onlymath]{serif}
+\usepackage{bookmark}
+\usepackage{pgfpages}
 
 % 1 EINSTELLUNGEN
+% Zuerst die Pakete laden! (Hier drin steht vermutlich \usepackage{siunitx})
 \input{01_Einstellungen/praeambel.tex}
 \input{01_Einstellungen/layout.tex}
 \input{01_Einstellungen/befehle.tex}
+
+% JETZT erst konfigurieren, da das Paket nun geladen ist
+\sisetup{
+    locale = DE,
+    range-units = single,
+    list-units = single
+}
+
+% --- NOTIZEN KONFIGURATION ---
+% Option: Notizen auf zweitem Bildschirm (Rechts)
+\setbeameroption{show notes on second screen=right}
 
 % 3 DOKUMENTEN INHALT
 \begin{document}
@@ -12,6 +26,7 @@
 % 3.1 VORSPANN
 \input{02_Inhalt/01_Vorspann/00_titel.tex}
 \input{02_Inhalt/01_Vorspann/01_agenda.tex}
+% Hier wird der Inhalt eingebunden, der weiter unten definiert ist
 \input{02_Inhalt/01_Vorspann/02_motivation_problem.tex}
 
 % 3.2 HAUPTTEIL
