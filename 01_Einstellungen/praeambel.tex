@@ -1,128 +1,91 @@
-% --- 01_Einstellungen/praeambel.tex ---
-% Lädt alle Pakete für die BEAMER-Präsentation
+% --- Dateiname: 01_Einstellungen/praeambel.tex ---
+% Beschreibung: Lädt alle benötigten Pakete und definiert die Logik für Notizen (Keynote/Time).
 
+% 1. Basis & Sprache
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}      % German style for date, sections ...
+\usepackage[ngerman]{babel}
+\usepackage{pgfpages}            % Wichtig für Notizen
+
+% 2. Mathe & Einheiten
 \usepackage{amsmath}
+\usepackage{siunitx}
+\sisetup{locale = DE, range-units = single, list-units = single}
+\usefonttheme[onlymath]{serif}
+
+% 3. Grafik & Darstellung
 \usepackage{xcolor}
-\usepackage{graphicx} % Wichtig für \includegraphics
-\usepackage[export]{adjustbox}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}   % Für valign=c
+\usepackage{svg}
+\usepackage{booktabs}
+\usepackage{ragged2e}
 
-% Nützliche Pakete aus der Repo-Vorlage (Beamer-kompatibel)
-\usepackage{siunitx}  % Für korrekten Satz von Einheiten, z.B. \SI{10}{\volt}
-\usepackage{booktabs} % Für schöne Tabellen
-\usepackage{svg}      % Um SVG-Grafiken einzubinden
-\usepackage{csquotes} % Für \enquote{}
-
-% Du kannst hier alle weiteren \usepackage-Befehle hinzufügen
-\usepackage{hyperref} % (Lädt Beamer i.d.R. automatisch)
+% 4. Sonstiges
+\usepackage{csquotes}
+\usepackage{xurl}
+\usepackage{hyperref}
 \usepackage{listings}
+\lstset{breaklines=true, breakatwhitespace=true, columns=fullflexible}
 
-% --- NEUE DEFINITIONEN (AUS BEISPIELCODE) ---
+% --- Notiz-Konfiguration ---
+\setbeameroption{show notes on second screen=right}
 
-% Farben für den Fortschrittsbalken definieren
-\setbeamercolor{progress bar background}{bg=gray!30}
-\setbeamercolor{progress bar foreground}{bg=blue!80!black}
-
-% NEUE FARBDEFINITION FÜR DIE BEISPIEL-COLORBOX
-\definecolor{myexamplecolor}{RGB}{220,230,250} % Ein helles Beispiel-Blau
-\setbeamercolor{examplebox}{bg=myexamplecolor,fg=black}
-
-
-\makeatletter
-
-% --- 1. FARBEN ---
+% Farben für Notizen
 \definecolor{MyPastelBackground}{RGB}{225, 250, 225} 
-\definecolor{MySeparator}{RGB}{0, 0, 0} % Aktuell Schwarz (wie in deinem Code)
+\definecolor{MySeparator}{RGB}{0, 0, 0}
 \definecolor{CrimsonRed}{RGB}{220, 20, 60}
 
-% --- 2. LOGIK FÜR INHALTE (Keynote & Zeit) ---
-% Variablen initialisieren
+% Variablen für Zeit & Keynote
 \gdef\insertkeynote{}
-\gdef\inserttimestart{--:--} % Platzhalter, falls keine Zeit angegeben
+\gdef\inserttimestart{--:--}
 \gdef\inserttimeend{--:--}
 
-% Befehl 1: Wichtige Notiz (Links oben)
 \newcommand{\keynote}[1]{\gdef\insertkeynote{#1}}
+\newcommand{\slidetime}[2]{\gdef\inserttimestart{#1}\gdef\inserttimeend{#2}}
 
-% Befehl 2: Zeitplanung (Rechts oben) - Nutzung: \slidetime{05:00}{07:30}
-\newcommand{\slidetime}[2]{%
-  \gdef\inserttimestart{#1}%
-  \gdef\inserttimeend{#2}%
-}
-
-% AUTOMATISCHER RESET NACH JEDER SEITE
-% Löscht Text und setzt Zeit auf --:-- zurück
+% Reset nach jeder Seite
 \addtobeamertemplate{note page}{}{
    \gdef\insertkeynote{}
    \gdef\inserttimestart{--:--}
    \gdef\inserttimeend{--:--}
 }
 
-
-% --- 3. DAS NEUE LAYOUT (T-Form: Keynote (breit) | Zeit (schmal) // Notes) ---
+% Template für die Notizseite
 \setbeamertemplate{note page}{
-  % A) Hintergrund färben
   \insertvrule{\paperheight}{MyPastelBackground}%
   \vskip-\paperheight%
   \nointerlineskip%
-
-  % B) Hauptcontainer
   \vbox to \paperheight{%
-    
-    % === REIHE 1: OBEN (45% der Höhe) ===
     \hbox to \paperwidth{%
-        
-        % --- FELD 1: LINKS OBEN (Keynote) -> JETZT BREITER (ca. 65%) ---
-        \begin{minipage}[t][0.45\paperheight]{0.65\paperwidth}
-            \vspace{0.5em}
-            \centering
-            \textbf{\large \color{CrimsonRed} Wichtig / Note 1:}
-            \par \vspace{0.5em}
-            % Text linksbündig (Breite anpassen auf 0.6)
-            \begin{minipage}[t]{0.6\paperwidth}
-                \raggedright \normalfont \small
-                \insertkeynote
-            \end{minipage}
-        \end{minipage}%
-        
-        % ROTE LINIE (Vertikal)
-        \textcolor{MySeparator}{\vrule width 1.5pt}%
-        
-        % --- FELD 2: RECHTS OBEN (Zeitplanung) -> JETZT SCHMALER (ca. 33%) ---
-        \begin{minipage}[t][0.45\paperheight]{0.33\paperwidth}
-            \vspace{1em}
-            \centering
-            \textbf{\large Zeitplanung}
-            \par \vspace{1.em} % Abstand nach unten, damit Zeit mittig wirkt
-            
-            % Zeitanzeige (Sehr groß und gut lesbar)
-            \begingroup
-                \color{black}
-                \Huge \textbf{\inserttimestart} \\[0.2em]
-                \large \color{gray} bis \\[0.2em]
-                \Huge \textbf{\inserttimeend}
-            \endgroup
-        \end{minipage}%
+      % Links: Keynote
+      \begin{minipage}[t][0.45\paperheight]{0.65\paperwidth}
+        \vspace{0.5em}\centering
+        \textbf{\large \color{CrimsonRed} Wichtig / Note 1}\par\vspace{0.5em}
+        \begin{minipage}[t]{0.6\paperwidth}
+          \adjustbox{max width=\linewidth, max height=0.30\paperheight}{%
+            \parbox[t]{\linewidth}{\RaggedRight\normalfont\small\insertkeynote}
+          }
+        \end{minipage}
+      \end{minipage}%
+      \textcolor{MySeparator}{\vrule width 1.5pt}%
+      % Rechts: Zeit
+      \begin{minipage}[t][0.45\paperheight]{0.33\paperwidth}
+        \vspace{1em}\centering\textbf{\large Zeitplanung}\par\vspace{1em}
+        \Huge \textbf{\inserttimestart} \\[0.2em] \large \color{gray} bis \\[0.2em] \Huge \textbf{\inserttimeend}
+      \end{minipage}%
     }%
-    
     \nointerlineskip
-    % === ROTE LINIE (Horizontal) ===
     \textcolor{MySeparator}{\hrule height 1.5pt}%
     \nointerlineskip
-    
-    % === REIHE 2: UNTEN (Details / Note 2) ===
-    \begin{minipage}[t][0.54\paperheight]{\paperwidth}
-        \vspace{1em}
-        \centering
-        \textbf{\large Details / Notes 2:}
-        \par \vspace{0.5em}
-        \begin{minipage}[t]{0.95\paperwidth}
-            \raggedright \normalfont \small \setlength{\parskip}{0.5em}
-            \insertnote
-        \end{minipage}
-    \end{minipage}%
+    % Unten: Normale Notizen
+    \begin{minipage}[t][0.54\textwidth]{\textwidth}
+      \vspace{1em}\centering
+      \begin{minipage}[t]{0.99\textwidth}
+        \adjustbox{max height=0.50\textwidth, max width=\textwidth}{%
+          \parbox[t]{\linewidth}{\RaggedRight\sloppy\small\insertnote}
+        }
+      \end{minipage}
+    \end{minipage}
   }%
 }
-\makeatother
