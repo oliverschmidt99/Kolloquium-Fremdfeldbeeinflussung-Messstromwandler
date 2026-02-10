@@ -1,24 +1,28 @@
+% --- Dateiname: 01_Einstellungen/layout.tex ---
+% Beschreibung: Definiert das Aussehen (Beamer-Theme, Farben, Kopf-/Fußzeile) und den Titleframe.
 
-\clubpenalty = 10000 % schliesst Schusterjungen aus
-\widowpenalty = 10000 % schliesst Hurenkinder aus
-\hyphenpenalty = 1000 % Keine Silbentrennung
-
+% --- Beamer Grundeinstellungen ---
+\clubpenalty = 10000
+\widowpenalty = 10000
+\hyphenpenalty = 1000
 \setbeamercovered{transparent}
-%\beamertemplatenavigationsymbolsempty
 
 \useoutertheme{split}
 \useinnertheme{default}
 \setbeamertemplate{blocks}[rounded][shadow=false]
 \usefonttheme{professionalfonts}
+\setbeamertemplate{navigation symbols}{}
 
-% ###### color definition ######
+% --- Farbdefinitionen ---
 \definecolor{fbtechnik}{gray}{.2}
 \definecolor{logobg}{rgb}{0.537,0.7765,0.796}
 \definecolor{cHSblue}{RGB}{0,93,164}
 \definecolor{cHSmint}{RGB}{138,198,203}
 \definecolor{cHSfont}{RGB}{88,88,90}
+\setbeamercolor{headline left}{bg=white}
+\setbeamercolor{headline right}{bg=white}
 
-% ###### color setup ######
+% --- Farbzuweisungen ---
 \setbeamercolor{section in head/foot}{bg=white,fg=black}
 \setbeamercolor{subsection in head/foot}{bg=cHSmint,fg=white}
 \setbeamercolor{block body}{bg=white,fg=black}
@@ -30,57 +34,59 @@
 \setbeamercolor{title}{bg=cHSblue,fg=white}
 \setbeamercolor{subtitle}{bg=cHSblue,fg=white}
 \setbeamercolor{logo}{fg=logobg,bg=logobg}
-\setbeamercolor{title in head/foot}{bg=white,fg=black} % Für Kopfzeile
+\setbeamercolor{title in head/foot}{bg=white,fg=black}
 \setbeamercolor{author in head/foot}{bg=cHSblue,fg=red}
 \setbeamercolor{structure}{bg=white,fg=black}
 \setbeamercolor{normal text}{bg=white,fg=black}
 \setbeamercolor{progress bar background}{bg=gray!30}
 \setbeamercolor{progress bar foreground}{bg=cHSblue}
-% --- Neue Farben für die Kopfzeile ---
-\setbeamercolor{headline left}{bg=white}
-\setbeamercolor{headline right}{bg=white}
 
-
-% ###### font definition for head/foot ######
+% --- Schriftarten Kopf-/Fußzeile ---
 \setbeamerfont{title in head/foot}{size=\normalsize}
 \setbeamerfont{footline content}{size=\normalsize}
+\setbeamerfont{section in toc}{series=\mdseries, shape=\upshape}
+\setbeamercolor{section in toc}{fg=black}
 
-% ###### headline definition (NEU & KORRIGIERT) ######
-\setbeamertemplate{headline}
-{
+% --- Templates (TOC, Itemize) ---
+\setbeamertemplate{section in toc}{%
+  \vspace{-5cm}%
+  {\textcolor{cHSblue}{$\blacktriangleright$}}%
+  \usebeamerfont{section in toc}%
+  \usebeamercolor[fg]{section in toc}%
+  \inserttocsection%
+}
+\setbeamertemplate{itemize subitem}{\textbullet}
+
+% --- Kopfzeile (Headline) ---
+\setbeamertemplate{headline}{
   \leavevmode%
   \hbox{%
     % Linke Box: Logo
     \begin{beamercolorbox}[wd=0.4\paperwidth,ht=1.0cm,dp=0.5cm,left]{headline left}
-      \hspace{2cm} % Linker Abstand
-      \vspace{-0.75cm}
+      \hspace{2cm} \vspace{-0.75cm}
       \texttt{\includegraphics[width=5cm, valign=c]{03_Ressourcen/Logo/logo_rolf-janssen_2024.pdf}}
     \end{beamercolorbox}%
     % Rechte Box: Titel
     \begin{beamercolorbox}[wd=0.6\paperwidth,ht=1.0cm,dp=0.5cm,right]{headline right}
       \usebeamerfont{title in head/foot}%
       \insertshorttitle%
-      \hspace{1cm} % Rechter Abstand
+      \hspace{1cm}
     \end{beamercolorbox}%
   }%
   \vspace{1mm}
 }
 
-% ###### footline definition (NEU) ######
+% --- Fußzeile (Footline mit Progressbar) ---
 \setbeamertemplate{footline}{%
-  % Text-Zeile
   \leavevmode\hbox{%
-    % Linke Box: Aktueller Abschnitt
     \begin{beamercolorbox}[wd=0.9\paperwidth,ht=2.25ex,dp=1ex,leftskip=1cm,left]{section in head/foot}%
       \usebeamerfont{footline content}\scriptsize\insertsectionhead%
     \end{beamercolorbox}%
-    % Rechte Box: Seitenzahl
     \begin{beamercolorbox}[wd=-0.9\paperwidth,ht=2.25ex,dp=1ex,rightskip=1cm,right]{section in head/foot}%
       \usebeamerfont{footline content}\scriptsize\insertframenumber/\inserttotalframenumber%
     \end{beamercolorbox}%
   }%
   \vskip0pt%
-  % Fortschrittsbalken
   \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0ex]{progress bar background}%
     \ifnum\inserttotalframenumber>0%
       \begin{beamercolorbox}[wd=\dimexpr\paperwidth*\insertframenumber/\inserttotalframenumber\relax,ht=1ex,dp=0ex]{progress bar foreground}%
@@ -89,11 +95,8 @@
   \end{beamercolorbox}%
 }
 
-
-
-% ###### frametitle definition ######
+% --- Folientitel (Frametitle) ---
 \setbeamertemplate{frametitle}{\leavevmode\vbox{%
-
     \begin{beamercolorbox}[wd=1\paperwidth, ht=0.8cm, dp=0.3cm, center, center]{frametitle}
         \usebeamerfont{frametitle}\Large
         \strut\insertframetitle\strut\par%
@@ -107,29 +110,44 @@
     \end{beamercolorbox}%
 }\vskip0pt}
 
-
-
-
-
-% ###### custom environments ######
-\newenvironment{eblock}{\setbeamercolor{block body}{bg=cHSblue!40,fg=black}\begin{block}{}\vspace{-3px}}{\end{block}}
-\newenvironment{wblock}{\setbeamercolor{block body}{bg=logobg!2,fg=black}\begin{block}{}\vspace{-3px}}{\end{block}}
-
-\parindent0.0cm
-\parskip1.5ex plus0.5ex minus0.5ex 
-
-
-\newcommand{\titleframe}{
+% --- Definition: Titleframe ---
+% Akzeptiert optionales Argument [1] für Notizen
+\newcommand{\titleframe}[1][]{
     \begin{frame}[plain]
+        % 1. Logos
         \begin{center}
-            \begin{center}
-                \texttt{\includegraphics[width=6cm,valign=c]{03_Ressourcen/Logo/logo_rolf-janssen_2024.pdf}}
-                \hspace{0.5cm}
-                \texttt{\includegraphics[width=4cm,valign=c]{03_Ressourcen/Logo/logo.pdf}}
-            \end{center}
-            \color{fbtechnik}
+            \includegraphics[width=5cm,valign=c]{03_Ressourcen/Logo/logo_rolf-janssen_2024.pdf}
+            \hspace{0.5cm}
+            \includegraphics[width=4cm,valign=c]{03_Ressourcen/Logo/logo.pdf}
         \end{center}
-        \maketitle
+        
+        \vspace{0.5cm}
+        
+        % 2. Titel-Block
+        \begin{beamercolorbox}[wd=\paperwidth, sep=8pt, center]{title}
+            \usebeamerfont{title}\Large \inserttitle\par
+            \vspace{0.2cm}
+            \usebeamerfont{subtitle}\large \insertsubtitle
+        \end{beamercolorbox}
+        
+        \vspace{0.2cm} % Abstandshalter
+        
+        % 3. Info-Block
+        \begin{center}
+            \large{\autorenname} \\
+            \vspace{1em}
+            \large{\company} \\
+            \vspace{1em}
+            \small{
+                Betreuung: \\
+                \betreuerEins \\
+                \betreuerDrei \\
+            }
+        \end{center}
+
+        % 4. Notizen einfügen
+        #1 
+
     \end{frame}
     \setbeamertemplate{background canvas}{}
 }
