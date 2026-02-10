@@ -1,70 +1,28 @@
-% =============================================================================
-% EIGENE BEFEHLE & GLOBALE EINSTELLUNGEN (befehle.tex)
-% =============================================================================
+% --- Dateiname: 01_Einstellungen/befehle.tex ---
+% Beschreibung: Enthält nur inhaltliche Variablen (Namen, Titel).
 
-% --- 1. GLOBALE DEFINITIONEN FÜR DIE TITELSEITE ---
-% (Diese werden von 00_deckblatt.tex UND layout.tex genutzt)
-
-% --- Titel & Autor (Variablen aus dem Repo) ---
+% --- Titel & Autor ---
 \newcommand{\praktikumstitel}{Kolloquium}
-\newcommand{\versuchstitel}{Fremdfeldbeeinflussung auf Messstromwandler in der Niederspannung} % Dein \subtitle
+\newcommand{\versuchstitel}{Fremdfeldbeeinflussung auf Messstromwandler in der Niederspannung}
 \newcommand{\autorenname}{Oliver-Luca Schmidt}
 
-
+% --- Betreuer ---
 \newcommand{\betreuerEins}{Dr.-Ing. Sandro Günter}
 \newcommand{\betreuerZwei}{Dipl.-Ing. Holger Kuhlemann}
 \newcommand{\betreuerDrei}{Dipl.-Ing. Rainer Ludewig}
 \newcommand{\betreuerVier}{Simon Westerbur, B. Eng.}
 
-% --- Dein Kurztitel für die Fußzeile (aus Beamer) ---
+% --- Allgemeine Infos ---
 \newcommand{\kurztitel}{Kolloquium} 
-
-% --- Institut & Datum (aus Beamer) ---
 \newcommand{\institut}{FB Technik | Abteilung Elektrotechnik und Informatik}
 \newcommand{\company}{Rolf Janssen GmbH Elektrotechnische Werke}
 \newcommand{\datum}{\today}
 
-% (Platzhalter-Variablen aus dem Repo)
+% --- Platzhalter ---
 \newcommand{\semester}{7}
 \newcommand{\versuchsnummer}{}
 \newcommand{\gruppe}{}
 \newcommand{\studiengang}{Elektrotechnik}
 
-
-% =============================================================================
-% --- 2. GLOBALE PFAD- UND BILD-EINSTELLUNGEN ---
-% =============================================================================
-
-% Definiert die Standard-Pfade für \includegraphics
-% (Pfade relativ von main.tex, da \graphicspath global gilt)
-\graphicspath{ 
-  {03_Ressourcen/Bilder/},
-  {03_Ressourcen/Logo/} 
-}
-
-% =============================================================================
-% --- 3. BEREICH FÜR DEINE EIGENEN BEFEHLE ---
-% =============================================================================
-% \newcommand{\OPV}{Operationsverstärker}
-
-% --- HIER: Angepasste Gliederung ---
-
-% 1. Schriftart (normal/nicht-fett UND nicht-kursiv)
-\setbeamerfont{section in toc}{series=\mdseries, shape=\upshape}
-
-% 2. Textfarbe für Gliederung auf Schwarz setzen
-\setbeamercolor{section in toc}{fg=black}
-
-% 3. Symbol-Templates (mit mattem Pfeil)
-\setbeamertemplate{section in toc}{%
- \vspace{-5cm}%
-  {\textcolor{cHSblue}{$\blacktriangleright$}} % <--- HIER WAR DER FEHLER (das "\ " ist weg)
-  \usebeamerfont{section in toc}% <--- Holt Schriftart (nicht-kursiv)
-  \usebeamercolor[fg]{section in toc}%<--- Holt Textfarbe (jetzt schwarz)
-  \inserttocsection%
-   }
-
-\setbeamertemplate{itemize subitem}{\textbullet}
-
-% ###### Navigationssymbole entfernen ######
-\setbeamertemplate{navigation symbols}{}
+% --- Pfade ---
+\graphicspath{{03_Ressourcen/Bilder/}{03_Ressourcen/Logo/}}
