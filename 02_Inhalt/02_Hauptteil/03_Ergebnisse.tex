@@ -1,10 +1,219 @@
 \section{Messergebnisse}
 
-\subsection{Versuchsaufbau}
-% Hier später Bild vom Laboraufbau einfügen
+% --- Szenario 1: Der "Standard"-Bereich ---
+\subsection{Vergleich bei 2000 A}
 
-\subsection{Messung Standardwandler}
-% Hier Diagramme ohne FFP
+\begin{frame}{Marktüberblick bei \SI{2000}{A}}
+    \vspace{-0.2cm}
+    \begin{columns}[c]
+        \begin{column}{0.65\textwidth}
+            \centering
+            % Pfad zum Diagramm 2000A Zusammenfassung
+            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_2000A_kosten/dia_2000A_kosten-Zusammenfassung_MultiCurrent.pdf}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \textbf{Beobachtungen}
+            \small
+            \begin{itemize}
+                \item \textbf{Parallel (bunt):} Starke Spreizung der Fehlerkurven.
+                \item \textbf{Dreieck (grau):} Fehlerband deutlich schmaler.
+                \item \textbf{FFP (Redur):} Zeigt bereits hier die stabilsten Werte.
+            \end{itemize}
+        \end{column}
+    \end{columns}
 
-\subsection{Messung mit FFP}
-% Hier Diagramme mit FFP
+    % Zeitplanung: ca. 1 Minute
+    \slidetime{10:00}{11:00}
+    \keynote{
+        \begin{itemize}
+            \item Bunte Linien = Parallel (Schlecht)
+            \item Graue Linien = Dreieck (Besser)
+            \item FFP stabil
+        \end{itemize}
+    }
+    \note{
+        \textbf{Szenario 2000 A:}
+        Hier sehen wir den Überblick über verschiedene Hersteller bei 2000 Ampere.
+
+        \textbf{Erkenntnis:}
+        Die bunten Linien zeigen die klassische Parallelanordnung. Man sieht hier schon eine deutliche Spreizung der Messfehler zwischen den Phasen.
+
+        \textbf{Geometrie-Effekt:}
+        Sobald wir auf die Dreiecksanordnung wechseln (die grauen Linien), rücken die Fehlerkurven deutlich enger zusammen. Die rein geometrische Maßnahme zeigt also bereits Wirkung.
+    }
+\end{frame}
+
+
+% --- Szenario 2: Der Übergangsbereich ---
+\subsection{Vergleich bei 3000 A}
+
+\begin{frame}{Validierung bei \SI{3000}{A}}
+    \vspace{-0.2cm}
+    \begin{columns}[c]
+        \begin{column}{0.65\textwidth}
+            \centering
+            % Pfad zum Diagramm 3000A Zusammenfassung
+            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.pdf}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \textbf{Entwicklung des Fehlers}
+            \small
+            \begin{itemize}
+                \item Sättigungseffekte nehmen zu.
+                \item \textbf{Parallel:} Fehler wachsen überproportional an.
+                \item \textbf{Dreieck:} Bleibt stabil, aber erste Anzeichen von Sättigung.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    % Zeitplanung: ca. 45 Sekunden
+    \slidetime{11:00}{11:45}
+    \keynote{
+        \begin{itemize}
+            \item Trend setzt sich fort
+            \item Sättigung beginnt früher
+            \item Parallelanordnung kritisch
+        \end{itemize}
+    }
+    \note{
+        \textbf{3000 Ampere:}
+        Bei Erhöhung des Stroms auf 3000 Ampere bestätigt sich der Trend.
+
+        \textbf{Beobachtung:}
+        Die Fehler in der Parallelanordnung wachsen überproportional an, da der Eisenkern durch die stärkeren Fremdfelder früher in die Sättigung getrieben wird.
+
+        \textbf{Zwischenfazit:}
+        Die Dreiecksanordnung hält das System noch stabil, aber wir nähern uns den Grenzen der Standardtechnik.
+    }
+\end{frame}
+
+
+% --- Szenario 3: Spezialuntersuchung Bürde ---
+\subsection{Einfluss der Bürde}
+
+\begin{frame}{Spezialuntersuchung: Einfluss der Bürde (\SI{3000}{A})}
+    \vspace{-0.2cm}
+    \begin{columns}[c]
+        \begin{column}{0.65\textwidth}
+            \centering
+            % Pfad zum Diagramm 3000A Bürde
+            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_buerde/dia_3000A_buerde-Zusammenfassung_MultiCurrent.pdf}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \textbf{Varianten der Sekundärlast}
+            \small
+            \begin{itemize}
+                \item \textbf{0 $\Omega$:} Minimale Belastung (Idealfall).
+                \item \textbf{Ref:} Nennbürde (Realfall).
+                \item \textbf{Erkenntnis:} Hohe Bürde verschlechtert das Ergebnis signifikant (frühere Sättigung).
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    % Zeitplanung: ca. 45 Sekunden
+    \slidetime{11:45}{12:30}
+    \keynote{
+        \begin{itemize}
+            \item Test: Kabellänge/Querschnitt
+            \item Hohe Bürde = Schlecht
+            \item Niedrige Bürde hilft
+        \end{itemize}
+    }
+    \note{
+        \textbf{Untersuchung:}
+        Hier habe ich geprüft, ob man durch Optimierung der Sekundärseite (z.B. kürzere Kabel oder größerer Querschnitt) den Fehler reduzieren kann.
+
+        \textbf{Ergebnis:}
+        Die Kurven zeigen deutlich: Eine niedrige Bürde (nahe 0 Ohm) verzögert die Sättigung und verbessert das Messergebnis. Eine hohe Bürde verschlechtert es massiv.
+
+        \textbf{Praxis:}
+        Das bedeutet für die Praxis: Leitungswege kurz halten und Querschnitte großzügig dimensionieren ist eine wirksame, flankierende Maßnahme.
+    }
+\end{frame}
+
+
+% --- Szenario 4: Der Extremfall ---
+\subsection{Analyse bei 4000 A}
+
+\begin{frame}{Hochstrom-Szenario bei \SI{4000}{A}}
+    \vspace{-0.2cm}
+    \begin{columns}[c]
+        \begin{column}{0.65\textwidth}
+            \centering
+            % Pfad zum Diagramm 4000A Zusammenfassung
+            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.pdf}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \textbf{Kritischer Bereich}
+            \small
+            \begin{itemize}
+                \item Standardwandler in Parallelanordnung versagen (Klasse 3).
+                \item \textbf{Dreieck:} Bringt Verbesserung, reicht aber nicht für Kl. 0,5.
+                \item \textbf{FFP:} Hält als einzige Lösung die Klasse 1 sicher ein.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    % Zeitplanung: ca. 1 Minute
+    \slidetime{12:30}{13:30}
+    \keynote{
+        \begin{itemize}
+            \item 4000 A = Extrem
+            \item Parallel = Totalausfall
+            \item Nur FFP sicher
+        \end{itemize}
+    }
+    \note{
+        \textbf{Eskalation:}
+        Bei 4000 Ampere verschärft sich die Situation drastisch.
+
+        \textbf{Parallelanordnung:}
+        Die Standardwandler in Parallelanordnung (bunt) brechen komplett aus und verletzen sogar die Klasse 3. Das ist messtechnisch unbrauchbar.
+
+        \textbf{Lösung:}
+        Selbst die Dreiecksanordnung reicht hier für Präzisionsmessungen kaum noch aus. Lediglich die Kombination mit FFP-Wandlern garantiert hier noch die geforderte Genauigkeitsklasse 1.
+    }
+\end{frame}
+
+
+% --- Szenario 5: Die Lösung / Ökonomie ---
+\subsection{Ökonomische Bewertung}
+
+\begin{frame}{Kosten-Nutzen-Analyse (Ranking)}
+    \vspace{-0.2cm}
+    \centering
+    % Das Diagramm: Preis über mittlerem Fehler (4000A Ranking als Basis)
+    \includegraphics[height=0.68\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Oekonomie_Ranking_Dual.pdf}
+
+    \vspace{0.3cm}
+
+    % Definition als Fußnote
+    \begin{beamercolorbox}[sep=0.3em,center,rounded=true,shadow=false]{cHSblue!5}
+        \tiny \color{gray}
+        Datengrundlage: Mittelwert der Messabweichung $\varepsilon$ über drei Lastbereiche: \\
+        \textbf{Niederstrom} ($<20\,\% I_n$), \textbf{Nennstrom} ($20\dots120\,\% I_n$) und \textbf{Überlast} ($>120\,\% I_n$).
+    \end{beamercolorbox}
+
+    % Zeitplanung: ca. 1 Minute
+    \slidetime{13:30}{14:30}
+    \keynote{
+        \begin{itemize}
+            \item Ziel: Unten Links (Günstig \& Gut)
+            \item X-Achse = Mittlerer Fehler
+            \item Sieger: Celsa Dreieck
+        \end{itemize}
+    }
+    \note{
+        \textbf{Entscheidungsgrundlage:}
+        Zum Abschluss habe ich die technischen Fehlerwerte in einen wirtschaftlichen Kontext gesetzt.
+
+        \textbf{Methodik:}
+        Auf der X-Achse sehen Sie den \textbf{mittleren Fehler} über den gesamten Arbeitsbereich. Auf der Y-Achse den Preis.
+
+        \textbf{Ziel:}
+        Wir suchen eine Lösung im Bereich "Links Unten" – also minimaler Fehler bei minimalen Kosten.
+
+        \textbf{Ergebnis:}
+        Es zeigt sich klar: Die Celsa-Lösung in \textbf{Dreiecksanordnung (Grau)} bietet hier das Optimum. Sie hält die Klasse 1 ein und kostet nur einen Bruchteil der vollkompensierten Systeme.
+    }
+\end{frame}
