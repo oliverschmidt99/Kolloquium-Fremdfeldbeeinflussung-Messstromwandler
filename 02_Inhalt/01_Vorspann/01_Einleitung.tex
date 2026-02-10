@@ -1,0 +1,182 @@
+\section{Einleitung}
+
+\subsection{Motivation und Problemstellung}
+
+% --- Folie 1: Motivation ---
+\begin{frame}{Motivation}
+    \begin{columns}[c, onlytextwidth]
+        \begin{column}{0.55\textwidth}
+            \textbf{Herausforderung Kompaktbauweise}
+            \vspace{0.5em}
+            \begin{itemize}
+                \item Minimale Abstände zwischen Hochstromschienen und Wandlern
+                \item \textbf{Folge} Signifikante Messabweichungen durch magnetische Fremdfelder
+                \item \textbf{Ziel} Findung einer technisch robusten und kosteneffizienten Lösung
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.35\textwidth}
+            \centering
+            \includegraphics[height=0.7\textheight, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front_zugeschnitten.jpg}
+            \par\vspace{0.1cm} {\tiny \color{gray} Frontansicht der Anlage}
+        \end{column}
+        \begin{column}{0.08\textwidth} \hfill \end{column}
+    \end{columns}
+
+    % Zeit: 45s (01:30 - 02:15)
+    \slidetime{01:30}{02:15}
+    \keynote{
+        \begin{itemize}
+            \item Bild: Enge zeigen
+            \item Folge: Abweichung
+            \item Ziel: Günstige Lösung
+        \end{itemize} }
+    \note{
+        \textbf{Herausforderung:}
+        Auf dem Bild ist die hohe Packungsdichte der Anlage zu sehen bei der Hochstromschienen und Wandler auf engstem Raum verbaut sind.
+
+        \textbf{Folge:}
+        Diese Nähe führt physikalisch dazu dass magnetische Fremdfelder einkoppeln und die Messergebnisse signifikant verfälschen.
+
+        \textbf{Ziel:}
+        Mein Ziel ist es eine technisch robuste Lösung zu finden die diesen Einfluss minimiert und dabei wirtschaftlich bleibt.
+    }
+\end{frame}
+
+
+% --- Folie 2: Messabweichung ---
+\begin{frame}{Problemstellung – Messabweichung}
+    % Definitionen für Prüferfragen vorwegnehmen
+    \begin{center}
+        \footnotesize 
+        \textbf{Parameter:} Übersetzungsfehler $\varepsilon$ bei $100\,\%~I_{\text{pn}}$ \hspace{1cm} 
+        \textbf{Grenzwert:} Klasse 1 erlaubt $\pm 1\,\%$
+    \end{center}
+    
+    \vspace{0.1cm}
+    \textbf{Vergleich bei \SI{4000}{A} Primärstrom – Symmetrische Last}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \centering
+            \includegraphics[height=0.38\textheight, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.pdf}
+            \par\vspace{0.1cm}
+            \textbf{\footnotesize \color{green!50!black} Referenz (Sollwert) Kl. 0,2S}
+            \vspace{0.1cm} \scriptsize
+            \begin{tabular}{l r}
+                \color{gray} L1 & \color{gray} \SI{-0.005}{\percent} \\ % Ausgegraut
+                \color{green!50!black}\textbf{L2} & \color{green!50!black}\textbf{\SI{0.047}{\percent}} \\
+                \color{gray} L3 & \color{gray} \SI{-0.012}{\percent}    % Ausgegraut
+            \end{tabular}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \centering
+            \includegraphics[height=0.38\textheight, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.pdf}
+            \par\vspace{0.1cm}
+            \textbf{\footnotesize \color{red} Prüfling (Beeinflusst) Kl. 1,0}
+            \vspace{0.1cm} \scriptsize
+            \begin{tabular}{l r}
+                \color{gray} L1 & \color{gray} $\approx$ \SI{-0.704}{\percent} \\ % Ausgegraut
+                \color{red}\textbf{L2} & \color{red}\textbf{$\approx$ \SI{-3.238}{\percent}} \\
+                \color{gray} L3 & \color{gray} $\approx$ \SI{-1.230}{\percent}    % Ausgegraut
+            \end{tabular}
+        \end{column}
+    \end{columns}
+
+    % Zeit: 60s (02:15 - 03:15)
+    \slidetime{02:15}{03:15}
+    \keynote{ \begin{itemize} \item L2: -3,2 \% Fehler \item System verzerrt \end{itemize} }
+    \note{
+        \textbf{Vergleich:}
+        Hier sehen Sie den direkten Vergleich zwischen der präzisen Referenzmessung links und dem beeinflussten Prüfling rechts.
+
+        \textbf{Beobachtung:}
+        Besonders in der hervorgehobenen Phase L2 bricht der Messwert ein und weist eine Abweichung von etwa 3,2 Prozent auf.
+
+        \textbf{Bewertung:}
+        Dieser Fehler liegt weit außerhalb der zulässigen Toleranz von einem Prozent für die Genauigkeitsklasse 1.
+    }
+\end{frame}
+
+
+\subsection{Wirtschaftliche Relevanz}
+
+% --- Folie 2b: Problemstellung - Wirtschaftlichkeit ---
+\begin{frame}{Problemstellung – Wirtschaftliche Relevanz}
+    \vspace{0.2cm}
+    \textbf{Analyse der Abweichung}
+    \begin{itemize}
+        \item Messdifferenz / Untererfassung Phase L2 \(\Delta I \approx \SI{130}{A}\)
+        \item Relative Abweichung \(\approx \SI{-3,25}{\%}\)
+        \item Kritisch für Netzschutz und Verrechnung
+    \end{itemize}
+    \vspace{0.2cm}
+    \setbeamercolor{bluebox}{bg=cHSblue!10,fg=black}
+    \begin{center}
+        \begin{beamercolorbox}[wd=0.95\textwidth, sep=0.5em, center, rounded=true, shadow=true]{bluebox}
+            \small \textbf{Potenzieller Abrechnungsfehler (Beispielrechnung)}
+            \par\vspace{0.3em}
+            % Formelzeile für Klarheit
+            \footnotesize \( P_{\text{Verlust}} = U_{\text{L-N}} \cdot \Delta I_{\text{L2}} \cdot \cos \varphi \cdot t \)
+            \par\vspace{0.3em}
+            
+            \renewcommand{\arraystretch}{1.05}
+            \small
+            \begin{tabular}{rl}
+                                              & \(\Delta I_{\text{L2}} = \SI{130}{A}\) bei \SI{230}{V} (L-N) \\
+                \(\times\)                    & Leistungsfaktor (\(\cos \varphi = 0,9\))               \\
+                \(\times\)                    & Dauerlast (\SI{8760}{h/a})                             \\
+                \(\times\)                    & Strompreis (\SI{0,20}{}~\text{€}/\text{kWh})           \\
+                \hline
+                \rule{0pt}{1.2em} \(\approx\) & \textbf{\Large \color{red} 47\,000\,\text{€} / Jahr}
+            \end{tabular}
+        \end{beamercolorbox}
+    \end{center}
+
+    % Zeit: 45s (03:15 - 04:00)
+    \slidetime{03:15}{04:00}
+    \keynote{ \begin{itemize} \item 130 A Untererfassung \item 47k€ Differenz \end{itemize} }
+    \note{
+        \textbf{Messdifferenz:}
+        Durch die Abweichung fehlen uns in der Phase L2 dauerhaft etwa 130 Ampere im gemessenen Stromwert was wir als Untererfassung bezeichnen.
+
+        \textbf{Kosten:}
+        Rechnet man diesen Fehler über die Formel für die Wirkleistung auf ein Jahr Dauerlast hoch ergibt sich eine Abrechnungsdifferenz von knapp 47.000 Euro.
+
+        \textbf{Relevanz:}
+        Dieser Wert gilt pro Abgangsfeld was das wirtschaftliche Risiko für den Betreiber verdeutlicht.
+    }
+\end{frame}
+
+\subsection{Zielsetzung der Arbeit}
+
+% --- Folie 3: Zielsetzung ---
+\begin{frame}{Zielsetzung der Arbeit}
+    \textbf{Leitfrage der Untersuchung}
+    \vspace{0.5em}
+    \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{cHSblue!10}
+        \textit{Welche Kombination aus Wandler, Geometrie und FFP hält Klasse 1 unter Fremdfeldbedingungen ein – bei minimalen Mehrkosten?}
+    \end{beamercolorbox}
+    
+    \vspace{0.5cm}
+    \textbf{Untersuchungsschwerpunkte}
+    \begin{itemize}
+        \item Systematische Analyse der Fehler im Drehstromsystem (L1, L2, L3)
+        \item Vergleich von Standardwandlern und kompensierten Spezialwandlern
+        \item Prüfung konstruktiver Maßnahmen (Leitergeometrie / FFP)
+        \item Ableitung von Handlungsempfehlungen für die Neukonstruktion
+    \end{itemize}
+
+    % Zeit: 30s (04:00 - 04:30)
+    \slidetime{04:00}{04:30}
+    \keynote{ \begin{itemize} \item Leitfrage \item Vergleich \& Empfehlung \end{itemize} }
+    \note{
+        \textbf{Leitfrage:}
+        Meine Arbeit beantwortet die Frage welche Kombination aus Technik und Geometrie die Klasse 1 sicherstellt ohne die Kosten zu sprengen.
+
+        \textbf{Vorgehen:}
+        Dazu analysiere ich die Fehler im System systematisch vergleiche verschiedene Wandlertechnologien und prüfe geometrische Anpassungen.
+
+        \textbf{Output:}
+        Am Ende steht eine klare Handlungsempfehlung für die Konstruktion neuer Anlagen.
+    }
+\end{frame}

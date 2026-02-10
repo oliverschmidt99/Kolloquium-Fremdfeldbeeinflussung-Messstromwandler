@@ -11,19 +11,18 @@
 % 2. Dokumentenbeginn
 \begin{document}
 
-% --- Vorspann ---
-\input{02_Inhalt/01_Vorspann/00_deckblatt.tex}
-\input{02_Inhalt/01_Vorspann/01_agenda.tex}
-\input{02_Inhalt/01_Vorspann/02_motivation_problem.tex}
+% Vorspann (Deckblatt & Agenda)
+\include{02_Inhalt/01_Vorspann/00_deckblatt}
+\include{02_Inhalt/01_Vorspann/01_agenda}
+\include{02_Inhalt/01_Vorspann/01_Einleitung}
 
-% --- Hauptteil (Beispiele) ---
-\input{02_Inhalt/02_Hauptteil/10_grundlagen_und_zielsetzung.tex}
-% \input{02_Inhalt/02_Hauptteil/20_fremdfeld_und_mechanismus.tex}
+% Vorspann (Hauptteil)
+\include{02_Inhalt/02_Hauptteil/02_Grundlagen}
+\include{02_Inhalt/02_Hauptteil/03_Ergebnisse}
 
-% --- Nachspann ---
-\input{02_Inhalt/03_Nachspann/90_fazit.tex}
-\input{02_Inhalt/03_Nachspann/91_ausblick.tex}
-\input{02_Inhalt/03_Nachspann/99_danke_qa.tex}
-\input{02_Inhalt/03_Nachspann/92_backup.tex}
+% NEU: Fazit (Nachspann)
+\include{02_Inhalt/03_Nachspann/04_Fazit}
+\include{02_Inhalt/03_Nachspann/99_danke_qa}
+\include{02_Inhalt/03_Nachspann/92_backup}
 
 \end{document}
