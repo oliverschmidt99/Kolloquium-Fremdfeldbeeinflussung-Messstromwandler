@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siemens PAC Generator (Cropped)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <style>
+        /* Grundlegendes Layout */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #eef2f5;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Styling der Eingabebox */
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            gap: 20px;
+            align-items: flex-end;
+            border: 1px solid #dcdcdc;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-group label {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 80px;
+        }
+
+        button {
+            padding: 10px 20px;
+            cursor: pointer;
+            background: #009999;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        button:hover {
+            background: #007a7a;
+        }
+
+        /* Der Container muss exakt so groß sein wie die SVG, 
+           damit der Zuschnitt perfekt passt.
+        */
+        #pac-container {
+            width: 500px;
+            height: 500px;
+            background: transparent;
+            /* Kein Padding/Margin hier, damit der Schnitt sauber ist */
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="controls">
+        <div class="input-group">
+            <label for="i1">Strom L1 (A)</label>
+            <input type="number" id="i1" value="125.5" step="0.1" oninput="updatePAC()">
+        </div>
+        <div class="input-group">
+            <label for="i2">Strom L2 (A)</label>
+            <input type="number" id="i2" value="126.2" step="0.1" oninput="updatePAC()">
+        </div>
+        <div class="input-group">
+            <label for="i3">Strom L3 (A)</label>
+            <input type="number" id="i3" value="124.9" step="0.1" oninput="updatePAC()">
+        </div>
+        <button type="button" onclick="generatePDF()">Als zugeschnittenes PDF speichern</button>
+    </div>
+
+    <div id="pac-container">
+        <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+            
+            <rect x="25" y="25" width="450" height="450" rx="15" ry="15" fill="#5e6b7c" stroke="#4a5563" stroke-width="2"/>
+            <path d="M460 40 L475 55 L475 460 L445 475 L55 475 L40 460" fill="none" stroke="#4a5563" stroke-width="1" opacity="0.5"/>
+
+            <rect x="45" y="45" width="410" height="410" rx="5" ry="5" fill="#1a1a1a" />
+
+            <rect x="60" y="60" width="80" height="20" fill="#009999" />
+            <text x="100" y="74" fill="white" font-family="Arial, sans-serif" font-size="12" font-weight="bold" text-anchor="middle">SIEMENS</text>
+            <text x="440" y="75" fill="#cccccc" font-family="Arial, sans-serif" font-size="14" text-anchor="end">PAC4220</text>
+            <rect x="452" y="100" width="3" height="30" fill="#fdd835" />
+
+            <rect x="60" y="90" width="380" height="260" fill="white" />
+            
+            <rect x="60" y="90" width="380" height="35" fill="#2d3e50" />
+            <text x="70" y="113" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="16">Current Overview</text>
+            <text x="430" y="113" fill="#e0e0e0" font-family="Arial, sans-serif" font-size="14" text-anchor="end">15.0</text>
+
+            <g font-family="Arial, sans-serif" font-weight="bold" fill="#000">
+                <text x="80" y="170" font-size="32">I</text>
+                <text x="90" y="175" font-size="20" dy="0">L1</text>
+                <text x="115" y="170" font-size="32">:</text>
+                <text id="val1" x="350" y="170" font-size="38" text-anchor="end">125.5 A</text>
+
+                <text x="80" y="230" font-size="32">I</text>
+                <text x="90" y="235" font-size="20">L2</text>
+                <text x="115" y="230" font-size="32">:</text>
+                <text id="val2" x="350" y="230" font-size="38" text-anchor="end">126.2 A</text>
+
+                <text x="80" y="290" font-size="32">I</text>
+                <text x="90" y="295" font-size="20">L3</text>
+                <text x="115" y="290" font-size="32">:</text>
+                <text id="val3" x="350" y="290" font-size="38" text-anchor="end">124.9 A</text>
+            </g>
+
+            <rect x="430" y="125" width="10" height="225" fill="#f0f0f0" />
+            <rect x="430" y="125" width="10" height="50" fill="#999" />
+
+            <rect x="60" y="325" width="380" height="25" fill="#4b8b9b" />
+            <polygon points="100,330 110,337 100,344" fill="white"/>
+            <polygon points="210,342 217,332 224,342" fill="white"/>
+            <polygon points="310,332 317,342 324,332" fill="white"/>
+            <rect x="400" y="332" width="14" height="2" fill="white"/>
+            <rect x="400" y="337" width="14" height="2" fill="white"/>
+            <rect x="400" y="342" width="14" height="2" fill="white"/>
+            <line x1="155" y1="325" x2="155" y2="350" stroke="white" stroke-width="1"/>
+            <line x1="250" y1="325" x2="250" y2="350" stroke="white" stroke-width="1"/>
+            <line x1="345" y1="325" x2="345" y2="350" stroke="white" stroke-width="1"/>
+
+            <g fill="#2a2a2a" stroke="#3a3a3a" stroke-width="2">
+                <text x="85" y="380" fill="#888" stroke="none" font-family="Arial" font-size="14">F1</text>
+                <text x="180" y="380" fill="#888" stroke="none" font-family="Arial" font-size="14">F2</text>
+                <text x="275" y="380" fill="#888" stroke="none" font-family="Arial" font-size="14">F3</text>
+                <text x="370" y="380" fill="#888" stroke="none" font-family="Arial" font-size="14">F4</text>
+
+                <path d="M80 390 h50 v30 h-50 v-30" fill="none" stroke="#444" stroke-width="2"/>
+                <circle cx="105" cy="420" r="18" fill="#222" stroke="none" opacity="0.6"/>
+                
+                <path d="M175 390 h50 v30 h-50 v-30" fill="none" stroke="#444" stroke-width="2"/>
+                <circle cx="200" cy="420" r="18" fill="#222" stroke="none" opacity="0.6"/>
+
+                <path d="M270 390 h50 v30 h-50 v-30" fill="none" stroke="#444" stroke-width="2"/>
+                <circle cx="295" cy="420" r="18" fill="#222" stroke="none" opacity="0.6"/>
+
+                <path d="M365 390 h50 v30 h-50 v-30" fill="none" stroke="#444" stroke-width="2"/>
+                <circle cx="390" cy="420" r="18" fill="#222" stroke="none" opacity="0.6"/>
+            </g>
+        </svg>
+    </div>
+
+    <script>
+        function updatePAC() {
+            let v1 = document.getElementById('i1').value;
+            let v2 = document.getElementById('i2').value;
+            let v3 = document.getElementById('i3').value;
+
+            document.getElementById('val1').textContent = v1 + ' A';
+            document.getElementById('val2').textContent = v2 + ' A';
+            document.getElementById('val3').textContent = v3 + ' A';
+        }
+
+        function generatePDF() {
+            // Element auswählen
+            var element = document.getElementById('pac-container');
+            
+            // Einstellungen für den PDF-Export
+            var opt = {
+                margin:       0,
+                filename:     'PAC_Anzeige.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2 }, // Hohe Auflösung für scharfen Text
+                jsPDF:        { unit: 'px', format: [500, 500], orientation: 'portrait' }
+            };
+
+            // PDF generieren und speichern
+            html2pdf().set(opt).from(element).save();
+        }
+    </script>
+</body>
+</html>
