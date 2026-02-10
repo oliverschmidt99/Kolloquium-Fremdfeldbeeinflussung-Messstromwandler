@@ -1,106 +1,260 @@
 \section{Grundlagen der Arbeit}
 
-\begin{frame}{Niederspannungsschaltanlage}
+% --- Folie 1: Niederspannungsschaltanlagen ---
+\begin{frame}{Niederspannungsschaltanlagen}
+    \textbf{Funktion und Aufbau}
     \begin{itemize} 
-        \item \textbf{Niederspannungsschaltanlage:} Energieverteilung auf viele Abgänge
-        \item \textbf{Funktionen:} Schalten/Schützen \,+\, Messen (Überwachung, Verrechnung) 
-        \item \textbf{Einbausituation:} 
-        \begin{itemize} 
-            \item \SIrange{900}{6000}{\ampere} in Sammelschienen \item kompakt \(\rightarrow\) Messstromwandler nahe an benachbarten Phasen 
-            \item \(\Rightarrow\) Fremdfelder \(\rightarrow\) Messabweichung 
-        \end{itemize} 
+        \item Verteilung elektrischer Energie auf diverse Abgänge
+        \item Kombination von Schutzfunktionen und Messaufgaben
+        \item Modulare Anordnung von Einspeisung und Abgangsfeldern
     \end{itemize} 
+    
+    \vspace{0.5cm}
+
+    \textbf{Einbausituation und Herausforderung}
+    \begin{itemize} 
+        \item Führung hoher Betriebsströme über Sammelschienen
+        \item Ströme im Bereich von \SIrange{900}{6000}{\ampere}
+        \item Entstehung magnetischer Störfelder durch kompakte Bauform
+        \item Beeinflussung benachbarter Messstromwandler
+    \end{itemize} 
+
     \slidetime{02:00}{02:30} 
     \keynote{ 
     \begin{itemize} 
-        \item \textbf{A} 
+        \item Hohe Packungsdichte
+        \item Starke Magnetfelder
+        \item Kritische Messumgebung
     \end{itemize} }
     \note{ 
-    \textbf{Wichtig für diese Folie:} 
+    \textbf{Wichtig für diese Folie}
     \begin{itemize} 
-        \item 1 
+        \item Die Anlage dient der Energieverteilung bis \SI{1000}{\volt}
+        \item Das Hauptsammelschienensystem verbindet die Felder
+        \item Kompakte Bauweise führt zu geringen Abständen der Phasen
+        \item Hohe Ströme erzeugen starke magnetische Felder
+        \item Diese Felder koppeln in benachbarte Wandler ein
     \end{itemize} } 
 \end{frame}
 
-
-
-
-\begin{frame}{Messstromwandler}
-\begin{itemize}
-    \item Funktioniert nach dem Transformatorprinzip
-    \item Transformiert Primärströme auf messbare Sekundärströme
-    \item Verbindet Hochstrombereich mit Messeinrichtungen
-    \item Trennt Primärkreis und Sekundärkreis galvanisch
-    \item Erlaubt Anschluss standardisierter Messgeräte mit \SI{1,00}{\ampere} oder \SI{5,00}{\ampere}
-\end{itemize}
-
-\slidetime{00:00}{00:00}
-\keynote{
-\begin{itemize}
-        \item Transformatorprinzip nutzen
-        \item Galvanische Trennung sicherstellen
-        \item Normierte Signale bereitstellen
-    \end{itemize}
-}
-\note{
-    \textbf{Wichtig für diese Folie}
+% --- Folie 2: Grundlagen Messstromwandler ---
+\begin{frame}{Grundlagen Messstromwandler}
     \begin{itemize}
-        \item Ein Stromwandler transformiert Wechselströme aus dem Primärnetz in messbare Ströme auf der Sekundärseite
-        \item Er fungiert als Bindeglied zwischen dem Hochstrombereich und den Schutzeinrichtungen
-        \item Das Funktionsprinzip beruht auf der galvanischen Trennung zwischen Primärkreis und Sekundärkreis
-        \item Dies ermöglicht den Anschluss standardisierter Messgeräte für Nennströme von 1 A oder 5 A
-        \item Die Geräte werden so nicht dem Potenzial des Primärleiters ausgesetzt
+        \item Transformation hoher Primärströme auf normierte Signale von \SI{1,00}{\ampere} oder \SI{5,00}{\ampere}
+        \item Funktion als Bindeglied zwischen Hochstrombereich und Messtechnik
+        \item Sicherstellung der galvanischen Trennung der Kreise
+        \item Schutz der nachgelagerten Geräte vor hohem Potenzial
     \end{itemize}
-}
 
+    \slidetime{02:30}{03:30}
+    \keynote{
+        \begin{itemize}
+            \item Transformatorisches Prinzip
+            \item Sicherheit durch Trennung
+            \item Normierung der Signale
+        \end{itemize}
+    }
+    \note{
+        
+        \begin{itemize}
+            \item Der Wandler transformiert hohe Wechselströme aus dem Primärnetz in kleine und messbare Ströme
+            \item Er dient als Bindeglied zwischen der Primärenergie und den Schutzeinrichtungen
+            \item Das physikalische Prinzip garantiert eine galvanische Trennung zwischen Primärkreis und Sekundärkreis
+            \item Dies ermöglicht den gefahrlosen Anschluss von Standardmessgeräten
+            \item Die Messtechnik wird so nicht dem hohen Potenzial des Primärleiters ausgesetzt
+        \end{itemize}
+    }
+\end{frame}
 
+% --- Folie 3: Konstruktiver Aufbau ---
+\begin{frame}{Konstruktiver Aufbau}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{03_Ressourcen/zeichnungen/aufbau_wandler.drawio.pdf}
+        \caption{Schematischer Aufbau eines Aufsteckstromwandlers}
+        \label{pic:aufbau_wandler}
+    \end{figure}
 
+    \slidetime{03:30}{04:30}
+    \keynote{
+        \begin{itemize}
+            \item Primärleiter als Einwindung
+            \item Ringkern bündelt Fluss
+            \item Sekundärwicklung
+        \end{itemize}
+    }
+    \note{
+        
+        \begin{itemize}
+            \item Die Kupferschiene dient als Primärleiter und entspricht einer Windungszahl von Eins
+            \item Der Eisenkern bündelt den magnetischen Fluss und besteht oft aus Siliziumeisen
+            \item Die Sekundärwicklung ist direkt auf den Ringkern aufgebracht
+            \item Das Gehäuse gewährleistet die elektrische Isolation und den mechanischen Schutz
+            \item Die Fensteröffnung definiert den maximalen Querschnitt der Stromschiene
+        \end{itemize}
+    }
+\end{frame}
+
+% --- Folie 4: Physikalische Grundlagen Magnetfelder ---
+\begin{frame}{Physikalische Grundlagen Magnetfelder}
+    \textbf{Entstehung und Ausbreitung}
+    \begin{itemize}
+        \item Ausbildung konzentrischer Feldlinien um stromdurchflossene Leiter
+        \item Abhängigkeit der Feldstärke vom Abstand zum Leiter
+        \item Verlauf des magnetischen Flusses entlang des geringsten Widerstands
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Funktion des Eisenkerns}
+    \begin{itemize}
+        \item Bündelung der magnetischen Feldlinien im Kernmaterial
+        \item Nutzung der hohen Permeabilität ferromagnetischer Stoffe
+        \item Minimierung des magnetischen Widerstands im Kreis
+    \end{itemize}
+
+    \slidetime{04:30}{05:30}
+    \keynote{
+        \begin{itemize}
+            \item Konzentrische Kreise
+            \item Weg des geringsten Widerstands
+            \item Eisen leitet besser als Luft
+        \end{itemize}
+    }
+    \note{
+        
+        \begin{itemize}
+            \item Jeder stromdurchflossene Leiter baut ein konzentrisches Magnetfeld auf
+            \item Die Feldstärke nimmt mit dem Abstand zum Leiter ab
+            \item Magnetischer Fluss verhält sich analog zum elektrischen Strom
+            \item Der Eisenkern hat eine hohe magnetische Leitfähigkeit
+            \item Der Fluss konzentriert sich im Kern statt in der Umgebungsluft
+        \end{itemize}
+    }
+\end{frame}
+
+% --- Folie 5: Einfluss magnetischer Fremdfelder ---
+\begin{frame}{Einfluss magnetischer Fremdfelder}
+    \textbf{Ursache der Störung}
+    \begin{itemize}
+        \item Räumliche Nähe benachbarter stromführender Leiter
+        \item Überlagerung der Magnetfelder im Raum
+        \item Einkopplung externer Streuflüsse in den Wandlerkern
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    
+    \textbf{Auswirkung auf die Messung}
+    \begin{itemize}
+        \item Addition von Nutzfluss und Störfluss im Material
+        \item Verursachung lokaler Sättigungseffekte im Eisenweg
+        \item Asymmetrische Verzerrung des Sekundärsignals
+    \end{itemize}
+
+    \slidetime{05:30}{06:30}
+    \keynote{
+        \begin{itemize}
+            \item Superposition der Felder
+            \item Einkopplung trotz Schirmung
+            \item Lokale Sättigung
+        \end{itemize}
+    }
+    \note{
+        
+        \begin{itemize}
+            \item In der Schaltanlage liegen die Phasen sehr eng beieinander
+            \item Die Felder der Nachbarleiter durchdringen den Kern des Messwandlers
+            \item Diese Vektoraddition führt zu einer Erhöhung der Flussdichte
+            \item Der Kern gerät partiell in die Sättigung
+            \item Das Ergebnis ist eine messbare Abweichung des Sekundärstroms
+        \end{itemize}
+    }
 \end{frame}
 
 
-
-
-\begin{frame}{Aufbau Messstromwandler}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1.0\textwidth]{03_Ressourcen/zeichnungen/aufbau_wandler.drawio.pdf}
-    \caption{Schematischer Aufbau eines Aufsteckstromwandlers}
-    \label{pic:aufbau_wandler}
-\end{figure}
-
-
-\slidetime{00:00}{00:00}
-\keynote{
-\begin{itemize}
-        \item \textbf{empty}
-    \end{itemize}
-}
-\note{
-    \textbf{Wichtig für diese Folie:}
+% --- Folie: Bedeutung des Ferromagnetismus ---
+\begin{frame}{Bedeutung des Ferromagnetismus}
+    \textbf{Funktion des Eisenkerns}
     \begin{itemize}
-        \item empty
+        \item Nutzung materialspezifischer Eigenschaften zur Flussbündelung
+        \item Hohe relative Permeabilität verringert magnetischen Widerstand
+        \item Effiziente Übertragung der Primärgröße auf die Sekundärseite
     \end{itemize}
-}
+    
+    
+
+    \vspace{0.5cm}
+    
+    \textbf{Problem der Nichtlinearität}
+    \begin{itemize}
+        \item Begrenzte Aufnahmekapazität der magnetischen Domänen
+        \item Ausrichtung der Weißschen Bezirke in Feldrichtung
+        \item Eintritt der Sättigung bei hohen Feldstärken
+        \item Verlust der Linearität zwischen Primärstrom und Messsignal
+    \end{itemize}
+
+    \slidetime{06:30}{07:30}
+    \keynote{
+        \begin{itemize}
+            \item Flussbündelung notwendig
+            \item Domänen richten sich aus
+            \item Sättigung begrenzt Messbereich
+        \end{itemize}
+    }
+    \note{
+        
+        \begin{itemize}
+            \item Der Kern besteht aus ferromagnetischem Material wie Siliziumeisen zur Flussführung
+            \item Im unmagnetisierten Zustand sind die magnetischen Domänen statistisch verteilt
+            \item Ein äußeres Feld erzwingt die Ausrichtung dieser Weißschen Bezirke
+            \item Sind alle Bezirke ausgerichtet, tritt die magnetische Sättigung ein
+            \item In der Sättigung sinkt die Permeabilität und der Übertragungsfehler steigt an
+        \end{itemize}
+    }
 \end{frame}
 
-
-
-\begin{frame}{template}
-\begin{itemize}
-    \item empty
-\end{itemize}
-
-\slidetime{00:00}{00:00}
-\keynote{
-\begin{itemize}
-        \item \textbf{empty}
-    \end{itemize}
-}
-\note{
-    \textbf{Wichtig für diese Folie:}
+% --- Folie: Quantifizierung Fremdfeld ---
+\begin{frame}{Quantifizierung des Fremdfeldeinflusses}
+    \textbf{Berechnungsansatz nach MBS AG}
     \begin{itemize}
-        \item empty
+        \item Analytische Bestimmung der induzierten Fremdflussdichte
+        \item Berücksichtigung der geometrischen Anordnung
+        \item Abhängigkeit von Stromstärke und Leiterabstand
     \end{itemize}
-}
+    
+    
+
+    \vspace{0.2cm}
+
+    % Die Formel aus deinem Text
+    \begin{equation*}
+        B_{\text{Fremd}} \approx \num{1,00} \cdot 10^{-6} \cdot I_{p} \cdot \frac{R + \num{0,50} \cdot W}{A} \cdot \log_{10}\left(\frac{D+R}{D-R}\right)
+    \end{equation*}
+
+    \vspace{0.3cm}
+    
+    \textbf{Einflussgrößen}
+    \begin{itemize}
+        \item Linearer Anstieg der Störgröße durch Primärstrom $I_p$
+        \item Exponentieller Einfluss durch Phasenabstand $D$
+        \item Kompensation der Flussaufnahme durch Kernquerschnitt $A$
+    \end{itemize}
+
+    \slidetime{07:30}{08:30}
+    \keynote{
+        \begin{itemize}
+            \item Strom treibt Fehler
+            \item Abstand schützt
+            \item Geometrie ist relevant
+        \end{itemize}
+    }
+    \note{
+        \begin{itemize}
+            \item Die Formel dient zur Abschätzung der zusätzlichen Flussdichte durch Fremdfelder
+            \item Der Term zeigt eine direkte Proportionalität zum störenden Primärstrom
+            \item Der Abstand D befindet sich im logarithmischen Term und hat großen Einfluss
+            \item Ein größerer Eisenquerschnitt A verringert die resultierende Flussdichte
+            \item Dies belegt theoretisch die Notwendigkeit größerer Abstände in der Anlage
+        \end{itemize}
+    }
 \end{frame}
