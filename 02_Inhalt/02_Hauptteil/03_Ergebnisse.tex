@@ -3,7 +3,7 @@
 % --- 3000 A: Fehlerkurven ---
 \begin{frame}{Fehlerkurven bei \SI{3000}{A}}
     \centering
-    % Pfad: dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png
+    % Pfad geprüft: 03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png}
 
     % Zeitplanung
@@ -27,36 +27,13 @@
     }
 \end{frame}
 
-% --- 3000 A: Ranking ---
-\begin{frame}{Ökonomisches Ranking bei \SI{3000}{A}}
-    \centering
-    % Pfad: dia_3000A_kosten/dia_3000A_kosten-Oekonomie_Ranking_Dual.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Oekonomie_Ranking_Dual.png}
-
-    \slidetime{11:00}{11:45}
-    \keynote{
-        \begin{itemize}
-            \item Preis vs. Fehler
-            \item Parallel (Bunt): Hohe Fehler
-            \item Dreieck (Orange/Gelb): Gutes P/L-Verhältnis
-        \end{itemize}
-    }
-    \note{
-        \textbf{Ranking 3000 A:}
-        Hier sind die Kosten (grüner Balken) gegen die Fehlerarten (bunt) aufgetragen.
-
-        \textbf{Ergebnis:}
-        Während die Parallel-Varianten (ganz unten) zwar günstig sind, weisen sie sehr hohe Fehlerbalken auf (rot/orange).
-        Die Dreiecksvarianten (oben) bieten hier den besten Kompromiss: Die Fehler sind minimal, ohne dass die Kosten so explodieren wie bei vollkompensierten Wandlern.
-    }
-\end{frame}
 
 \section{Messergebnisse 4000 A}
 
 % --- 4000 A: Fehlerkurven ---
 \begin{frame}{Fehlerkurven bei \SI{4000}{A} (Kritischer Bereich)}
     \centering
-    % Pfad: dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png
+    % Pfad geprüft: 03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png}
 
     \slidetime{11:45}{12:45}
@@ -79,61 +56,132 @@
 
 
 
+\section{Definition der Vergleichsmetriken}
+
+\begin{frame}{Berechnungsgrundlagen der Analyse}
+    \small % Schrift etwas kleiner
+    Um die Diagramme korrekt zu interpretieren, hier die Methodik:
+
+    \vspace{0.2cm}
+
+    \textbf{1. Mittlerer Gesamtfehler (Basiswert)}
+    \begin{equation*}
+        E_{\text{total}} = \frac{1}{3} \sum_{\text{Phasen}} \left( \frac{1}{n} \sum_{\text{Last}} |F_{\text{Messwert}}| \right)
+    \end{equation*}
+    \footnotesize{Durchschnitt der \textbf{Beträge} über alle Lastpunkte (5\%--120\%) und Phasen.}
+
+    \vspace{0.3cm}
+    \hrule
+    \vspace{0.3cm}
+
+    \begin{columns}[t]
+        \begin{column}{0.48\textwidth}
+            \centering
+            \textbf{2. Geom. Verbesserung (\%)}
+            \begin{equation*}
+                \eta_{\text{geo}} = \left( 1 - \frac{E_{\text{Dreieck}}}{E_{\text{Parallel}}} \right) \cdot 100
+            \end{equation*}
+            \footnotesize{Anteil des eliminierten Fehlers durch Geometrie-Wechsel.}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \centering
+            \textbf{3. Wirtschaftlichkeit (\%/€)}
+            \begin{equation*}
+                \eta_{\text{eco}} = \frac{\eta_{\text{geo}}}{\text{Preis (€)}}
+            \end{equation*}
+            \footnotesize{Technischer Gewinn normiert auf Investitionskosten.}
+        \end{column}
+    \end{columns}
+
+    \slidetime{12:45}{12:45}
+    \note{
+        \textbf{Folie 2: Die Vergleichsmetriken}
+        
+        Darauf aufbauend haben wir zwei Kennzahlen für die Diagramme:
+        
+        1. Die **Geometrische Verbesserung**: Wir vergleichen den eben gezeigten Fehler der Parallelanordnung mit dem der Dreiecksanordnung. Ein Wert von 90\% heißt: 90\% des Fehlers sind weg.
+        
+        2. Die **Wirtschaftlichkeit**: Hier teilen wir die technische Verbesserung durch den Kaufpreis. Das zeigt uns, "wie viel Verbesserung ich pro investiertem Euro" bekomme.
+    }
+\end{frame}
 \section{Gesamtvergleich und Effizienz}
 
-% --- Gesamtfehler Absolut ---
-\begin{frame}{Vergleich Gesamtfehler (Summe L1+L2+L3)}
+% --- DIAGRAMM 1: Verbesserung Dreieck (%) ---
+\begin{frame}{Verbesserung durch Dreiecksanordnung (in \%)}
     \centering
-    % Dateiname: vergleich_fehler_absolut.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{vergleich_fehler_absolut.png}
+    % KORRIGIERT: diag1_dreieck_pct.png statt diagramm1...
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag1_dreieck_pct.png}
 
+    \slidetime{12:45}{13:30}
+    \keynote{
+        \begin{itemize}
+            \item Zeigt: Wie viel \% besser ist Dreieck als Parallel?
+            \item 3000 A: Enorme Verbesserung (>90\%)
+            \item Standard-Wandler (Rot) profitieren am meisten
+        \end{itemize}
+    }
     \note{
-        \textbf{Gesamtbetrachtung der absoluten Fehler}
+        \textbf{Geometrische Optimierung (Diagramm 1):}
         
-        Die Grafik zeigt die aufsummierten Absolutbeträge der Fehler über alle Phasen
+        Hier sehen wir, wie viel Prozent Fehler wir allein durch die Änderung der Geometrie von Parallel auf Dreieck einsparen.
         
-        \textbf{Auffälligkeiten}
-        Besonders bei 2500 A sticht der rote Balken der Standard-Parallel-Konfiguration hervor
-        Dies deutet auf eine ungünstige Lastverteilung oder Sättigung hin
+        \textbf{Auffällig:}
+        Besonders bei 3000 A (in der Mitte) sehen wir riesige Balken. Das bedeutet, hier eliminiert die Dreiecksanordnung fast den gesamten Fehler, der in der Parallelanordnung auftrat.
         
-        \textbf{Vergleich}
-        Die blauen und grünen Balken (Kompensiert und FFP) bleiben über den gesamten Bereich niedrig
-        Die geometrische Anordnung allein (rosa) bringt bereits eine Verbesserung
+        \textbf{Fazit:}
+        Der "billige" Standard-Wandler (Rot) profitiert am stärksten von der geometrischen Anordnung.
     }
 \end{frame}
 
-% --- Fehler pro Euro ---
-\begin{frame}{Ökonomische Bewertung (Fehler pro Euro)}
+% --- DIAGRAMM 2: Wirtschaftlichkeit Dreieck (%/€) ---
+\begin{frame}{Wirtschaftlichkeit der Geometrie (\% pro €)}
     \centering
-    % Dateiname: vergleich_fehler_pro_euro.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{vergleich_fehler_pro_euro.png}
+    % KORRIGIERT: diag2_dreieck_pct_eur.png statt diagramm2...
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag2_dreieck_pct_eur.png}
 
+    \slidetime{13:30}{14:15}
+    \keynote{
+        \begin{itemize}
+            \item Verbesserung normiert auf den Preis
+            \item Hohe Balken = Viel Leistung für wenig Geld
+            \item Standard (Rot) schlägt High-Tech
+        \end{itemize}
+    }
     \note{
-        \textbf{Normierung auf die Kosten}
+        \textbf{Ökonomischer Blick (Diagramm 2):}
         
-        Hier wird der Fehler ins Verhältnis zum Preis gesetzt
-        Ein niedriger Balken bedeutet viel Präzision für das investierte Geld
+        Wenn wir die Verbesserung in Relation zum Kaufpreis setzen, ändert sich das Bild.
         
-        \textbf{Ergebnis}
-        Trotz höherer Anschaffungskosten schneiden die kompensierten Varianten oft besser ab
-        Der hohe Fehler der Standard-Variante bei 2500 A verschlechtert das Preis-Leistungs-Verhältnis deutlich
+        \textbf{Ergebnis:}
+        Da die Standard-Wandler (MBS, Rot) sehr günstig sind, ist ihr "Verbesserungs-Gewinn pro investiertem Euro" extrem hoch.
+        Die teuren FFP-Wandler (Orange) sind zwar technisch top, aber der relative Gewinn durch die Geometrie fällt kaufmännisch weniger ins Gewicht, da sie ohnehin schon teurer sind.
     }
 \end{frame}
 
-% --- Effizienzfaktoren ---
-\begin{frame}{Effizienz-Steigerung gegenüber Standard Parallel}
+% --- DIAGRAMM 4: Absoluter Fehler Parallel ---
+\begin{frame}{Technologie-Vergleich: Absoluter Fehler (Parallel)}
     \centering
-    % Dateiname: effizienz_faktoren_alle.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{effizienz_faktoren_alle.png}
+    % KORRIGIERT: diag4_parallel_error.png statt diagramm4...
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag4_parallel_error.png}
 
+    \slidetime{14:15}{15:00}
+    \keynote{
+        \begin{itemize}
+            \item Vergleich der Technologien (Worst-Case Parallel)
+            \item Rot (Standard): Fehler explodiert bei 2500/3000 A
+            \item Orange (FFP): Konstant niedrig
+        \end{itemize}
+    }
     \note{
-        \textbf{Verbesserungsfaktor}
+        \textbf{Technologischer Vergleich (Diagramm 4):}
         
-        Dieses Diagramm zeigt, um welchen Faktor die anderen Methoden besser sind als der Standard
+        Abschließend der Blick auf die reinen Technologien in der kritischen Parallelanordnung.
         
-        \textbf{Highlights}
-        Bei 2500 A und 4000 A erreichen die technischen Kompensationen (blaue Balken) sehr hohe Werte
-        Faktoren von über 60 zeigen das Potential der Technik in kritischen Bereichen
-        In unkritischen Bereichen (z B 5000 A) ist der Gewinn geringer
+        \textbf{Analyse:}
+        Man sieht deutlich, wie der Standard-Wandler (Rot) bei 2500 A und 3000 A massive Fehlerwerte aufweist.
+        Im Gegensatz dazu bleibt der FFP-Wandler (Orange, ganz rechts in den Gruppen) fast über das gesamte Spektrum kaum sichtbar, also nahe Null.
+        
+        \textbf{Schlussfolgerung:}
+        Wer keine Geometrie-Optimierung vornehmen kann (Platzmangel), \textit{muss} zu FFP oder kompensierten Wandlern greifen.
     }
 \end{frame}
