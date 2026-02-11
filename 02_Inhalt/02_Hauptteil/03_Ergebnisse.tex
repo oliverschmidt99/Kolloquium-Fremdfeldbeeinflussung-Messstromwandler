@@ -1,219 +1,216 @@
-\section{Messergebnisse}
+\section{Messergebnisse 3000 A}
 
-% --- Szenario 1: Der "Standard"-Bereich ---
-\subsection{Vergleich bei 2000 A}
+% --- 3000 A: Fehlerkurven ---
+\begin{frame}{Fehlerkurven bei \SI{3000}{A}}
+    \centering
+    % Pfad: dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png}
 
-\begin{frame}{Marktüberblick bei \SI{2000}{A}}
-    \vspace{-0.2cm}
-    \begin{columns}[c]
-        \begin{column}{0.65\textwidth}
-            \centering
-            % Pfad zum Diagramm 2000A Zusammenfassung
-            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_2000A_kosten/dia_2000A_kosten-Zusammenfassung_MultiCurrent.pdf}
-        \end{column}
-        \begin{column}{0.35\textwidth}
-            \textbf{Beobachtungen}
-            \small
-            \begin{itemize}
-                \item \textbf{Parallel (bunt):} Starke Spreizung der Fehlerkurven.
-                \item \textbf{Dreieck (grau):} Fehlerband deutlich schmaler.
-                \item \textbf{FFP (Redur):} Zeigt bereits hier die stabilsten Werte.
-            \end{itemize}
-        \end{column}
-    \end{columns}
-
-    % Zeitplanung: ca. 1 Minute
+    % Zeitplanung
     \slidetime{10:00}{11:00}
     \keynote{
         \begin{itemize}
-            \item Bunte Linien = Parallel (Schlecht)
-            \item Graue Linien = Dreieck (Besser)
-            \item FFP stabil
+            \item Bunt (Parallel): Starke Spreizung
+            \item Grau (Dreieck): Viel engeres Fehlerband
+            \item Sättigung beginnt
         \end{itemize}
     }
     \note{
-        \textbf{Szenario 2000 A:}
-        Hier sehen wir den Überblick über verschiedene Hersteller bei 2000 Ampere.
+        \textbf{Szenario 3000 A - Fehlerverlauf:}
+        Hier sehen wir die Fehlerkurven bei 3000 Ampere.
 
-        \textbf{Erkenntnis:}
-        Die bunten Linien zeigen die klassische Parallelanordnung. Man sieht hier schon eine deutliche Spreizung der Messfehler zwischen den Phasen.
+        \textbf{Beobachtung:}
+        Die bunten Linien (Parallelanordnung) zeigen eine deutliche Spreizung zwischen den Phasen. Man sieht, wie der Fehler bei steigender Last (x-Achse) stark abfällt – ein Zeichen für beginnende Sättigung.
 
-        \textbf{Geometrie-Effekt:}
-        Sobald wir auf die Dreiecksanordnung wechseln (die grauen Linien), rücken die Fehlerkurven deutlich enger zusammen. Die rein geometrische Maßnahme zeigt also bereits Wirkung.
+        \textbf{Vergleich:}
+        Die grauen Linien (Dreiecksanordnung) liegen deutlich enger beisammen und verlaufen stabiler. Die geometrische Optimierung wirkt hier bereits sehr gut.
     }
 \end{frame}
 
+% --- 3000 A: Ranking ---
+\begin{frame}{Ökonomisches Ranking bei \SI{3000}{A}}
+    \centering
+    % Pfad: dia_3000A_kosten/dia_3000A_kosten-Oekonomie_Ranking_Dual.png
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Oekonomie_Ranking_Dual.png}
 
-% --- Szenario 2: Der Übergangsbereich ---
-\subsection{Vergleich bei 3000 A}
-
-\begin{frame}{Validierung bei \SI{3000}{A}}
-    \vspace{-0.2cm}
-    \begin{columns}[c]
-        \begin{column}{0.65\textwidth}
-            \centering
-            % Pfad zum Diagramm 3000A Zusammenfassung
-            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.pdf}
-        \end{column}
-        \begin{column}{0.35\textwidth}
-            \textbf{Entwicklung des Fehlers}
-            \small
-            \begin{itemize}
-                \item Sättigungseffekte nehmen zu.
-                \item \textbf{Parallel:} Fehler wachsen überproportional an.
-                \item \textbf{Dreieck:} Bleibt stabil, aber erste Anzeichen von Sättigung.
-            \end{itemize}
-        \end{column}
-    \end{columns}
-
-    % Zeitplanung: ca. 45 Sekunden
     \slidetime{11:00}{11:45}
     \keynote{
         \begin{itemize}
-            \item Trend setzt sich fort
-            \item Sättigung beginnt früher
-            \item Parallelanordnung kritisch
+            \item Preis vs. Fehler
+            \item Parallel (Bunt): Hohe Fehler
+            \item Dreieck (Orange/Gelb): Gutes P/L-Verhältnis
         \end{itemize}
     }
     \note{
-        \textbf{3000 Ampere:}
-        Bei Erhöhung des Stroms auf 3000 Ampere bestätigt sich der Trend.
-
-        \textbf{Beobachtung:}
-        Die Fehler in der Parallelanordnung wachsen überproportional an, da der Eisenkern durch die stärkeren Fremdfelder früher in die Sättigung getrieben wird.
-
-        \textbf{Zwischenfazit:}
-        Die Dreiecksanordnung hält das System noch stabil, aber wir nähern uns den Grenzen der Standardtechnik.
-    }
-\end{frame}
-
-
-% --- Szenario 3: Spezialuntersuchung Bürde ---
-\subsection{Einfluss der Bürde}
-
-\begin{frame}{Spezialuntersuchung: Einfluss der Bürde (\SI{3000}{A})}
-    \vspace{-0.2cm}
-    \begin{columns}[c]
-        \begin{column}{0.65\textwidth}
-            \centering
-            % Pfad zum Diagramm 3000A Bürde
-            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_buerde/dia_3000A_buerde-Zusammenfassung_MultiCurrent.pdf}
-        \end{column}
-        \begin{column}{0.35\textwidth}
-            \textbf{Varianten der Sekundärlast}
-            \small
-            \begin{itemize}
-                \item \textbf{0 $\Omega$:} Minimale Belastung (Idealfall).
-                \item \textbf{Ref:} Nennbürde (Realfall).
-                \item \textbf{Erkenntnis:} Hohe Bürde verschlechtert das Ergebnis signifikant (frühere Sättigung).
-            \end{itemize}
-        \end{column}
-    \end{columns}
-
-    % Zeitplanung: ca. 45 Sekunden
-    \slidetime{11:45}{12:30}
-    \keynote{
-        \begin{itemize}
-            \item Test: Kabellänge/Querschnitt
-            \item Hohe Bürde = Schlecht
-            \item Niedrige Bürde hilft
-        \end{itemize}
-    }
-    \note{
-        \textbf{Untersuchung:}
-        Hier habe ich geprüft, ob man durch Optimierung der Sekundärseite (z.B. kürzere Kabel oder größerer Querschnitt) den Fehler reduzieren kann.
+        \textbf{Ranking 3000 A:}
+        Hier sind die Kosten (grüner Balken) gegen die Fehlerarten (bunt) aufgetragen.
 
         \textbf{Ergebnis:}
-        Die Kurven zeigen deutlich: Eine niedrige Bürde (nahe 0 Ohm) verzögert die Sättigung und verbessert das Messergebnis. Eine hohe Bürde verschlechtert es massiv.
-
-        \textbf{Praxis:}
-        Das bedeutet für die Praxis: Leitungswege kurz halten und Querschnitte großzügig dimensionieren ist eine wirksame, flankierende Maßnahme.
+        Während die Parallel-Varianten (ganz unten) zwar günstig sind, weisen sie sehr hohe Fehlerbalken auf (rot/orange).
+        Die Dreiecksvarianten (oben) bieten hier den besten Kompromiss: Die Fehler sind minimal, ohne dass die Kosten so explodieren wie bei vollkompensierten Wandlern.
     }
 \end{frame}
 
+\section{Messergebnisse 4000 A}
 
-% --- Szenario 4: Der Extremfall ---
-\subsection{Analyse bei 4000 A}
-
-\begin{frame}{Hochstrom-Szenario bei \SI{4000}{A}}
-    \vspace{-0.2cm}
-    \begin{columns}[c]
-        \begin{column}{0.65\textwidth}
-            \centering
-            % Pfad zum Diagramm 4000A Zusammenfassung
-            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.pdf}
-        \end{column}
-        \begin{column}{0.35\textwidth}
-            \textbf{Kritischer Bereich}
-            \small
-            \begin{itemize}
-                \item Standardwandler in Parallelanordnung versagen (Klasse 3).
-                \item \textbf{Dreieck:} Bringt Verbesserung, reicht aber nicht für Kl. 0,5.
-                \item \textbf{FFP:} Hält als einzige Lösung die Klasse 1 sicher ein.
-            \end{itemize}
-        \end{column}
-    \end{columns}
-
-    % Zeitplanung: ca. 1 Minute
-    \slidetime{12:30}{13:30}
-    \keynote{
-        \begin{itemize}
-            \item 4000 A = Extrem
-            \item Parallel = Totalausfall
-            \item Nur FFP sicher
-        \end{itemize}
-    }
-    \note{
-        \textbf{Eskalation:}
-        Bei 4000 Ampere verschärft sich die Situation drastisch.
-
-        \textbf{Parallelanordnung:}
-        Die Standardwandler in Parallelanordnung (bunt) brechen komplett aus und verletzen sogar die Klasse 3. Das ist messtechnisch unbrauchbar.
-
-        \textbf{Lösung:}
-        Selbst die Dreiecksanordnung reicht hier für Präzisionsmessungen kaum noch aus. Lediglich die Kombination mit FFP-Wandlern garantiert hier noch die geforderte Genauigkeitsklasse 1.
-    }
-\end{frame}
-
-
-% --- Szenario 5: Die Lösung / Ökonomie ---
-\subsection{Ökonomische Bewertung}
-
-\begin{frame}{Kosten-Nutzen-Analyse (Ranking)}
-    \vspace{-0.2cm}
+% --- 4000 A: Fehlerkurven ---
+\begin{frame}{Fehlerkurven bei \SI{4000}{A} (Kritischer Bereich)}
     \centering
-    % Das Diagramm: Preis über mittlerem Fehler (4000A Ranking als Basis)
-    \includegraphics[height=0.68\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Oekonomie_Ranking_Dual.pdf}
+    % Pfad: dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png}
 
-    \vspace{0.3cm}
-
-    % Definition als Fußnote
-    \begin{beamercolorbox}[sep=0.3em,center,rounded=true,shadow=false]{cHSblue!5}
-        \tiny \color{gray}
-        Datengrundlage: Mittelwert der Messabweichung $\varepsilon$ über drei Lastbereiche: \\
-        \textbf{Niederstrom} ($<20\,\% I_n$), \textbf{Nennstrom} ($20\dots120\,\% I_n$) und \textbf{Überlast} ($>120\,\% I_n$).
-    \end{beamercolorbox}
-
-    % Zeitplanung: ca. 1 Minute
-    \slidetime{13:30}{14:30}
+    \slidetime{11:45}{12:45}
     \keynote{
         \begin{itemize}
-            \item Ziel: Unten Links (Günstig \& Gut)
-            \item X-Achse = Mittlerer Fehler
-            \item Sieger: Celsa Dreieck
+            \item 4000 A = Extremfall
+            \item Parallel: Totalausfall (Absturz der Kurve)
+            \item Dreieck: Hält noch stand
         \end{itemize}
     }
     \note{
-        \textbf{Entscheidungsgrundlage:}
-        Zum Abschluss habe ich die technischen Fehlerwerte in einen wirtschaftlichen Kontext gesetzt.
+        \textbf{Eskalation auf 4000 A:}
+        Bei 4000 Ampere sehen wir drastische Effekte.
 
-        \textbf{Methodik:}
-        Auf der X-Achse sehen Sie den \textbf{mittleren Fehler} über den gesamten Arbeitsbereich. Auf der Y-Achse den Preis.
-
-        \textbf{Ziel:}
-        Wir suchen eine Lösung im Bereich "Links Unten" – also minimaler Fehler bei minimalen Kosten.
-
-        \textbf{Ergebnis:}
-        Es zeigt sich klar: Die Celsa-Lösung in \textbf{Dreiecksanordnung (Grau)} bietet hier das Optimum. Sie hält die Klasse 1 ein und kostet nur einen Bruchteil der vollkompensierten Systeme.
+        \textbf{Analyse:}
+        Achten Sie auf die orange Linie in der Mitte (Phase L2, Parallel). Der Fehler stürzt komplett ab auf unter -6\%. Das ist messtechnisch ein Totalausfall.
+        Selbst die Dreiecksanordnung (gestrichelt, grau/blau) kommt hier an ihre Grenzen, bleibt aber noch deutlich stabiler als die Standardanordnung.
     }
 \end{frame}
+
+% --- 4000 A: Ranking ---
+\begin{frame}{Ökonomisches Ranking bei \SI{4000}{A}}
+    \centering
+    % Pfad: dia_4000A_kosten/dia_4000A_kosten-Oekonomie_Ranking_Dual.png
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Oekonomie_Ranking_Dual.png}
+
+    \slidetime{12:45}{13:30}
+    \keynote{
+        \begin{itemize}
+            \item Fehlerbalken dominieren
+            \item Standardtechnik nicht mehr zulässig
+            \item FFP oder Dreieck zwingend nötig
+        \end{itemize}
+    }
+    \note{
+        \textbf{Ranking 4000 A:}
+        Im ökonomischen Vergleich bei 4000 A wird deutlich:
+
+        \textbf{Rot (Überlastfehler):}
+        Die roten Balken bei den unteren Varimport pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+
+# --- KONFIGURATION ---
+CSV_DATEI = '2026-02-11T11-12_export.csv'
+SPALTEN_NAMEN = ['5% In', '20% In', '50% In', '80% In', '90% In', '100% In', '120% In']
+
+def lade_und_plotte_vergleich():
+    # 1. Daten laden
+    df = pd.read_csv(CSV_DATEI)
+    
+    # --- PREIS BEREINIGUNG ---
+    if 'Preis (€)' in df.columns:
+        # Funktion zur robusten Bereinigung deutscher Zahlenformate
+        def parse_german_float(s):
+            if pd.isna(s): return np.nan
+            s = str(s)
+            # Entferne Tausender-Punkte (z.B. 1.200,00 -> 1200,00)
+            if '.' in s and ',' in s: # Nur entfernen wenn beides da ist, um sicher zu gehen
+                 s = s.replace('.', '')
+            elif '.' in s and ',' not in s:
+                 # Fall: 1.200 (könnte 1200 sein oder 1.2) - Kontextabhängig.
+                 # Hier gehen wir davon aus, dass . Tausender ist, wenn kein Komma da ist
+                 # Aber in deinem File war es bisher immer mit Komma.
+                 pass 
+            
+            # Ersetze Dezimal-Komma durch Punkt (z.B. 43,670 -> 43.670)
+            s = s.replace(',', '.')
+            return float(s)
+
+        df['Preis (€)'] = df['Preis (€)'].apply(parse_german_float)
+
+    # Fehler-Spalten konvertieren
+    for col in SPALTEN_NAMEN:
+        if col in df.columns:
+            if df[col].dtype == 'object':
+                df[col] = df[col].astype(str).str.replace(',', '.', regex=False)
+            df[col] = pd.to_numeric(df[col], errors='coerce')
+
+    # 2. Max Fehler pro Zeile (Worst Case)
+    df['row_max_error'] = df[SPALTEN_NAMEN].abs().max(axis=1)
+
+    # 3. Aggregation pro Gerät (Summe L1+L2+L3)
+    # Wir summieren Fehler UND Preise für das Gesamtsystem (3 Phasen)
+    device_stats = df.groupby(['final_legend', 'nennstrom', 'technologie', 'geometrie']).agg({
+        'row_max_error': 'sum', 
+        'Preis (€)': 'sum'      
+    }).reset_index()
+
+    # 4. Normierung: Fehler pro Euro
+    device_stats['error_per_euro'] = device_stats.apply(
+        lambda row: row['row_max_error'] / row['Preis (€)'] if row['Preis (€)'] > 0 else np.nan, 
+        axis=1
+    )
+
+    # 5. Zusammenfassung pro Konfiguration (Max/Worst Case)
+    summary = device_stats.groupby(['nennstrom', 'technologie', 'geometrie']).agg({
+        'row_max_error': 'max',
+        'error_per_euro': 'max'
+    }).reset_index()
+
+    summary['label'] = summary['technologie'] + ' ' + summary['geometrie']
+
+    # --- PLOTTEN ---
+    farben_map = {
+        'Standard Parallel': '#d62728',     # Rot
+        'Standard Dreieck': '#ff9896',      # Hellrot
+        'Kompensiert Parallel': '#1f77b4',  # Blau
+        'Kompensiert Dreieck': '#aec7e8',   # Hellblau
+        'FFP Parallel': '#2ca02c',          # Grün
+        'FFP Dreieck': '#98df8a'            # Hellgrün
+    }
+
+    def erstelle_balkendiagramm(data_col, title, ylabel, filename, fmt='%.1f'):
+        pivot_data = summary.pivot(index='nennstrom', columns='label', values=data_col)
+        colors = [farben_map.get(c, '#333333') for c in pivot_data.columns]
+        
+        plt.figure(figsize=(12, 7))
+        ax = pivot_data.plot(kind='bar', figsize=(14, 8), width=0.8, color=colors, edgecolor='black', linewidth=0.5)
+        
+        plt.title(title, fontsize=14)
+        plt.ylabel(ylabel, fontsize=12)
+        plt.xlabel('Nennstrom [A]', fontsize=12)
+        plt.xticks(rotation=0)
+        plt.grid(axis='y', linestyle='--', alpha=0.7)
+        plt.legend(title='Konfiguration', bbox_to_anchor=(1.01, 1), loc='upper left')
+
+        for container in ax.containers:
+            ax.bar_label(container, fmt=fmt, padding=3, rotation=90, fontsize=9)
+
+        plt.tight_layout()
+        plt.savefig(filename, dpi=300)
+        print(f"Grafik gespeichert: {filename}")
+        plt.close()
+
+    # Plot 1: Absolut
+    erstelle_balkendiagramm('row_max_error', 
+                            'Vergleich Gesamtfehler (Summe L1+L2+L3)', 
+                            'Gesamtfehler [Summe Absolutbeträge]', 
+                            'vergleich_fehler_absolut.png')
+
+    # Plot 2: Normiert
+    erstelle_balkendiagramm('error_per_euro', 
+                            'Fehler auf Preis normiert (Gesamtfehler / Gesamtpreis)', 
+                            'Normierter Fehler [1/€]', 
+                            'vergleich_fehler_pro_euro.png', 
+                            fmt='%.4f')
+
+if __name__ == "__main__":
+    lade_und_plotte_vergleich()ianten (Parallel) sind riesig. Das bedeutet, bei Überstrom messen wir fast nur noch "Mist".
+
+        \textbf{Fazit:}
+        Wer hier spart, misst falsch. Die Investition in die optimierte Anordnung (obere Balken) ist hier technisch zwingend erforderlich, um überhaupt noch verwertbare Daten zu erhalten.
+    }
+\end{frame}
+
+
