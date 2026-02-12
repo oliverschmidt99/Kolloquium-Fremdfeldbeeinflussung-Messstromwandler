@@ -5,18 +5,19 @@
 % --- Folie 1: Motivation ---
 \begin{frame}{Motivation}
     \begin{columns}[c, onlytextwidth]
-        \begin{column}{0.55\textwidth}
-            \textbf{Herausforderung Kompaktbauweise}
-            \vspace{0.5em}
+        \begin{column}{0.60\textwidth}
+            \textbf{Herausforderung: kompakte Bauweise}
+            \vspace{0.2em}
             \begin{itemize}
-                \item Minimale Abstände zwischen Hochstromschienen und Wandlern
-                \item \textbf{Folge} Signifikante Messabweichungen durch magnetische Fremdfelder
-                \item \textbf{Ziel} Findung einer technisch robusten und kosteneffizienten Lösung
+                \item Minimale Abstände zwischen Schienen und Wandlern
+                \item \textbf{Folge:} Messabweichungen durch Fremdfelder
+                \item \textbf{L2 kritisch:} max. Fremdfeld $\Rightarrow$ Sättigung $\Rightarrow$ Untererfassung
+                \item \textbf{Ziel:} robuste, kosteneffiziente Lösung
             \end{itemize}
         \end{column}
-        \begin{column}{0.35\textwidth}
+        \begin{column}{0.3\textwidth}
             \centering
-            \includegraphics[height=0.7\textheight, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front_zugeschnitten.jpg}
+            \includegraphics[height=0.8\textheight, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front_zugeschnitten.jpg}
             \par\vspace{0.1cm} {\tiny \color{gray} Frontansicht der Anlage}
         \end{column}
         \begin{column}{0.08\textwidth} \hfill \end{column}
@@ -30,16 +31,16 @@
             \item Folge: Abweichung
             \item Ziel: Günstige Lösung
         \end{itemize} }
-    \note{
-        \textbf{Herausforderung:}
-        Auf dem Bild ist die hohe Packungsdichte der Anlage zu sehen bei der Hochstromschienen und Wandler auf engstem Raum verbaut sind.
+        \note{
+            \textbf{Herausforderung:}
+            Auf dem Bild ist die hohe Packungsdichte der Anlage zu sehen, bei der Hochstromschienen und Wandler auf engstem Raum verbaut sind.
 
-        \textbf{Folge:}
-        Diese Nähe führt physikalisch dazu dass magnetische Fremdfelder einkoppeln und die Messergebnisse signifikant verfälschen.
+            \textbf{Folge:}
+            Diese Nähe führt physikalisch dazu, dass magnetische Fremdfelder einkoppeln und die Messergebnisse signifikant verfälschen.
 
-        \textbf{Ziel:}
-        Mein Ziel ist es eine technisch robuste Lösung zu finden die diesen Einfluss minimiert und dabei wirtschaftlich bleibt.
-    }
+            \textbf{Ziel:}
+            Mein Ziel ist es, eine technisch robuste Lösung zu finden, die diesen Einfluss minimiert und dabei wirtschaftlich bleibt.
+        }
 \end{frame}
 
 
@@ -101,6 +102,7 @@
 \subsection{Wirtschaftliche Relevanz}
 
 % --- Folie 2b: Problemstellung - Wirtschaftlichkeit ---
+
 \begin{frame}{Problemstellung – Wirtschaftliche Relevanz}
     \vspace{0.2cm}
     \textbf{Analyse der Abweichung}
@@ -116,9 +118,8 @@
             \small \textbf{Potenzieller Abrechnungsfehler (Beispielrechnung)}
             \par\vspace{0.3em}
             % Formelzeile für Klarheit
-            \footnotesize \( P_{\text{Verlust}} = U_{\text{L-N}} \cdot \Delta I_{\text{L2}} \cdot \cos \varphi \cdot t \)
-            \par\vspace{0.3em}
-            
+            \footnotesize \( \Delta E = U_{\text{L-N}} \cdot \Delta I_{\text{L2}} \cdot \cos \varphi \cdot t \)
+            \par\vspace{0.3em}            
             \renewcommand{\arraystretch}{1.05}
             \small
             \begin{tabular}{rl}
@@ -137,13 +138,13 @@
     \keynote{ \begin{itemize} \item 130 A Untererfassung \item 47k€ Differenz \end{itemize} }
     \note{
         \textbf{Messdifferenz:}
-        Durch die Abweichung fehlen uns in der Phase L2 dauerhaft etwa 130 Ampere im gemessenen Stromwert was wir als Untererfassung bezeichnen.
+        Durch die Abweichung fehlen uns in der Phase L2 dauerhaft etwa 130 Ampere im gemessenen Stromwert, was wir als Untererfassung bezeichnen.
 
         \textbf{Kosten:}
-        Rechnet man diesen Fehler über die Formel für die Wirkleistung auf ein Jahr Dauerlast hoch ergibt sich eine Abrechnungsdifferenz von knapp 47.000 Euro.
+        Rechnet man diesen Fehler über die Formel für die Wirkleistung auf ein Jahr Dauerlast hoch, ergibt sich eine Abrechnungsdifferenz von knapp 47.000 Euro.
 
         \textbf{Relevanz:}
-        Dieser Wert gilt pro Abgangsfeld was das wirtschaftliche Risiko für den Betreiber verdeutlicht.
+        Dieser Wert gilt pro Abgangsfeld, was das wirtschaftliche Risiko für den Betreiber verdeutlicht.
     }
 \end{frame}
 
@@ -152,7 +153,7 @@
 % --- Folie 3: Zielsetzung ---
 \begin{frame}{Zielsetzung der Arbeit}
     \textbf{Leitfrage der Untersuchung}
-    \vspace{0.5em}
+    \vspace{0.2em}
     \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{cHSblue!10}
         \textit{Welche Kombination aus Wandler, Geometrie und FFP hält Klasse 1 unter Fremdfeldbedingungen ein – bei minimalen Mehrkosten?}
     \end{beamercolorbox}
@@ -171,10 +172,10 @@
     \keynote{ \begin{itemize} \item Leitfrage \item Vergleich \& Empfehlung \end{itemize} }
     \note{
         \textbf{Leitfrage:}
-        Meine Arbeit beantwortet die Frage welche Kombination aus Technik und Geometrie die Klasse 1 sicherstellt ohne die Kosten zu sprengen.
+        Meine Arbeit beantwortet die Frage, welche Kombination aus Technik und Geometrie die Klasse 1 sicherstellt, ohne die Kosten zu sprengen.
 
         \textbf{Vorgehen:}
-        Dazu analysiere ich die Fehler im System systematisch vergleiche verschiedene Wandlertechnologien und prüfe geometrische Anpassungen.
+        Dazu analysiere ich die Fehler im System, vergleiche verschiedene Wandlertechnologien und prüfe geometrische Anpassungen.
 
         \textbf{Output:}
         Am Ende steht eine klare Handlungsempfehlung für die Konstruktion neuer Anlagen.

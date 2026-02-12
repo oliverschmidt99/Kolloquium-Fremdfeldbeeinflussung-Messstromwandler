@@ -39,17 +39,16 @@
 \begin{frame}{Lösungsansatz: Kompensierte Wandler}
     \begin{columns}[c]
         \begin{column}{0.55\textwidth}
-            \textbf{Funktionsprinzip}
+            \textbf{Prinzip}
             \begin{itemize}
-                \item Zusätzliche Wicklungen auf dem Eisenkern
-                \item Erzeugung eines magnetischen Gegenfeldes
-                \item Aktive Korrektur des Fehlers
+                \item Zusatzwicklungen erzeugen Gegenfeld
+                \item Aktive Fehlerkompensation
             \end{itemize}
-            \vspace{0.4cm}
-            \textbf{Vor- und Nachteile}
+            \vspace{0.3cm}
+            \textbf{Pro / Contra}
             \begin{itemize}
-                \item Deutliche Reduktion der Sättigung
-                \item \textbf{Nachteil} Teuer \& mehr Platzbedarf
+                \item Weniger Sättigung
+                \item \textbf{Contra:} teuer, mehr Bauraum
             \end{itemize}
         \end{column}
         \begin{column}{0.40\textwidth}
@@ -64,13 +63,13 @@
     \keynote{ \begin{itemize} \item Gegenfeld erzeugen \item Aber: Teuer \& Groß \end{itemize} }
     \note{
         \textbf{Kompensation:}
-        Kompensierte Wandler nutzen Hilfswicklungen auf dem Kern um aktiv ein magnetisches Gegenfeld zu erzeugen.
+        Kompensierte Wandler nutzen Hilfswicklungen auf dem Kern, um aktiv ein magnetisches Gegenfeld zu erzeugen.
 
         \textbf{Vorteil:}
-        Dadurch wird die Sättigung des Eisenkerns verhindert was zu sehr präzisen Messergebnissen führt.
+        Dadurch wird die Sättigung des Eisenkerns verhindert, was zu sehr präzisen Messergebnissen führt.
 
         \textbf{Nachteil:}
-        Diese Technik ist jedoch spürbar teurer und benötigt Bauraum der in unseren kompakten Anlagen oft nicht vorhanden ist.
+        Diese Technik ist jedoch spürbar teurer und benötigt Bauraum, der in unseren kompakten Anlagen oft nicht vorhanden ist.
     }
 \end{frame}
 
@@ -105,13 +104,13 @@
     \keynote{ \begin{itemize} \item Schirmung = Umleitung \item Nachrüstbar \end{itemize} }
     \note{
         \textbf{Konzept:}
-        Die FFP-Technologie setzt auf einen ferromagnetischen Schirm der hier gelb dargestellt ist um den Messkern zu schützen.
+        Die FFP-Technologie setzt auf einen ferromagnetischen Schirm, der hier gelb dargestellt ist, um den Messkern zu schützen.
 
         \textbf{Wirkung:}
         Dieser Schirm fängt externe Magnetfelder ein und leitet den Störfluss gezielt am eigentlichen Messkern vorbei.
 
         \textbf{Nutzen:}
-        Ein großer Vorteil dieser Lösung ist dass sich Standardwandler damit kostengünstig nachrüsten lassen.
+        Ein großer Vorteil dieser Lösung ist, dass sich Standardwandler damit kostengünstig nachrüsten lassen.
     }
 \end{frame}
 
@@ -142,10 +141,10 @@
         Durch die räumliche Nähe koppeln die starken Magnetfelder der benachbarten Leiter ungewollt in den Wandler ein.
 
         \textbf{Sättigung:}
-        Die Summe aus Nutzfluss und Störfluss treibt den Eisenkern in die partielle Sättigung wodurch die Permeabilität sinkt.
+        Die Summe aus Nutzfluss und Störfluss treibt den Eisenkern in die partielle Sättigung, wodurch die Permeabilität sinkt.
 
         \textbf{Resultat:}
-        Das Eisen leitet den magnetischen Fluss schlechter weshalb der Sekundärstrom einbricht und wir zu wenig messen.
+        Das Eisen leitet den magnetischen Fluss schlechter, weshalb der Sekundärstrom einbricht und wir zu wenig messen.
     }
 \end{frame}
 
@@ -183,7 +182,7 @@
         Das Kernstück ist die synchrone Messung zwischen dem Referenzgerät PAC 4220 und dem jeweiligen Prüfling PAC 3220.
 
         \textbf{Daten:}
-        Alle Messwerte werden zentral über Profinet erfasst und automatisch in WinCC archiviert um Ablesefehler sicher auszuschließen.
+        Alle Messwerte werden zentral über Profinet erfasst und automatisch in WinCC archiviert, um Ablesefehler sicher auszuschließen.
     }
 \end{frame}
 
@@ -212,9 +211,9 @@
         Dieses Foto zeigt die praktische Umsetzung der geometrisch optimierten Leiterführung direkt im Schaltschrank.
 
         \textbf{Konstruktion:}
-        Anstatt alle Schienen flach nebeneinander zu führen haben wir die mittlere Phase L2 räumlich um 140 Millimeter versetzt angeordnet.
+        Anstatt alle Schienen flach nebeneinanderzuführen, haben wir die mittlere Phase L2 räumlich um 140 Millimeter versetzt angeordnet.
 
         \textbf{Effekt:}
-        Durch das entstehende gleichschenklige Dreieck heben sich die magnetischen Vektoren im Zentrum gegenseitig auf was den Störeinfluss physikalisch minimiert.
+        Durch das entstehende gleichschenklige Dreieck heben sich die magnetischen Vektoren im Zentrum gegenseitig auf, was den Störeinfluss physikalisch minimiert.
     }
 \end{frame}

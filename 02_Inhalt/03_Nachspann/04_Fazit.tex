@@ -1,9 +1,87 @@
 \section{Fazit und Ausblick}
 
-\begin{frame}{Zusammenfassung}
-    % Zusammenfassung der Erkenntnisse
+\begin{frame}{Zusammenfassung der Ergebnisse}
+\begin{columns}[c]
+  \begin{column}{0.62\textwidth}
+    \textbf{Technisch}
+    \begin{itemize}
+      \item \textbf{Parallel:} ab $>$\SI{2500}{A} Sättigung, bis \SI{-6}{\%}.
+      \item \textbf{$\Delta$-Geometrie:} reduziert Fehler um $>$\SI{90}{\%}.
+      \item \textbf{FFP:} nahezu immun, aber teurer.
+    \end{itemize}
+
+    \vspace{0.25cm}
+    \textbf{Wirtschaftlich}
+    \begin{itemize}
+      \item \textbf{Bestes P/L:} Standardwandler + $\Delta$.
+      \item \textbf{FFP lohnt sich:} wenn Umbau nicht möglich (Nachrüstung/Platz).
+    \end{itemize}
+  \end{column}
+
+  \begin{column}{0.34\textwidth}
+    \centering
+    \begin{beamercolorbox}[sep=0.35em,center,rounded=true]{cHSblue!10}
+      \textbf{Empfehlung}\par\vspace{0.1cm}
+      \Huge $\Delta$\par\vspace{0.05cm}
+      \normalsize Dreieck
+    \end{beamercolorbox}
+  \end{column}
+\end{columns}
+
+\slidetime{15:00}{16:30}
+\keynote{
+  \begin{itemize}
+    \item Parallel kritisch
+    \item $\Delta$ reduziert Fehler $>$90\%
+    \item Standard + $\Delta$ meist ausreichend
+  \end{itemize}
+}
 \end{frame}
 
-\begin{frame}{Ausblick}
-    % Was sollte man noch tun?
+
+% --- Folie 2: Ausblick und Handlungsempfehlung ---
+\begin{frame}{Ausblick und Handlungsempfehlung}
+
+\textbf{Neuanlagen}
+\begin{itemize}
+    \item $\Delta$-Anordnung als Standard ab $I > \SI{2500}{A}$
+    \item CAD-Vorlagen anpassen (L2-Versatz)
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Bestandsanlagen}
+\begin{itemize}
+    \item Bei Abrechnungsrelevanz: FFP-Wandler
+    \item Kompensationswandler nur bei extremen Störfeldern
+\end{itemize}
+
+\vspace{0.3cm}
+\begin{beamercolorbox}[sep=0.35em,center,rounded=true]{green!10}
+    \centering
+    \textit{Klasse 1 ist durch geometrische Optimierung nahezu kostenneutral erreichbar.}
+\end{beamercolorbox}
+
+\slidetime{16:30}{18:00}
+
+\keynote{
+    \begin{itemize}
+        \item Neu: $\Delta$ als Standard
+        \item Bestand: FFP
+        \item Klasse 1 ohne Mehrkosten möglich
+    \end{itemize}
+}
+
+\note{
+    \textbf{Handlungsempfehlung:}
+
+    \textbf{Neuanlagen:}  
+    Ab 2500 A sollte die mittlere Phase (L2) konstruktiv versetzt werden.  
+    Die Anpassung der CAD-Standards verursacht kaum Mehrkosten, verhindert jedoch systematisch Sättigungseffekte.
+
+    \textbf{Bestand:}  
+    Wenn kein Schienenumbau möglich ist, sind FFP-Wandler die technisch sichere Lösung.
+
+    \textbf{Fazit:}  
+    Die Genauigkeitsklasse 1 kann auch bei hohen Strömen eingehalten werden – primär durch Geometrie, nicht durch teurere Wandler.
+}
 \end{frame}
