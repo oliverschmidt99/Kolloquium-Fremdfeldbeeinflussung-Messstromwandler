@@ -22,17 +22,26 @@
     \end{columns}
 
     % Zeit angepasst an neuen Fluss: (05:00 - 05:45)
-    \slidetime{05:00}{05:45}
+    \slidetime{03:45}{04:25}
     \keynote{ \begin{itemize} \item Transformator-Prinzip \item Schutzfunktion \end{itemize} }
     \note{
-        \textbf{Aufbau}
-        Bei diesen Aufsteckstromwandlern fungiert die durchgeführte Kupferschiene direkt als Primärwicklung.
+        \textbf{Einordnung}
+        Ein Messstromwandler ist im Kern ein Transformator für Ströme: Aus mehreren \SI{1000}{A} Primärstrom wird ein normierter Sekundärstrom von \SI{1}{A} oder \SI{5}{A}, den Schutzrelais und Zähler sicher verarbeiten können.
 
-        \textbf{Funktion}
-        Der Eisenkern bündelt den magnetischen Fluss um den Leiter und induziert einen proportionalen Sekundärstrom für die Messgeräte.
+        \textbf{Aufbau (Aufsteckwandler)}
+        Die Kupferschiene bildet dabei praktisch eine \emph{einzige Primärwindung} (\(N_\mathrm{p}=1\)). Um sie herum liegt der geschlossene Eisenkern mit der Sekundärwicklung \(N_\mathrm{s}\). Idealisierend gilt
+        \[
+        I_\mathrm{s} \approx \frac{N_\mathrm{p}}{N_\mathrm{s}}\, I_\mathrm{p},
+        \qquad
+        I_\mathrm{p}=N_\mathrm{s} I_\mathrm{s} + I_\mathrm{m}.
+        \]
+        Der Magnetisierungsstrom \(I_\mathrm{m}\) ist der entscheidende Störanteil: Er wächst stark an, sobald der Kern in die Sättigung gerät.
 
-        \textbf{Sicherheit}
-        Eine wesentliche Aufgabe ist dabei die galvanische Trennung um die empfindliche Messtechnik vom Hochstromnetz zu isolieren.
+        \textbf{Warum das später wichtig ist}
+        Für Genauigkeitsklasse 1 darf der Übersetzungsfehler nur innerhalb \(\pm 1\,\%\) liegen. Jeder zusätzliche Fluss im Kern (z.\,B. durch Fremdfelder) erhöht \(I_\mathrm{m}\) \(\rightarrow\) der Sekundärstrom wird \emph{zu klein} \(\rightarrow\) wir \emph{untererfassen} den Primärstrom. Genau diesen Mechanismus sehen wir später in den Messergebnissen, besonders auf Phase L2.
+
+        \textbf{Randbedingungen}
+        Die Genauigkeit hängt außerdem von der \emph{Bürde} (Sekundärlast) und der Frequenz ab: Je höher die Bürde, desto höher die erforderliche Sekundärspannung und desto früher erreicht der Kern seinen Sättigungsbereich.
     }
 \end{frame}
 
@@ -54,17 +63,30 @@
     \end{beamercolorbox}
 
     % Zeit: (07:15 - 08:00)
-    \slidetime{07:15}{08:00}
+    \slidetime{04:25}{05:05}
     \keynote{ \begin{itemize} \item Sättigung des Kerns \item Messwert sinkt \end{itemize} }
     \note{
-        \textbf{Ursache}
-        Durch die räumliche Nähe koppeln die starken Magnetfelder der benachbarten Leiter ungewollt in den Wandler ein.
+        \textbf{Superposition der Magnetfelder}
+        In der Schaltanlage liegen die Leiter sehr dicht beieinander. Das Magnetfeld eines Leiters skaliert näherungsweise mit
+        \[
+        H(r)\propto \frac{I}{r},
+        \]
+        d.\,h. hoher Strom und kleiner Abstand sind die ungünstige Kombination. Diese Fremdfelder überlagern sich mit dem Nutzfeld des Wandlers (\emph{Superposition}).
 
-        \textbf{Sättigung}
-        Die Summe aus Nutzfluss und Störfluss treibt den Eisenkern in die partielle Sättigung, wodurch die Permeabilität sinkt.
+        \textbf{Warum Phase L2 am stärksten betroffen ist}
+        Die mittlere Phase L2 wird von \emph{zwei} Nachbarleitern gleichzeitig beeinflusst. Dadurch entsteht am Wandlerkern eine unsymmetrische Flussverteilung: In einzelnen Kernbereichen addiert sich Stör- und Nutzfluss, lokal wird die \(B\)-\(H\)-Kennlinie in die Sättigung gedrückt, während andere Bereiche noch linear sind.
 
-        \textbf{Resultat}
-        Das Eisen leitet den magnetischen Fluss schlechter, weshalb der Sekundärstrom einbricht und wir zu wenig messen.
+        \textbf{Konsequenz im Ersatzbild}
+        Sobald Teile des Kerns sättigen, sinkt die relative Permeabilität \(\mu_r\) stark. Der Magnetisierungsstrom \(I_\mathrm{m}\) steigt an und ``zieht'' einen Teil des Primärstroms, der dann \emph{nicht} mehr als Sekundärstrom erscheint:
+        \[
+        I_\mathrm{p}=N_\mathrm{s} I_\mathrm{s} + I_\mathrm{m}
+        \;\Rightarrow\;
+        I_\mathrm{s}\downarrow \text{ bei } I_\mathrm{m}\uparrow.
+        \]
+        Das äußert sich als negativer Übersetzungsfehler (Untererfassung) und kann zusätzlich den Phasenfehler vergrößern.
+
+        \textbf{Merksatz für die Ergebnisse}
+        Je höher der Primärstrom und je enger die Geometrie, desto eher kippt der Kern partiell in die Sättigung \(\rightarrow\) genau dort entsteht der starke Einbruch der L2-Kurve in den 4000-A-Messungen.
     }
 \end{frame}
 
@@ -72,30 +94,46 @@
 % --- Folie 3: Kompensation ---
 \begin{frame}{Lösungsansatz: Kompensierte Wandler}
     \begin{columns}[c]
-        \begin{column}{0.55\textwidth}
+        % --- Textspalte ---
+        \begin{column}{0.58\textwidth}
+            \raggedright
+
             \textbf{Prinzip}
-            \begin{itemize}
+            \vspace{0.15cm}
+            \begin{itemize}\setlength{\itemsep}{0.25em}
                 \item Zusatzwicklungen erzeugen Gegenfeld
                 \item Aktive Fehlerkompensation
             \end{itemize}
-            \vspace{0.3cm}
+
+            \vspace{0.35cm}
+
             \textbf{Pro / Contra}
-            \begin{itemize}
+            \vspace{0.15cm}
+            \begin{itemize}\setlength{\itemsep}{0.25em}
                 \item Weniger Sättigung
                 \item \textbf{Contra} teuer, mehr Bauraum
             \end{itemize}
         \end{column}
+
+        % --- Bildspalte ---
         \begin{column}{0.40\textwidth}
             \centering
-            % Pfad ist korrekt laut Tree
-            \includegraphics[width=1\textwidth]{03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.pdf}
-            \par\vspace{0.2cm} {\tiny Prinzip der Kompensationswicklung}
+            \includegraphics[height=0.58\textheight, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.pdf}
+
+            \vspace{0.15cm}
+            {\tiny Prinzip der Kompensationswicklung}
         \end{column}
     \end{columns}
 
-    % Zeit: (05:45 - 06:30)
-    \slidetime{05:45}{06:30}
-    \keynote{ \begin{itemize} \item Gegenfeld erzeugen \item Aber: Teuer \& Groß \end{itemize} }
+    \slidetime{05:05}{05:40}
+
+    \keynote{
+        \begin{itemize}\setlength{\itemsep}{0.2em}
+            \item Gegenfeld erzeugen
+            \item Aber: Teuer \& Groß
+        \end{itemize}
+    }
+
     \note{
         \textbf{Kompensation}
         Kompensierte Wandler nutzen Hilfswicklungen auf dem Kern, um aktiv ein magnetisches Gegenfeld zu erzeugen.
@@ -107,6 +145,7 @@
         Diese Technik ist jedoch spürbar teurer und benötigt Bauraum, der in unseren kompakten Anlagen oft nicht vorhanden ist.
     }
 \end{frame}
+
 
 % --- Folie 4: FFP ---
 \begin{frame}{Lösungsansatz: Fremdfeld-Protektion (FFP)}
@@ -136,7 +175,7 @@
     \end{columns}
 
     % Zeit: (06:30 - 07:15)
-    \slidetime{06:30}{07:15}
+    \slidetime{05:40}{06:20}
     \keynote{ \begin{itemize} \item Schirmung = Umleitung \item Nachrüstbar \end{itemize} }
     \note{
         \textbf{Konzept}
@@ -163,7 +202,7 @@
     \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/Bilder/kupferschinen_gesamtaufbau.png}
 
     % Zeit: (08:45 - 09:30)
-    \slidetime{08:45}{09:30}
+    \slidetime{06:20}{07:05}
     \keynote{
         \begin{itemize}
             \item L2 versetzt (Dreieck)

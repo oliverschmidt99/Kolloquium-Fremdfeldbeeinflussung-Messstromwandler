@@ -12,7 +12,7 @@
 
     \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_hochstrom_pruefstand_new.drawio.pdf}
 
-    \slidetime{08:00}{08:45}
+    \slidetime{07:05}{07:55}
     \keynote{
         \begin{itemize}
             \item Referenz -> Trafo -> 4kA
@@ -21,17 +21,22 @@
         \end{itemize}
     }
     \note{
-        \textbf{Aufbau}
-        Hier sehen Sie das schematische Diagramm unseres automatisierten Hochstrom-Prüfstands für die Versuchsreihen.
+        \textbf{Ziel des Aufbaus}
+        Damit die Unterschiede zwischen Wandlern, FFP und Geometrie wirklich vergleichbar sind, muss die Messung reproduzierbar und synchron sein: \emph{gleicher Strom, gleiche Temperaturbedingungen, gleiche Auswertung}.
 
-        \textbf{Signalfluss}
-        Wir speisen niederspannungsseitig ein und transformieren den Strom über Hochstromtrafos auf bis zu 4000 Ampere hoch.
+        \textbf{Messkette / Signalfluss}
+        Wir erzeugen den hohen Prüfstrom über den Hochstromtrafo und regeln ihn stufenweise bis \SI{4000}{A}. Parallel dazu messen wir synchron:
+        \begin{itemize}
+            \item \textbf{Referenz:} PAC 4220 (hohe Genauigkeit) als ``Wahrheit''.
+            \item \textbf{Prüfling:} PAC 3220 + der jeweils getestete Stromwandler.
+        \end{itemize}
+        Aus der Differenz zwischen Referenz und Prüfling erhalten wir direkt den Übersetzungsfehler und können Normgrenzen (Klasse 1) bewerten.
 
-        \textbf{Vergleich}
-        Das Kernstück ist die synchrone Messung zwischen dem Referenzgerät PAC 4220 und dem jeweiligen Prüfling PAC 3220.
+        \textbf{Automatisierung und Datenqualität}
+        Die komplette Sequenz läuft SPS-geführt (Profinet), inklusive Haltezeiten zum Einschwingen. Dadurch eliminieren wir typische Fehlerquellen wie manuelles Nachregeln, Ablesefehler oder variable Einschwingzeiten. Die Messwerte werden in WinCC mit Zeitstempel archiviert, was eine saubere Nachauswertung ermöglicht.
 
-        \textbf{Daten}
-        Alle Messwerte werden zentral über Profinet erfasst und automatisch in WinCC archiviert, um Ablesefehler sicher auszuschließen.
+        \textbf{Wichtiger Punkt für die späteren Ergebnisse}
+        So stellen wir sicher, dass ein Kurveneinbruch (z.\,B. bei L2/Parallel) \emph{wirklich} aus der Kernphysik/Sättigung kommt und nicht aus einem Messartefakt des Prüfstands.
     }
 \end{frame}
 
@@ -63,7 +68,7 @@
         \end{column}
     \end{columns}
 
-    \slidetime{08:00}{08:45}
+    \slidetime{07:55}{08:40}
     \keynote{
         \begin{itemize}
             \item Treppenstufen = Lastpunkte
@@ -96,7 +101,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_2000A_presentation.png}
 
-    \slidetime{10:00}{11:00}
+    \slidetime{08:40}{10:05}
     \keynote{
         \begin{itemize}
             \item Referenzmessung im Nennbereich
@@ -105,33 +110,49 @@
         \end{itemize}
     }
     \note{
-        \textbf{Ausgangslage bei 2000 A}
-        Zunächst betrachten wir den unkritischen Bereich bei 2000 Ampere.
+    \textbf{Baseline bei \SI{2000}{A}}
+    Diese Messung dient als Referenz im weitgehend linearen Bereich: Die Kurven liegen eng um 0\,\%,
+    Fremdfeld- und Sättigungseffekte sind hier noch klein.
 
-        \textbf{Beobachtung}
-        Hier arbeiten alle Wandler noch weit unterhalb ihrer Sättigungsgrenze. Die Linien verlaufen fast horizontal und liegen eng beieinander.
+    \textbf{So liest man die Kurven}
+    Durchgezogen = Parallel, gestrichelt = Dreieck (gleicher Wandler, andere Geometrie).
+    Wichtig ist besonders L2, weil dort später der stärkste Fremdfeldeinfluss zu erwarten ist.
 
-        \textbf{Erkenntnis}
-        Sowohl die Parallelanordnung (Bunt) als auch die Dreiecksanordnung (Gestrichelt) liefern hier normgerechte Ergebnisse. Das System ist magnetisch noch nicht überlastet.
+    \textbf{Überleitung}
+    Wenn bei \SI{4000}{A} starke Abweichungen auftreten, ist das damit klar als physikalischer Nichtlinearitäts-/Sättigungseffekt
+    einzuordnen – nicht als Messstreuung.
     }
 \end{frame}
 
-
-\subsection{Messung bei 2000 A}
-
-% --- 2000 A: Genauigkeitsmessung ---
-\begin{frame}{Redur}
+\begin{frame}{Aufbau FFP-Wandler (kompensiert)}
     \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
+    \includegraphics[width=\textwidth, keepaspectratio]
+            {03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
 
-    \slidetime{10:00}{11:00}
-    \keynote{
+    \slidetime{05:40}{06:10}
 
-    }
     \note{
+        \textbf{Was sieht man in der Skizze?}
+        Der Primärleiter erzeugt das Hauptmagnetfeld im Ringkern.
+        Die zusätzlichen Wicklungen detektieren Streufelder und führen über die Kompensationswicklung
+        ein gezieltes Gegenfeld ein.
 
+        \textbf{Physikalische Idee}
+        Dadurch bleibt der resultierende Fluss im Eisenkern näher am linearen Bereich.
+        Die lokale Sättigung – insbesondere bei asymmetrischen Feldverteilungen – wird reduziert.
+
+        \textbf{Einordnung}
+        Das ist eine aktive, konstruktive Lösung.
+        Im späteren Vergleich prüfen wir, ob eine rein geometrische Maßnahme
+        (Dreiecksanordnung der Leiter) einen ähnlichen Effekt erzielen kann –
+        jedoch ohne Zusatzwicklung und ohne Mehrkosten.
     }
+
 \end{frame}
+
+
+
+
 
 \subsection{Messung bei 4000 A}
 
@@ -140,7 +161,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_4000A_presentation.png}
 
-    \slidetime{11:45}{12:45}
+    \slidetime{10:05}{11:45}
     \keynote{
         \begin{itemize}
             \item 4000 A = Extremfall
@@ -204,14 +225,33 @@
         \end{column}
     \end{columns}
 
-    \slidetime{12:45}{12:45}
+    \slidetime{11:45}{12:40}
     \note{
-        \textbf{Folie 2: Die Vergleichsmetriken}
-        Darauf aufbauend haben wir zwei Kennzahlen für die Diagramme:
+        \textbf{Warum diese Kennzahlen?}
+        Die Diagramme enthalten viele Lastpunkte und drei Phasen. Um daraus eine \emph{vergleichbare} Aussage pro Wandler und Geometrie abzuleiten, verdichten wir die Kurven auf wenige robuste Kennzahlen.
 
-        1. Die **geometrische Verbesserung** Wir vergleichen den eben gezeigten Fehler der Parallelanordnung mit dem der Dreiecksanordnung. Ein Wert von 90\% heißt: 90\% des Fehlers sind weg.
+        \textbf{1) Mittlerer Gesamtfehler \(E_{\text{total}}\)}
+        Wir mitteln über:
+        \begin{itemize}
+            \item alle \textbf{Lastpunkte} (5\,\% bis 120\,\%),
+            \item alle \textbf{Phasen} (L1, L2, L3),
+        \end{itemize}
+        und verwenden den \textbf{Betrag} \(|F_{\text{Messwert}}|\), damit sich positive/negative Fehler nicht gegenseitig ``schönrechnen''.
+        Das Ergebnis ist ein einziger Basiswert pro Messaufbau: \emph{Wie groß ist der typische Fehler im Betrieb?}
 
-        2. Die **Wirtschaftlichkeit** Hier teilen wir die technische Verbesserung durch den Kaufpreis. Das zeigt uns, \frqq wie viel Verbesserung ich pro investiertem Euro\flqq bekomme.
+        \textbf{2) Geometrische Verbesserung \(\eta_{\text{geo}}\)}
+        \[
+        \eta_{\text{geo}}=\left(1-\frac{E_{\Delta}}{E_{\parallel}}\right)\cdot 100
+        \]
+        Diese Kennzahl sagt: \emph{Wie viel Prozent des ursprünglichen Fehlers (Parallel) wird durch Dreieck eliminiert?}
+        Beispiel: \(E_{\parallel}=6\) und \(E_{\Delta}=1\) \(\Rightarrow\) \(\eta_{\text{geo}}=83\,\%\).
+
+        \textbf{3) Wirtschaftlichkeit \(\eta_{\text{eco}}\) in \(\%\!/\text{€}\)}
+        \[
+        \eta_{\text{eco}}=\frac{\eta_{\text{geo}}}{\text{Preis}}
+        \]
+        Damit vergleichen wir nicht nur ``was ist technisch gut?'', sondern \emph{wie viel Verbesserung bekomme ich pro investiertem Euro?}
+        Genau diese Sicht ist später entscheidend, um Standardwandler + Dreieck gegen teure Spezialwandler einzuordnen.
     }
 \end{frame}
 
@@ -220,7 +260,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag_kosten_horizontal.png}
 
-    \slidetime{13:30}{14:00}
+    \slidetime{12:40}{13:30}
     \keynote{
         \begin{itemize}
             \item Standardwandler sind sehr günstig
@@ -249,7 +289,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag0_wahre_fehler_horizontal.png}
 
-    \slidetime{12:45}{13:30}
+    \slidetime{13:30}{14:50}
     \keynote{
         \begin{itemize}
             \item Volle Balken sind Parallelanordnung
@@ -274,7 +314,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag1_dreieck_pct.png}
 
-    \slidetime{12:45}{13:30}
+    \slidetime{14:50}{15:55}
     \keynote{
         \begin{itemize}
             \item Relative Fehlerreduktion durch Geometrie
@@ -299,7 +339,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag2_dreieck_pct_eur.png}
 
-    \slidetime{13:30}{14:15}
+    \slidetime{15:55}{16:50}
     \keynote{
         \begin{itemize}
             \item Verbesserung normiert auf Investitionskosten
