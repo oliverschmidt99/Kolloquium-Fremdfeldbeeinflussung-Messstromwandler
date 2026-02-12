@@ -1,16 +1,17 @@
+% ==========================================
+% TEIL 1: VERSUCHSAUFBAU
+% ==========================================
+\section{Versuchsaufbau und Durchführung}
+
 % --- Folie 6: Messstrecke ---
 \begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
-
-    % Nur ein kurzer Satz statt Bulletpoints
     \centering
     \textbf{Schematischer Aufbau der automatisierten Messstrecke}
 
     \vspace{0.2cm}
 
-    % Pfad ist korrekt laut Tree
     \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_hochstrom_pruefstand_new.drawio.pdf}
 
-    % Zeit: (08:00 - 08:45)
     \slidetime{08:00}{08:45}
     \keynote{
         \begin{itemize}
@@ -34,15 +35,13 @@
     }
 \end{frame}
 
-
-% --- Folie 7: Lastprofil (ehemals Verlauf Original) ---
+% --- Folie 7: Lastprofil ---
 \begin{frame}{Lastprofil und Prüfablauf}
     \centering
     \textbf{Visualisierung der automatisierten Messsequenz}
 
     \vspace{0.2cm}
 
-    % Bild etwas kleiner, damit Text noch wirkt, aber immer noch dominant
     \includegraphics[width=\textwidth, height=0.65\textheight, keepaspectratio]{03_Ressourcen/Bilder/verlauf_gesamt.png}
 
     \vspace{0.3cm}
@@ -85,15 +84,18 @@
 \end{frame}
 
 
-\section{Messergebnisse 2000 A}
+% ==========================================
+% TEIL 2: DETAILLIERTE MESSERGEBNISSE
+% ==========================================
+\section{Exemplarische Messergebnisse}
+
+\subsection{Messung bei 2000 A}
 
 % --- 2000 A: Genauigkeitsmessung ---
 \begin{frame}{Genauigkeitsmessung bei \SI{2000}{A} (Linearer Bereich)}
     \centering
-    % Bild angepasst auf 2000 A
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_2000A_presentation.png}
 
-    % Zeitplanung
     \slidetime{10:00}{11:00}
     \keynote{
         \begin{itemize}
@@ -115,12 +117,29 @@
 \end{frame}
 
 
-\section{Messergebnisse 4000 A}
+\subsection{Messung bei 2000 A}
+
+% --- 2000 A: Genauigkeitsmessung ---
+\begin{frame}{Redur}
+    \centering
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
+
+    \slidetime{10:00}{11:00}
+    \keynote{
+        \begin{itemize}
+
+        \end{itemize}
+    }
+    \note{
+
+    }
+\end{frame}
+
+\subsection{Messung bei 4000 A}
 
 % --- 4000 A: Genauigkeitsmessung ---
 \begin{frame}{Genauigkeitsmessung bei \SI{4000}{A} (Kritischer Bereich)}
     \centering
-    % Bild bleibt 4000 A
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_4000A_presentation.png}
 
     \slidetime{11:45}{12:45}
@@ -144,11 +163,16 @@
 \end{frame}
 
 
+% ==========================================
+% TEIL 3: ANALYSE UND WIRTSCHAFTLICHKEIT
+% ==========================================
+\section{Vergleichende Analyse}
 
-\section{Definition der Vergleichsmetriken}
+\subsection{Methodik und Kosten}
 
+% --- Metriken ---
 \begin{frame}{Berechnungsgrundlagen der Analyse}
-    \small % Schrift etwas kleiner
+    \small
     Um die Diagramme korrekt zu interpretieren, hier die Methodik:
 
     \vspace{0.2cm}
@@ -185,7 +209,6 @@
     \slidetime{12:45}{12:45}
     \note{
         \textbf{Folie 2: Die Vergleichsmetriken}
-
         Darauf aufbauend haben wir zwei Kennzahlen für die Diagramme:
 
         1. Die **geometrische Verbesserung** Wir vergleichen den eben gezeigten Fehler der Parallelanordnung mit dem der Dreiecksanordnung. Ein Wert von 90\% heißt: 90\% des Fehlers sind weg.
@@ -193,38 +216,8 @@
         2. Die **Wirtschaftlichkeit** Hier teilen wir die technische Verbesserung durch den Kaufpreis. Das zeigt uns, \frqq wie viel Verbesserung ich pro investiertem Euro\flqq bekomme.
     }
 \end{frame}
-\section{Gesamtvergleich und Effizienz}
 
-\section{Gesamtvergleich und Effizienz}
-
-% --- DIAGRAMM 0: Wahrer Fehler (Parallel vs. Dreieck) ---
-\begin{frame}{Gesamtfehler im Vergleich: Parallel vs. Dreieck}
-    \centering
-    % Bild etwas skalieren, damit es gut passt
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag0_wahre_fehler_horizontal.png}
-
-    \slidetime{12:45}{13:30}
-    \keynote{
-        \begin{itemize}
-            \item Volle Balken sind Parallelanordnung
-            \item Schraffierte Balken sind Dreiecksanordnung
-            \item Massive Reduktion der Balkenlänge durch Dreieck
-        \end{itemize}
-    }
-    \note{
-        \textbf{Analyse der absoluten Fehler}
-        Dieses Diagramm zeigt die summierten Fehlerwerte über alle Messpunkte.
-
-        \textbf{Lesehilfe}
-        Die vollen Balken repräsentieren die klassische Parallelanordnung. Die schraffierten Balken zeigen denselben Wandler in der optimierten Dreiecksanordnung.
-
-        \textbf{Erkenntnis}
-        Man sieht auf den ersten Blick, dass die schraffierten Balken fast überall deutlich kürzer sind. Besonders beim Celsa Standardwandler bei 2500 Ampere fällt der Fehler von über 7 auf unter 2 Einheiten. Die Geometrie wirkt hier wie ein physischer Filter gegen Störfelder.
-    }
-\end{frame}
-
-
-% --- NEUE FOLIE: Kostenübersicht ---
+% --- Kostenübersicht ---
 \begin{frame}{Wirtschaftliche Einordnung der Wandler}
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag_kosten_horizontal.png}
@@ -251,10 +244,36 @@
 \end{frame}
 
 
-% --- DIAGRAMM 2: Verbesserung Dreieck (%) ---
+\subsection{Gesamtvergleich und Effizienz}
+
+% --- DIAGRAMM 0: Wahrer Fehler ---
+\begin{frame}{Gesamtfehler im Vergleich: Parallel vs. Dreieck}
+    \centering
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag0_wahre_fehler_horizontal.png}
+
+    \slidetime{12:45}{13:30}
+    \keynote{
+        \begin{itemize}
+            \item Volle Balken sind Parallelanordnung
+            \item Schraffierte Balken sind Dreiecksanordnung
+            \item Massive Reduktion der Balkenlänge durch Dreieck
+        \end{itemize}
+    }
+    \note{
+        \textbf{Analyse der absoluten Fehler}
+        Dieses Diagramm zeigt die summierten Fehlerwerte über alle Messpunkte.
+
+        \textbf{Lesehilfe}
+        Die vollen Balken repräsentieren die klassische Parallelanordnung. Die schraffierten Balken zeigen denselben Wandler in der optimierten Dreiecksanordnung.
+
+        \textbf{Erkenntnis}
+        Man sieht auf den ersten Blick, dass die schraffierten Balken fast überall deutlich kürzer sind. Besonders beim Celsa Standardwandler bei 2500 Ampere fällt der Fehler von über 7 auf unter 2 Einheiten. Die Geometrie wirkt hier wie ein physischer Filter gegen Störfelder.
+    }
+\end{frame}
+
+% --- DIAGRAMM 1: Verbesserung Dreieck (%) ---
 \begin{frame}{Wirksamkeit der geometrischen Optimierung}
     \centering
-    % Pfad beibehalten
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag1_dreieck_pct.png}
 
     \slidetime{12:45}{13:30}
@@ -277,10 +296,9 @@
     }
 \end{frame}
 
-% --- DIAGRAMM 3: Wirtschaftlichkeit Dreieck (%/€) ---
+% --- DIAGRAMM 2: Wirtschaftlichkeit Dreieck (%/€) ---
 \begin{frame}{Ökonomische Bewertung der Maßnahmen}
     \centering
-    % Pfad beibehalten
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag2_dreieck_pct_eur.png}
 
     \slidetime{13:30}{14:15}

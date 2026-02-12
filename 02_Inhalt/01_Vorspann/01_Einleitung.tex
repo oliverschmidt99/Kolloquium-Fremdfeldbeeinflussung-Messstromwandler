@@ -3,44 +3,54 @@
 \subsection{Motivation und Problemstellung}
 
 % --- Folie 1: Motivation ---
-\begin{frame}{Motivation}
+\begin{frame}{Motivation und Problemstellung}
     \begin{columns}[c, onlytextwidth]
         \begin{column}{0.60\textwidth}
-            \textbf{Herausforderung: kompakte Bauweise}
-            \vspace{0.2em}
+            \textbf{Herausforderung Schaltanlagenbau}
+            \vspace{0.4em}
             \begin{itemize}
-                \item Minimale Abstände zwischen Schienen und Wandlern
-                \item \textbf{Folge:} Messabweichungen durch Fremdfelder
-                \item \textbf{L2 kritisch:} max. Fremdfeld $\Rightarrow$ Sättigung $\Rightarrow$ Untererfassung
-                \item \textbf{Ziel:} robuste, kosteneffiziente Lösung
+                \item Trend zu hoher Leistungsdichte auf minimalem Bauraum
+                \item Hohe Primärströme bei geringen Schienenabständen
+                \item Starke magnetische Fremdfeldkopplung
+                \item Kritische Messwertverzerrung auf Phase L2
+            \end{itemize}
+
+            \textbf{Zielsetzung}
+            \begin{itemize}
+                \item Entwicklung einer robusten und kosteneffizienten Lösung
             \end{itemize}
         \end{column}
-        \begin{column}{0.3\textwidth}
+        
+        \begin{column}{0.35\textwidth}
             \centering
-            \includegraphics[height=0.8\textheight, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front_zugeschnitten.jpg}
-            \par\vspace{0.1cm} {\tiny \color{gray} Frontansicht der Anlage}
+            % Bild etwas größer, da wichtig für "Enge"
+            \includegraphics[height=0.75\textheight, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front_zugeschnitten.jpg}
+            \par\vspace{0.1cm} {\tiny \color{gray} Kompakte Feldverteilung}
         \end{column}
-        \begin{column}{0.08\textwidth} \hfill \end{column}
     \end{columns}
 
     % Zeit: 45s (01:30 - 02:15)
     \slidetime{01:30}{02:15}
     \keynote{
         \begin{itemize}
-            \item Bild: Enge zeigen
-            \item Folge: Abweichung
-            \item Ziel: Günstige Lösung
-        \end{itemize} }
-        \note{
-            \textbf{Herausforderung:}
-            Auf dem Bild ist die hohe Packungsdichte der Anlage zu sehen, bei der Hochstromschienen und Wandler auf engstem Raum verbaut sind.
+            \item Mehr Leistung auf weniger Raum
+            \item Physikalisches Problem: Fremdfelder
+            \item L2 misst falsch
+        \end{itemize} 
+    }
+    \note{
+        \textbf{Trend}
+        Schaltanlagen müssen heute immer leistungsfähiger werden, während der verfügbare Bauraum gleich bleibt oder sogar schrumpft. Wir bringen also mehr Strom auf weniger Fläche unter.
 
-            \textbf{Folge:}
-            Diese Nähe führt physikalisch dazu, dass magnetische Fremdfelder einkoppeln und die Messergebnisse signifikant verfälschen.
+        \textbf{Physik}
+        Diese Kombination aus hohen Primärströmen und minimalen Abständen führt zwangsläufig zu starken magnetischen Fremdfeldern.
 
-            \textbf{Ziel:}
-            Mein Ziel ist es, eine technisch robuste Lösung zu finden, die diesen Einfluss minimiert und dabei wirtschaftlich bleibt.
-        }
+        \textbf{Problem}
+        Besonders die mittlere Phase L2 ist diesen Feldern von beiden Seiten ausgesetzt. Das führt zu einer verzerrten Messung und im schlimmsten Fall zur Sättigung des Wandlers.
+
+        \textbf{Ziel}
+        Meine Aufgabe war es daher, eine Lösung zu finden, die technisch robust gegen diese Störungen ist, aber wirtschaftlich im Rahmen bleibt.
+    }
 \end{frame}
 
 
