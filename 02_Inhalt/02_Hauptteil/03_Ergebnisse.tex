@@ -107,7 +107,22 @@
 \end{frame}
 \section{Gesamtvergleich und Effizienz}
 
-% --- DIAGRAMM 1: Verbesserung Dreieck (%) ---
+% --- DIAGRAMM 1: Wahrerfehler Dreieck Parallel (%) ---
+\begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
+
+    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag0_wahre_fehler_horizontal.png}
+
+    \slidetime{08:00}{08:45}
+    \keynote{
+
+    }
+    \note{
+
+    }
+\end{frame}
+
+
+% --- DIAGRAMM 2: Verbesserung Dreieck (%) ---
 \begin{frame}{Verbesserung durch Dreiecksanordnung (in \%)}
     \centering
     % KORRIGIERT: diag1_dreieck_pct.png statt diagramm1...
@@ -134,7 +149,7 @@
     }
 \end{frame}
 
-% --- DIAGRAMM 2: Wirtschaftlichkeit Dreieck (%/€) ---
+% --- DIAGRAMM 3: Wirtschaftlichkeit Dreieck (%/€) ---
 \begin{frame}{Wirtschaftlichkeit der Geometrie (\% pro €)}
     \centering
     % KORRIGIERT: diag2_dreieck_pct_eur.png statt diagramm2...
@@ -159,30 +174,3 @@
     }
 \end{frame}
 
-% --- DIAGRAMM 4: Absoluter Fehler Parallel ---
-\begin{frame}{Technologie-Vergleich: Absoluter Fehler (Parallel)}
-    \centering
-    % KORRIGIERT: diag4_parallel_error.png statt diagramm4...
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag4_parallel_error.png}
-
-    \slidetime{14:15}{15:00}
-    \keynote{
-        \begin{itemize}
-            \item Vergleich der Technologien (Worst-Case Parallel)
-            \item Rot (Standard): Fehler explodiert bei 2500/3000 A
-            \item Orange (FFP): konstant niedrig
-        \end{itemize}
-    }
-    \note{
-        \textbf{Technologischer Vergleich (Diagramm 4):}
-        
-        Abschließend der Blick auf die reinen Technologien in der kritischen Parallelanordnung.
-        
-        \textbf{Analyse:}
-        Man sieht deutlich, wie der Standard-Wandler (rot) bei 2500 A und 3000 A massive Fehlerwerte aufweist.
-        Im Gegensatz dazu bleibt der FFP-Wandler (Orange, ganz rechts in den Gruppen) fast über das gesamte Spektrum kaum sichtbar, also nahe Null.
-        
-        \textbf{Schlussfolgerung:}
-        Wer keine Geometrie-Optimierung vornehmen kann (Platzmangel), \textit{muss} zu FFP oder kompensierten Wandlern greifen.
-    }
-\end{frame}

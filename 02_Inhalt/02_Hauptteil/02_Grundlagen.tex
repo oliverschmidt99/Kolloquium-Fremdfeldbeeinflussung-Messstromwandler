@@ -35,7 +35,40 @@
     }
 \end{frame}
 
-% --- Folie 2: Kompensation ---
+% --- Folie 2: Physik ---
+\begin{frame}{Physikalisches Problem: Fremdfeldeinfluss}
+    \textbf{Ursache: Räumliche Nähe}
+    \begin{itemize}
+        \item Starke Magnetfelder der Nachbarleiter koppeln ein
+    \end{itemize}
+    \vspace{0.4cm}
+    \textbf{Wirkung: Partielle Sättigung}
+    \begin{itemize}
+        \item Nutzfluss + Störfluss = Sättigung im Eisen
+        \item Permeabilität $\mu_r$ sinkt
+    \end{itemize}
+    \vspace{0.3cm}
+    \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
+        \textbf{Resultat} Der Sekundärstrom sinkt, die Messung zeigt zu wenig an.
+    \end{beamercolorbox}
+
+    % Zeit: (07:15 - 08:00)
+    \slidetime{07:15}{08:00}
+    \keynote{ \begin{itemize} \item Sättigung des Kerns \item Messwert sinkt \end{itemize} }
+    \note{
+        \textbf{Ursache:}
+        Durch die räumliche Nähe koppeln die starken Magnetfelder der benachbarten Leiter ungewollt in den Wandler ein.
+
+        \textbf{Sättigung:}
+        Die Summe aus Nutzfluss und Störfluss treibt den Eisenkern in die partielle Sättigung, wodurch die Permeabilität sinkt.
+
+        \textbf{Resultat:}
+        Das Eisen leitet den magnetischen Fluss schlechter, weshalb der Sekundärstrom einbricht und wir zu wenig messen.
+    }
+\end{frame}
+
+
+% --- Folie 3: Kompensation ---
 \begin{frame}{Lösungsansatz: Kompensierte Wandler}
     \begin{columns}[c]
         \begin{column}{0.55\textwidth}
@@ -73,7 +106,7 @@
     }
 \end{frame}
 
-% --- Folie 3: FFP ---
+% --- Folie 4: FFP ---
 \begin{frame}{Lösungsansatz: Fremdfeld-Protektion (FFP)}
     \begin{columns}[c]
         \begin{column}{0.55\textwidth}
@@ -114,43 +147,41 @@
     }
 \end{frame}
 
-\subsection{Physikalische Hintergründe}
 
-% --- Folie 4: Physik ---
-\begin{frame}{Physikalisches Problem: Fremdfeldeinfluss}
-    \textbf{Ursache: Räumliche Nähe}
-    \begin{itemize}
-        \item Starke Magnetfelder der Nachbarleiter koppeln ein
-    \end{itemize}
-    \vspace{0.4cm}
-    \textbf{Wirkung: Partielle Sättigung}
-    \begin{itemize}
-        \item Nutzfluss + Störfluss = Sättigung im Eisen
-        \item Permeabilität $\mu_r$ sinkt
-    \end{itemize}
-    \vspace{0.3cm}
-    \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
-        \textbf{Resultat} Der Sekundärstrom sinkt, die Messung zeigt zu wenig an.
-    \end{beamercolorbox}
+% --- Folie 5: Dreiecksanordnung ---
+\begin{frame}{Konstruktive Maßnahme: Dreiecksanordnung}
 
-    % Zeit: (07:15 - 08:00)
-    \slidetime{07:15}{08:00}
-    \keynote{ \begin{itemize} \item Sättigung des Kerns \item Messwert sinkt \end{itemize} }
+    \centering
+    \textbf{Realisierung der geometrischen Optimierung ($\Delta$-Anordnung)}
+
+    \vspace{0.2cm}
+
+    % Auch hier: Maximale Größe für das Foto/Zeichnung
+    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/Bilder/kupferschinen_gesamtaufbau.png}
+
+    % Zeit: (08:45 - 09:30)
+    \slidetime{08:45}{09:30}
+    \keynote{
+        \begin{itemize}
+            \item L2 versetzt (Dreieck)
+            \item Symmetrische Abstände
+            \item Feldkompensation
+        \end{itemize}
+    }
     \note{
-        \textbf{Ursache:}
-        Durch die räumliche Nähe koppeln die starken Magnetfelder der benachbarten Leiter ungewollt in den Wandler ein.
+        \textbf{Realisierung:}
+        Dieses Foto zeigt die praktische Umsetzung der geometrisch optimierten Leiterführung direkt im Schaltschrank.
 
-        \textbf{Sättigung:}
-        Die Summe aus Nutzfluss und Störfluss treibt den Eisenkern in die partielle Sättigung, wodurch die Permeabilität sinkt.
+        \textbf{Konstruktion:}
+        Anstatt alle Schienen flach nebeneinanderzuführen, haben wir die mittlere Phase L2 räumlich um 140 Millimeter versetzt angeordnet.
 
-        \textbf{Resultat:}
-        Das Eisen leitet den magnetischen Fluss schlechter, weshalb der Sekundärstrom einbricht und wir zu wenig messen.
+        \textbf{Effekt:}
+        Durch das entstehende gleichschenklige Dreieck heben sich die magnetischen Vektoren im Zentrum gegenseitig auf, was den Störeinfluss physikalisch minimiert.
     }
 \end{frame}
 
-\subsection{Versuchsaufbau und Geometrie}
 
-% --- Folie 6: Messstrecke (HERO IMAGE) ---
+% --- Folie 6: Messstrecke ---
 \begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
 
     % Nur ein kurzer Satz statt Bulletpoints
@@ -186,34 +217,19 @@
     }
 \end{frame}
 
-% --- Folie 7: Dreiecksanordnung (HERO IMAGE) ---
-\begin{frame}{Konstruktive Maßnahme: Dreiecksanordnung}
 
-    \centering
-    \textbf{Realisierung der geometrischen Optimierung ($\Delta$-Anordnung)}
+% --- Folie 7: Originalmessung ---
+\begin{frame}{Verlauf Original}
 
-    \vspace{0.2cm}
-
-    % Auch hier: Maximale Größe für das Foto/Zeichnung
-    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/Bilder/kupferschinen_gesamtaufbau.pdf}
-
-    % Zeit: (08:45 - 09:30)
-    \slidetime{08:45}{09:30}
+    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/Bilder/verlauf_gesamt.png}
+    \slidetime{08:00}{08:45}
     \keynote{
-        \begin{itemize}
-            \item L2 versetzt (Dreieck)
-            \item Symmetrische Abstände
-            \item Feldkompensation
-        \end{itemize}
+
     }
     \note{
-        \textbf{Realisierung:}
-        Dieses Foto zeigt die praktische Umsetzung der geometrisch optimierten Leiterführung direkt im Schaltschrank.
 
-        \textbf{Konstruktion:}
-        Anstatt alle Schienen flach nebeneinanderzuführen, haben wir die mittlere Phase L2 räumlich um 140 Millimeter versetzt angeordnet.
-
-        \textbf{Effekt:}
-        Durch das entstehende gleichschenklige Dreieck heben sich die magnetischen Vektoren im Zentrum gegenseitig auf, was den Störeinfluss physikalisch minimiert.
     }
 \end{frame}
+
+
+
