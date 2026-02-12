@@ -1,57 +1,145 @@
+% --- Folie 6: Messstrecke ---
+\begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
 
-\section{Messergebnisse 3000 A}
-
-% --- 3000 A: Fehlerkurven ---
-\begin{frame}{Fehlerkurven bei \SI{3000}{A}}
+    % Nur ein kurzer Satz statt Bulletpoints
     \centering
-    % Pfad geprüft: 03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_3000A_kosten/dia_3000A_kosten-Zusammenfassung_MultiCurrent.png}
+    \textbf{Schematischer Aufbau der automatisierten Messstrecke}
+
+    \vspace{0.2cm}
+
+    % Pfad ist korrekt laut Tree
+    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_hochstrom_pruefstand_new.drawio.pdf}
+
+    % Zeit: (08:00 - 08:45)
+    \slidetime{08:00}{08:45}
+    \keynote{
+        \begin{itemize}
+            \item Referenz -> Trafo -> 4kA
+            \item Synchrone Messung
+            \item WinCC Erfassung
+        \end{itemize}
+    }
+    \note{
+        \textbf{Aufbau}
+        Hier sehen Sie das schematische Diagramm unseres automatisierten Hochstrom-Prüfstands für die Versuchsreihen.
+
+        \textbf{Signalfluss}
+        Wir speisen niederspannungsseitig ein und transformieren den Strom über Hochstromtrafos auf bis zu 4000 Ampere hoch.
+
+        \textbf{Vergleich}
+        Das Kernstück ist die synchrone Messung zwischen dem Referenzgerät PAC 4220 und dem jeweiligen Prüfling PAC 3220.
+
+        \textbf{Daten}
+        Alle Messwerte werden zentral über Profinet erfasst und automatisch in WinCC archiviert, um Ablesefehler sicher auszuschließen.
+    }
+\end{frame}
+
+
+% --- Folie 7: Lastprofil (ehemals Verlauf Original) ---
+\begin{frame}{Lastprofil und Prüfablauf}
+    \centering
+    \textbf{Visualisierung der automatisierten Messsequenz}
+
+    \vspace{0.2cm}
+
+    % Bild etwas kleiner, damit Text noch wirkt, aber immer noch dominant
+    \includegraphics[width=\textwidth, height=0.65\textheight, keepaspectratio]{03_Ressourcen/Bilder/verlauf_gesamt.png}
+
+    \vspace{0.3cm}
+
+    \begin{columns}[t, onlytextwidth]
+        \begin{column}{0.48\textwidth}
+            \textbf{Ablauf}
+            \begin{itemize}
+                \item Stufenweise Erhöhung (\SI{5}{\%} bis \SI{120}{\%})
+                \item Vollautomatisierte Ansteuerung
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \textbf{Vorteil}
+            \begin{itemize}
+                \item Identische thermische Belastung
+                \item 100\,\% Reproduzierbarkeit
+            \end{itemize}
+        \end{column}
+    \end{columns}
+
+    \slidetime{08:00}{08:45}
+    \keynote{
+        \begin{itemize}
+            \item Treppenstufen = Lastpunkte
+            \item Reproduzierbarkeit
+            \item Menschlicher Fehler ausgeschlossen
+        \end{itemize}
+    }
+    \note{
+        \textbf{Das Lastprofil}
+        Hier sehen Sie den \frqq Herzschlag\flqq\ unserer Messung – die direkte Aufzeichnung des Primärstroms aus dem Leitsystem.
+
+        \textbf{Verfahren}
+        Wir fahren vollautomatisiert feste Lastpunkte an: Von 5\,\% Teillast bis hinauf zu 120\,\% Überlast. Die Plateaus zeigen die Haltezeiten, in denen sich die Messwerte einschwingen.
+
+        \textbf{Relevanz}
+        Das ist entscheidend für die wissenschaftliche Qualität: Jeder Wandler wird exakt demselben Stressprofil ausgesetzt. Menschliche Ablesefehler oder Schwankungen am Regeltrafo sind durch die SPS-Steuerung ausgeschlossen.
+    }
+\end{frame}
+
+
+\section{Messergebnisse 2000 A}
+
+% --- 2000 A: Genauigkeitsmessung ---
+\begin{frame}{Genauigkeitsmessung bei \SI{2000}{A} (Linearer Bereich)}
+    \centering
+    % Bild angepasst auf 2000 A
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_2000A_presentation.png}
 
     % Zeitplanung
     \slidetime{10:00}{11:00}
     \keynote{
         \begin{itemize}
-            \item Bunt (Parallel): Starke Spreizung
-            \item Grau (Dreieck): Viel engeres Fehlerband
-            \item Sättigung beginnt
+            \item Referenzmessung im Nennbereich
+            \item Alle Wandler arbeiten präzise
+            \item Kaum Unterschiede zwischen Parallel und Dreieck
         \end{itemize}
     }
     \note{
-        \textbf{Szenario 3000 A – Fehlerverlauf:}
-        Hier sehen wir die Fehlerkurven bei 3000 Ampere.
+        \textbf{Ausgangslage bei 2000 A}
+        Zunächst betrachten wir den unkritischen Bereich bei 2000 Ampere.
 
-        \textbf{Beobachtung:}
-        Die bunten Linien (Parallelanordnung) zeigen eine deutliche Spreizung zwischen den Phasen. Man sieht, wie der Fehler bei steigender Last (x-Achse) stark abfällt – ein Zeichen für beginnende Sättigung.
+        \textbf{Beobachtung}
+        Hier arbeiten alle Wandler noch weit unterhalb ihrer Sättigungsgrenze. Die Linien verlaufen fast horizontal und liegen eng beieinander.
 
-        \textbf{Vergleich:}
-        Die grauen Linien (Dreiecksanordnung) liegen deutlich enger beisammen und verlaufen stabiler. Die geometrische Optimierung wirkt hier bereits sehr gut.
+        \textbf{Erkenntnis}
+        Sowohl die Parallelanordnung (Bunt) als auch die Dreiecksanordnung (Gestrichelt) liefern hier normgerechte Ergebnisse. Das System ist magnetisch noch nicht überlastet.
     }
 \end{frame}
 
 
 \section{Messergebnisse 4000 A}
 
-% --- 4000 A: Fehlerkurven ---
-\begin{frame}{Fehlerkurven bei \SI{4000}{A} (Kritischer Bereich)}
+% --- 4000 A: Genauigkeitsmessung ---
+\begin{frame}{Genauigkeitsmessung bei \SI{4000}{A} (Kritischer Bereich)}
     \centering
-    % Pfad geprüft: 03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/dia_4000A_kosten/dia_4000A_kosten-Zusammenfassung_MultiCurrent.png}
+    % Bild bleibt 4000 A
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_4000A_presentation.png}
 
     \slidetime{11:45}{12:45}
     \keynote{
         \begin{itemize}
             \item 4000 A = Extremfall
-            \item Parallel: Totalausfall (Absturz der Kurve)
-            \item Dreieck: Hält noch stand
+            \item Parallel zeigt Totalausfall (Absturz der Kurve)
+            \item Dreieck hält die Genauigkeit deutlich länger
         \end{itemize}
     }
     \note{
-        \textbf{Eskalation auf 4000 A:}
-        Bei 4000 Ampere sehen wir drastische Effekte.
+        \textbf{Eskalation auf 4000 A}
+        Im direkten Vergleich sehen wir nun die drastischen Effekte bei 4000 Ampere.
 
-        \textbf{Analyse:}
-        Achten Sie auf die orangefarbene Linie in der Mitte (Phase L2, Parallel). Der Fehler stürzt komplett ab auf unter -6\%. Das ist messtechnisch ein Totalausfall.
-        Selbst die Dreiecksanordnung (gestrichelt, grau/blau) kommt hier an ihre Grenzen, bleibt aber noch deutlich stabiler als die Standardanordnung.
+        \textbf{Analyse}
+        Achten Sie auf die hellblaue Linie in der Mitte (Phase L2, Parallel). Der Fehler stürzt komplett ab auf unter -6\,\%. Das ist messtechnisch ein Totalausfall durch Sättigung.
+
+        \textbf{Lösung}
+        Die Dreiecksanordnung (dunkelblau gestrichelt) kommt zwar auch an ihre Grenzen, bleibt aber noch stabil genug, um nutzbare Werte zu liefern. Der Unterschied zur vorherigen Folie ist massiv.
     }
 \end{frame}
 
@@ -97,80 +185,118 @@
     \slidetime{12:45}{12:45}
     \note{
         \textbf{Folie 2: Die Vergleichsmetriken}
-        
+
         Darauf aufbauend haben wir zwei Kennzahlen für die Diagramme:
-        
-        1. Die **geometrische Verbesserung**: Wir vergleichen den eben gezeigten Fehler der Parallelanordnung mit dem der Dreiecksanordnung. Ein Wert von 90\% heißt: 90\% des Fehlers sind weg.
-        
-        2. Die **Wirtschaftlichkeit**: Hier teilen wir die technische Verbesserung durch den Kaufpreis. Das zeigt uns, \frqq wie viel Verbesserung ich pro investiertem Euro\flqq bekomme.
+
+        1. Die **geometrische Verbesserung** Wir vergleichen den eben gezeigten Fehler der Parallelanordnung mit dem der Dreiecksanordnung. Ein Wert von 90\% heißt: 90\% des Fehlers sind weg.
+
+        2. Die **Wirtschaftlichkeit** Hier teilen wir die technische Verbesserung durch den Kaufpreis. Das zeigt uns, \frqq wie viel Verbesserung ich pro investiertem Euro\flqq bekomme.
     }
 \end{frame}
 \section{Gesamtvergleich und Effizienz}
 
-% --- DIAGRAMM 1: Wahrerfehler Dreieck Parallel (%) ---
-\begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
+\section{Gesamtvergleich und Effizienz}
 
-    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag0_wahre_fehler_horizontal.png}
+% --- DIAGRAMM 0: Wahrer Fehler (Parallel vs. Dreieck) ---
+\begin{frame}{Gesamtfehler im Vergleich: Parallel vs. Dreieck}
+    \centering
+    % Bild etwas skalieren, damit es gut passt
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag0_wahre_fehler_horizontal.png}
 
-    \slidetime{08:00}{08:45}
+    \slidetime{12:45}{13:30}
     \keynote{
-
+        \begin{itemize}
+            \item Volle Balken sind Parallelanordnung
+            \item Schraffierte Balken sind Dreiecksanordnung
+            \item Massive Reduktion der Balkenlänge durch Dreieck
+        \end{itemize}
     }
     \note{
+        \textbf{Analyse der absoluten Fehler}
+        Dieses Diagramm zeigt die summierten Fehlerwerte über alle Messpunkte.
 
+        \textbf{Lesehilfe}
+        Die vollen Balken repräsentieren die klassische Parallelanordnung. Die schraffierten Balken zeigen denselben Wandler in der optimierten Dreiecksanordnung.
+
+        \textbf{Erkenntnis}
+        Man sieht auf den ersten Blick, dass die schraffierten Balken fast überall deutlich kürzer sind. Besonders beim Celsa Standardwandler bei 2500 Ampere fällt der Fehler von über 7 auf unter 2 Einheiten. Die Geometrie wirkt hier wie ein physischer Filter gegen Störfelder.
+    }
+\end{frame}
+
+
+% --- NEUE FOLIE: Kostenübersicht ---
+\begin{frame}{Wirtschaftliche Einordnung der Wandler}
+    \centering
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag_kosten_horizontal.png}
+
+    \slidetime{13:30}{14:00}
+    \keynote{
+        \begin{itemize}
+            \item Standardwandler sind sehr günstig
+            \item Kompensierte Wandler kosten ein Vielfaches
+            \item Preisschere öffnet sich bei hohen Strömen
+        \end{itemize}
+    }
+    \note{
+        \textbf{Der Kostenfaktor}
+        Bevor wir die Effizienz bewerten, müssen wir die Investitionskosten betrachten.
+
+        \textbf{Vergleich}
+        Die hellblauen und roten Balken zeigen die Standardwandler. Diese liegen preislich weit unter 100 Euro.
+        Ganz unten sehen sie die dunkelblauen Balken für die kompensierten Wandler bei 3000 und 4000 Ampere. Diese kosten mit über 300 bis 400 Euro ein Vielfaches der Standardgeräte.
+
+        \textbf{Bedeutung}
+        Wenn wir mit der Dreiecksanordnung die billigen Wandler auf das Niveau der teuren Wandler heben können, ist der wirtschaftliche Hebel enorm.
     }
 \end{frame}
 
 
 % --- DIAGRAMM 2: Verbesserung Dreieck (%) ---
-\begin{frame}{Verbesserung durch Dreiecksanordnung (in \%)}
+\begin{frame}{Wirksamkeit der geometrischen Optimierung}
     \centering
-    % KORRIGIERT: diag1_dreieck_pct.png statt diagramm1...
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag1_dreieck_pct.png}
+    % Pfad beibehalten
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag1_dreieck_pct.png}
 
     \slidetime{12:45}{13:30}
     \keynote{
         \begin{itemize}
-            \item Zeigt: Wie viel \% besser ist Dreieck als Parallel?
-            \item 3000 A: Enorme Verbesserung (>90\%)
-            \item Standard-Wandler (Rot) profitieren am meisten
+            \item Relative Fehlerreduktion durch Geometrie
+            \item Über 90 Prozent Verbesserung bei 3000 A
+            \item Standardwandler zeigen größten Effekt
         \end{itemize}
     }
     \note{
-        \textbf{Geometrische Optimierung (Diagramm 1):}
-        
-        Hier sehen wir, wie viel Prozent Fehler wir allein durch die Änderung der Geometrie von Parallel auf Dreieck einsparen.
-        
-        \textbf{Auffällig:}
-        Besonders bei 3000 A (in der Mitte) sehen wir riesige Balken. Das bedeutet, hier eliminiert die Dreiecksanordnung fast den gesamten Fehler, der in der Parallelanordnung auftrat.
-        
-        \textbf{Fazit:}
-        Der \frqq billige\flqq Standardwandler (Rot) profitiert am stärksten von der geometrischen Anordnung.
+        \textbf{Geometrische Optimierung}
+        Hier sehen wir die prozentuale Fehlerreduktion durch den Wechsel von Parallelanordnung auf Dreiecksanordnung.
+
+        \textbf{Beobachtung}
+        Besonders bei 3000 Ampere zeigen sich hohe Werte. Das bedeutet hier eliminiert die Dreiecksanordnung fast den gesamten Fehler der in der Parallelanordnung auftrat.
+
+        \textbf{Schlussfolgerung}
+        Der Standardwandler profitiert am stärksten von der geometrischen Anordnung und erreicht dadurch fast die Güte der teureren Systeme.
     }
 \end{frame}
 
 % --- DIAGRAMM 3: Wirtschaftlichkeit Dreieck (%/€) ---
-\begin{frame}{Wirtschaftlichkeit der Geometrie (\% pro €)}
+\begin{frame}{Ökonomische Bewertung der Maßnahmen}
     \centering
-    % KORRIGIERT: diag2_dreieck_pct_eur.png statt diagramm2...
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/vergleiche/diag2_dreieck_pct_eur.png}
+    % Pfad beibehalten
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag2_dreieck_pct_eur.png}
 
     \slidetime{13:30}{14:15}
     \keynote{
         \begin{itemize}
-            \item Verbesserung normiert auf den Preis
-            \item Hohe Balken = Viel Leistung für wenig Geld
-            \item Standard (Rot) schlägt High-Tech
+            \item Verbesserung normiert auf Investitionskosten
+            \item Hohe Effizienz bei günstigen Wandlern
+            \item Teure Systeme profitieren weniger stark
         \end{itemize}
     }
     \note{
-        \textbf{Ökonomischer Blick (Diagramm 2):}
-        
-        Wenn wir die Verbesserung in Relation zum Kaufpreis setzen, ändert sich das Bild.
-        
-        \textbf{Ergebnis:}
-        Da die Standard-Wandler (MBS, Rot) sehr günstig sind, ist ihr\frqq Verbesserungs-Gewinn pro investiertem Euro\flqq extrem hoch.
-        Die teuren FFP-Wandler (Orange) sind zwar technisch top, aber der relative Gewinn durch die Geometrie fällt kaufmännisch weniger ins Gewicht, da sie ohnehin schon teurer sind.
+        \textbf{Wirtschaftliche Analyse}
+        Wenn wir die technische Verbesserung in Relation zum Kaufpreis setzen ändert sich das Bild.
+
+        \textbf{Ergebnis}
+        Da die Standardwandler sehr günstig sind ist ihr Gewinn an Genauigkeit pro investiertem Euro sehr hoch.
+        Die FFP Wandler sind zwar technisch führend aber der relative Gewinn durch die Geometrie fällt kaufmännisch weniger ins Gewicht da die Basiskosten bereits höher sind.
     }
 \end{frame}
-

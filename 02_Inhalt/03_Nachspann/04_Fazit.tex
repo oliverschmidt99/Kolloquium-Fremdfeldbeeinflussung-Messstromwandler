@@ -1,87 +1,138 @@
 \section{Fazit und Ausblick}
 
-\begin{frame}{Zusammenfassung der Ergebnisse}
-\begin{columns}[c]
-  \begin{column}{0.62\textwidth}
-    \textbf{Technisch}
-    \begin{itemize}
-      \item \textbf{Parallel:} ab $>$\SI{2500}{A} Sättigung, bis \SI{-6}{\%}.
-      \item \textbf{$\Delta$-Geometrie:} reduziert Fehler um $>$\SI{90}{\%}.
-      \item \textbf{FFP:} nahezu immun, aber teurer.
-    \end{itemize}
-
-    \vspace{0.25cm}
-    \textbf{Wirtschaftlich}
-    \begin{itemize}
-      \item \textbf{Bestes P/L:} Standardwandler + $\Delta$.
-      \item \textbf{FFP lohnt sich:} wenn Umbau nicht möglich (Nachrüstung/Platz).
-    \end{itemize}
-  \end{column}
-
-  \begin{column}{0.34\textwidth}
-    \centering
-    \begin{beamercolorbox}[sep=0.35em,center,rounded=true]{cHSblue!10}
-      \textbf{Empfehlung}\par\vspace{0.1cm}
-      \Huge $\Delta$\par\vspace{0.05cm}
-      \normalsize Dreieck
-    \end{beamercolorbox}
-  \end{column}
-\end{columns}
-
-\slidetime{15:00}{16:30}
-\keynote{
-  \begin{itemize}
-    \item Parallel kritisch
-    \item $\Delta$ reduziert Fehler $>$90\%
-    \item Standard + $\Delta$ meist ausreichend
-  \end{itemize}
-}
+% --- Folie 1: Bewertung und Zusammenfassung ---
+\begin{frame}{Bewertung der Lösungsansätze}
+    % Schriftgröße für die ganze Folie etwas verkleinern, damit es passt
+    \small 
+    
+    \begin{columns}[c, onlytextwidth]
+      \begin{column}{0.65\textwidth}
+        
+        % 1. Kompensierte Wandler
+        \textbf{1. Kompensierte Wandler}
+        \begin{itemize} \setlength\itemsep{0pt} % Kein Abstand zwischen Punkten
+          \item Technisch führend (höchste Genauigkeit)
+          \item Investitionskosten Faktor 2 bis 6 höher
+        \end{itemize}
+    
+        \vspace{0.3cm} % Manueller Abstand, aber kontrolliert
+        
+        % 2. FFP
+        \textbf{2. Fremdfeld-Protektion (FFP)}
+        \begin{itemize} \setlength\itemsep{0pt}
+          \item Hohe Genauigkeit bei Ausrichtung
+          \item Ideal zur Nachrüstung im Bestand
+        \end{itemize}
+    
+        \vspace{0.3cm}
+        
+        % 3. Dreieck
+        \textbf{3. Dreiecksanordnung (Standard)}
+        \begin{itemize} \setlength\itemsep{0pt}
+          \item Normerfüllung durch Geometrie
+          \item Preis-Leistungs-Sieger
+        \end{itemize}
+        
+        \vspace{0.2cm}
+        \textit{\footnotesize Fazit: Alle Technologien reduzieren L2-Verzerrung.}
+      \end{column}
+    
+      \begin{column}{0.32\textwidth}
+        \centering
+        
+        % Empfehlungs-Box
+        \begin{beamercolorbox}[sep=0.5em,center,rounded=true]{cHSblue!10}
+          \textbf{Empfehlung}\par\vspace{0.1cm}
+          \Huge $\Delta$\par\vspace{0.05cm}
+          \normalsize Dreieck
+        \end{beamercolorbox}
+        
+        \vspace{0.5cm}
+        
+        % Strategie-Box
+        \begin{beamercolorbox}[sep=0.5em,center,rounded=true]{green!10}
+            \centering
+            \footnotesize 
+            \textbf{Neu:} Dreieck\\ 
+            \vspace{0.1cm}
+            \textbf{Bestand:} FFP\\
+            \vspace{0.1cm}
+            \textbf{Präzise:} Kompensiert
+        \end{beamercolorbox}
+      \end{column}
+    \end{columns}
+    
+    \slidetime{15:00}{16:30}
+    \keynote{
+      \begin{itemize}
+        \item Kompensiert: Präzise aber teuer
+        \item FFP: Lösung für Bestand
+        \item Dreieck: Wirtschaftlichste Lösung
+      \end{itemize}
+    }
+    \note{
+        \textbf{Detaillierte Bewertung}
+        Alle untersuchten Technologien konnten die starke Verzerrung auf der Phase L2 verbessern. Die Unterschiede liegen in der Anwendung:
+    
+        \textbf{Kompensierte Wandler}
+        Diese Technologie ist messmethodisch führend und bietet maximale Genauigkeit. Ökonomisch betrachtet sind sie jedoch um den Faktor 2 bis 6 teurer als Standardwandler.
+    
+        \textbf{FFP-Technologie}
+        Die Protektoren arbeiten sehr genau, solange sie korrekt zum Magnetfeld ausgerichtet sind. Ihre Stärke liegt in der Nachrüstbarkeit alter Anlagen.
+    
+        \textbf{Dreiecksanordnung}
+        Sie ist der klare Preis-Leistungs-Sieger. Durch die einfache geometrische Verschiebung halten günstige Standardwandler die Normvorgaben sicher ein.
+    }
 \end{frame}
 
 
-% --- Folie 2: Ausblick und Handlungsempfehlung ---
-\begin{frame}{Ausblick und Handlungsempfehlung}
+% --- Folie: Bewertung Dreiecksanordnung (Fokus) ---
+\begin{frame}{Bewertung: Dreiecksanordnung (Empfehlung)}
 
-\textbf{Neuanlagen}
-\begin{itemize}
-    \item $\Delta$-Anordnung als Standard ab $I > \SI{2500}{A}$
-    \item CAD-Vorlagen anpassen (L2-Versatz)
-\end{itemize}
+    \begin{columns}[c]
+        % Linke Spalte: Text (55%)
+        \begin{column}{0.55\textwidth}
+            \begin{itemize}
+                \item Preis-Leistungs-Sieger im Vergleich
+                \item Normerfüllung durch geometrische Verschiebung im Nennstrombereich realisiert
+                \item Einsatz kostengünstiger Standardwandler möglich
+            \end{itemize}
 
-\vspace{0.3cm}
-\textbf{Bestandsanlagen}
-\begin{itemize}
-    \item Bei Abrechnungsrelevanz: FFP-Wandler
-    \item Kompensationswandler nur bei extremen Störfeldern
-\end{itemize}
+            \begin{beamercolorbox}[sep=0.5em,center,rounded=true]{cHSblue!10}
+                \textbf{Fazit}
+                \par\vspace{0.1cm}
+                \small
+                Die Verzerrung auf Leiter L2 wird korrigiert und die Genauigkeitsklasse 1 sicher eingehalten.
+            \end{beamercolorbox}
+        \end{column}
 
-\vspace{0.3cm}
-\begin{beamercolorbox}[sep=0.35em,center,rounded=true]{green!10}
-    \centering
-    \textit{Klasse 1 ist durch geometrische Optimierung nahezu kostenneutral erreichbar.}
-\end{beamercolorbox}
+        % Rechte Spalte: Bild (45%)
+        \begin{column}{0.45\textwidth}
+            \centering
+            % Bild kann jetzt größer sein, da mehr Platz vorhanden ist
+            \includegraphics[width=\linewidth, height=0.75\textheight, keepaspectratio]{03_Ressourcen/Bilder/kupferschinen_gesamtaufbau_3d.png}
+            \par\vspace{0.1cm} \tiny Realisierung der Dreiecksanordnung
+        \end{column}
+    \end{columns}
 
-\slidetime{16:30}{18:00}
+    \slidetime{16:30}{18:00}
 
-\keynote{
-    \begin{itemize}
-        \item Neu: $\Delta$ als Standard
-        \item Bestand: FFP
-        \item Klasse 1 ohne Mehrkosten möglich
-    \end{itemize}
-}
+    \keynote{
+        \begin{itemize}
+            \item Einfache Verschiebung
+            \item Große Wirkung
+            \item Kosteneffizienteste Lösung
+        \end{itemize}
+    }
 
-\note{
-    \textbf{Handlungsempfehlung:}
+    \note{
+        \textbf{Bewertung der Dreiecksanordnung}
+        Die Dreiecksanordnung in Kombination mit günstigen Standardwandlern zeigt sich in unseren Messungen als wahrer Preis-Leistungs-Gewinner.
 
-    \textbf{Neuanlagen:}  
-    Ab 2500 A sollte die mittlere Phase (L2) konstruktiv versetzt werden.  
-    Die Anpassung der CAD-Standards verursacht kaum Mehrkosten, verhindert jedoch systematisch Sättigungseffekte.
+        \textbf{Funktionsweise}
+        Durch die einfache geometrische Verschiebung der mittleren Phase konnten wir die Messwerte im Nennstrombereich direkt verbessern. Die starke Verzerrung auf dem Leiter L2 wird physikalisch kompensiert.
 
-    \textbf{Bestand:}  
-    Wenn kein Schienenumbau möglich ist, sind FFP-Wandler die technisch sichere Lösung.
-
-    \textbf{Fazit:}  
-    Die Genauigkeitsklasse 1 kann auch bei hohen Strömen eingehalten werden – primär durch Geometrie, nicht durch teurere Wandler.
-}
+        \textbf{Ergebnis}
+        Damit ist es möglich, die geforderte Norm einzuhalten, ohne auf teure Spezialwandler zurückgreifen zu müssen.
+    }
 \end{frame}
