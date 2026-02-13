@@ -1,10 +1,10 @@
-% --- 01_Einstellungen/praeambel.tex ---
-% Lädt alle Pakete für die BEAMER-Präsentation
+% --- Dateiname: 01_Einstellungen/praeambel.tex ---
+% Beschreibung: Lädt alle Pakete und setzt technische Grundeinstellungen.
 
 % 1. BASIS-EINSTELLUNGEN & KODIERUNG
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[ngerman]{babel}      % Deutsche Bezeichnungen für Datum, Abschnitte etc.
+\usepackage[ngerman]{babel}      % Deutsche Bezeichnungen
 
 % 2. BEAMER-SPEZIFISCHE PAKETE & FONTS
 \usepackage{pgfpages}            % Nötig für Notizen auf dem zweiten Bildschirm
@@ -14,7 +14,6 @@
 % 3. MATHEMATIK & EINHEITEN
 \usepackage{amsmath}
 \usepackage{siunitx}  % Für korrekten Satz von Einheiten
-% Konfiguration für siunitx
 \sisetup{
     locale = DE,
     range-units = single,
@@ -23,11 +22,10 @@
 
 % 4. GRAFIK & FARBEN
 \usepackage{xcolor}
-\usepackage{colortbl} % <--- WICHTIG: Ermöglicht \rowcolor in Tabellen
-
-\usepackage{graphicx} % Wichtig für \includegraphics
-\usepackage[export]{adjustbox}
-\usepackage{svg}      % Um SVG-Grafiken einzubinden
+\usepackage{colortbl} % Ermöglicht \rowcolor in Tabellen
+\usepackage{graphicx} 
+\usepackage[export]{adjustbox} % Wichtig für 'valign=c'
+\usepackage{svg}      % Um SVG-Grafiken einzubinden (optional)
 
 % 5. TABELLEN & LAYOUT
 \usepackage{booktabs} % Für schöne Tabellen
@@ -38,116 +36,16 @@
 \usepackage{xurl}     % Bessere Umbrüche für URLs
 \Urlmuskip=0mu plus 1mu
 
-\usepackage{hyperref} % (Lädt Beamer i.d.R. automatisch)
+\usepackage{hyperref} 
 \usepackage{listings} % Für Code-Listings
 \lstset{
   breaklines=true,
   breakatwhitespace=true,
-  columns=fullflexible
+  columns=fullflexible,
+  basicstyle=\ttfamily\small
 }
 
-% --- KONFIGURATION DER NOTIZEN ---
-% Option: Notizen auf zweitem Bildschirm (Rechts)
-%\setbeameroption{show notes on second screen=right}
-
-% --- NEUE DEFINITIONEN ---
-
-% Farben für den Fortschrittsbalken definieren
-\setbeamercolor{progress bar background}{bg=gray!30}
-\setbeamercolor{progress bar foreground}{bg=blue!80!black}
-
-% FARBDEFINITION FÜR DIE BEISPIEL-COLORBOX
-\definecolor{myexamplecolor}{RGB}{220,230,250} 
-\setbeamercolor{examplebox}{bg=myexamplecolor,fg=black}
-
-\makeatletter
-
-% --- 1. FARBEN FÜR NOTIZSEITEN ---
-\definecolor{MyPastelBackground}{RGB}{225, 250, 225} 
-\definecolor{MySeparator}{RGB}{0, 0, 0}
-\definecolor{CrimsonRed}{RGB}{220, 20, 60}
-
-% --- 2. LOGIK FÜR INHALTE (Keynote & Zeit) ---
-\gdef\insertkeynote{}
-\gdef\inserttimestart{--:--}
-\gdef\inserttimeend{--:--}
-
-% Befehl 1: Wichtige Notiz
-\newcommand{\keynote}[1]{\gdef\insertkeynote{#1}}
-
-% Befehl 2: Zeitplanung
-\newcommand{\slidetime}[2]{%
-  \gdef\inserttimestart{#1}%
-  \gdef\inserttimeend{#2}%
-}
-
-% AUTOMATISCHER RESET NACH JEDER SEITE
-\addtobeamertemplate{note page}{}{
-   \gdef\insertkeynote{}
-   \gdef\inserttimestart{--:--}
-   \gdef\inserttimeend{--:--}
-}
-
-% TEMPLATE FÜR NOTIZSEITEN
-\setbeamertemplate{note page}{
-  \insertvrule{\paperheight}{MyPastelBackground}%
-  \vskip-\paperheight%
-  \nointerlineskip%
-
-  \vbox to \paperheight{%
-    % === REIHE 1: OBEN (Keynote & Zeit) ===
-    \hbox to \paperwidth{%
-      % FELD 1: LINKS OBEN (Keynote)
-      \begin{minipage}[t][0.45\paperheight]{0.65\paperwidth}
-        \vspace{0.5em}
-        \centering
-        \textbf{\large \color{CrimsonRed} Wichtig / Note 1}
-        \par \vspace{0.5em}
-        \begin{minipage}[t]{0.6\paperwidth}
-          \adjustbox{max width=\linewidth, max height=0.30\paperheight}{%
-            \parbox[t]{\linewidth}{%
-              \RaggedRight\normalfont\small
-              \setlength{\parindent}{0pt}%
-              \setlength{\parskip}{0.4em}%
-              \sloppy
-              \insertkeynote
-            }%
-          }%
-        \end{minipage}
-      \end{minipage}%
-      \textcolor{MySeparator}{\vrule width 1.5pt}%
-      % FELD 2: RECHTS OBEN (Zeitplanung)
-      \begin{minipage}[t][0.45\paperheight]{0.33\paperwidth}
-        \vspace{1em}
-        \centering
-        \textbf{\large Zeitplanung}
-        \par \vspace{1.em}
-        \begingroup
-          \color{black}
-          \Huge \textbf{\inserttimestart} \\[0.2em]
-          \large \color{gray} bis \\[0.2em]
-          \Huge \textbf{\inserttimeend}
-        \endgroup
-      \end{minipage}%
-    }%
-    \nointerlineskip
-    \textcolor{MySeparator}{\hrule height 1.5pt}%
-    \nointerlineskip
-    % === REIHE 2: UNTEN (Details / Note 2) ===
-    \begin{minipage}[t][\textwidth]{\textwidth}
-      \vspace{1em}
-      \centering
-      \begin{minipage}[t]{0.99\textwidth}
-        \adjustbox{max height=0.50\textwidth, max width=\textwidth}{%
-          \parbox[t]{\linewidth}{%
-            \RaggedRight\sloppy\small
-            \setlength{\parindent}{0pt}%
-            \setlength{\parskip}{0.2em}%
-            \insertnote
-          }%
-        }%
-      \end{minipage}
-    \end{minipage}
-  }%
-}
-\makeatother
+% --- DUMMY-BEFEHLE (FALLBACK) ---
+% Verhindert Fehler, falls layout.tex noch nicht geladen ist
+\providecommand{\slidetime}[2]{}
+\providecommand{\keynote}[1]{}
