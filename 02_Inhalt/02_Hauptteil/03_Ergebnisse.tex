@@ -40,50 +40,6 @@
     }
 \end{frame}
 
-% --- Folie 7: Lastprofil ---
-\begin{frame}{Lastprofil und Prüfablauf}
-    \centering
-    \textbf{Visualisierung der automatisierten Messsequenz}
-
-    \includegraphics[width=\textwidth, height=0.65\textheight, keepaspectratio]{03_Ressourcen/Bilder/verlauf_gesamt.png}
-
-
-    %\begin{columns}[t, onlytextwidth]
-    %    \begin{column}{0.48\textwidth}
-    %        \textbf{Ablauf}
-    %        \begin{itemize}
-    %            \item Stufenweise Erhöhung (\SI{5}{\%} bis \SI{120}{\%})
-    %            \item Vollautomatisierte Ansteuerung
-    %        \end{itemize}
-    %    \end{column}
-    %    \begin{column}{0.48\textwidth}
-    %        \textbf{Vorteil}
-    %        \begin{itemize}
-    %            \item Identische thermische Belastung
-    %            \item 100\,\% Reproduzierbarkeit
-    %        \end{itemize}
-    %    \end{column}
-    %\end{columns}
-
-    \slidetime{07:55}{08:40}
-    \keynote{
-        \begin{itemize}
-            \item Treppenstufen = Lastpunkte
-            \item Reproduzierbarkeit
-            \item Menschlicher Fehler ausgeschlossen
-        \end{itemize}
-    }
-    \note{
-        \textbf{Das Lastprofil}
-        Hier sehen Sie den \frqq Herzschlag\flqq\ unserer Messung – die direkte Aufzeichnung des Primärstroms aus dem Leitsystem.
-
-        \textbf{Verfahren}
-        Wir fahren vollautomatisiert feste Lastpunkte an: Von 5\,\% Teillast bis hinauf zu 120\,\% Überlast. Die Plateaus zeigen die Haltezeiten, in denen sich die Messwerte einschwingen.
-
-        \textbf{Relevanz}
-        Das ist entscheidend für die wissenschaftliche Qualität: Jeder Wandler wird exakt demselben Stressprofil ausgesetzt. Menschliche Ablesefehler oder Schwankungen am Regeltrafo sind durch die SPS-Steuerung ausgeschlossen.
-    }
-\end{frame}
 
 
 % ==========================================
@@ -184,99 +140,8 @@
 % ==========================================
 \section{Vergleichende Analyse}
 
-\subsection{Methodik und Kosten}
 
-% --- Metriken ---
-\begin{frame}{Berechnungsgrundlagen der Analyse}
-    \small
-    Um die Diagramme korrekt zu interpretieren, hier die Methodik:
 
-    \vspace{0.2cm}
-
-    \textbf{1. Mittlerer Gesamtfehler (Basiswert)}
-    \begin{equation*}
-        E_{\text{total}} = \frac{1}{3} \sum_{\text{Phasen}} \left( \frac{1}{n} \sum_{\text{Last}} |F_{\text{Messwert}}| \right)
-    \end{equation*}
-    \footnotesize{Durchschnitt der \textbf{Beträge} über alle Lastpunkte (5\%--120\%) und Phasen.}
-
-    \vspace{0.3cm}
-    \hrule
-    \vspace{0.3cm}
-
-    \begin{columns}[t]
-        \begin{column}{0.48\textwidth}
-            \centering
-            \textbf{2. Geom. Verbesserung (\%)}
-            \begin{equation*}
-                \eta_{\text{geo}} = \left( 1 - \frac{E_{\text{Dreieck}}}{E_{\text{Parallel}}} \right) \cdot 100
-            \end{equation*}
-            \footnotesize{Anteil des eliminierten Fehlers durch Geometrie-Wechsel.}
-        \end{column}
-        \begin{column}{0.48\textwidth}
-            \centering
-            \textbf{3. Wirtschaftlichkeit (\%/€)}
-            \begin{equation*}
-                \eta_{\text{eco}} = \frac{\eta_{\text{geo}}}{\text{Preis (€)}}
-            \end{equation*}
-            \footnotesize{Technischer Gewinn normiert auf Investitionskosten.}
-        \end{column}
-    \end{columns}
-
-    \slidetime{11:45}{12:40}
-    \note{
-        \textbf{Warum diese Kennzahlen?}
-        Die Diagramme enthalten viele Lastpunkte und drei Phasen. Um daraus eine \emph{vergleichbare} Aussage pro Wandler und Geometrie abzuleiten, verdichten wir die Kurven auf wenige robuste Kennzahlen.
-
-        \textbf{1) Mittlerer Gesamtfehler \(E_{\text{total}}\)}
-        Wir mitteln über:
-        \begin{itemize}
-            \item alle \textbf{Lastpunkte} (5\,\% bis 120\,\%),
-            \item alle \textbf{Phasen} (L1, L2, L3),
-        \end{itemize}
-        und verwenden den \textbf{Betrag} \(|F_{\text{Messwert}}|\), damit sich positive/negative Fehler nicht gegenseitig ``schönrechnen''.
-        Das Ergebnis ist ein einziger Basiswert pro Messaufbau: \emph{Wie groß ist der typische Fehler im Betrieb?}
-
-        \textbf{2) Geometrische Verbesserung \(\eta_{\text{geo}}\)}
-        \[
-        \eta_{\text{geo}}=\left(1-\frac{E_{\Delta}}{E_{\parallel}}\right)\cdot 100
-        \]
-        Diese Kennzahl sagt: \emph{Wie viel Prozent des ursprünglichen Fehlers (Parallel) wird durch Dreieck eliminiert?}
-        Beispiel: \(E_{\parallel}=6\) und \(E_{\Delta}=1\) \(\Rightarrow\) \(\eta_{\text{geo}}=83\,\%\).
-
-        \textbf{3) Wirtschaftlichkeit \(\eta_{\text{eco}}\) in \(\%\!/\text{€}\)}
-        \[
-        \eta_{\text{eco}}=\frac{\eta_{\text{geo}}}{\text{Preis}}
-        \]
-        Damit vergleichen wir nicht nur ``was ist technisch gut?'', sondern \emph{wie viel Verbesserung bekomme ich pro investiertem Euro?}
-        Genau diese Sicht ist später entscheidend, um Standardwandler + Dreieck gegen teure Spezialwandler einzuordnen.
-    }
-\end{frame}
-
-% --- Kostenübersicht ---
-\begin{frame}{Wirtschaftliche Einordnung der Wandler}
-    \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag_kosten_horizontal.png}
-
-    \slidetime{12:40}{13:30}
-    \keynote{
-        \begin{itemize}
-            \item Standardwandler sind sehr günstig
-            \item Kompensierte Wandler kosten ein Vielfaches
-            \item Preisschere öffnet sich bei hohen Strömen
-        \end{itemize}
-    }
-    \note{
-        \textbf{Der Kostenfaktor}
-        Bevor wir die Effizienz bewerten, müssen wir die Investitionskosten betrachten.
-
-        \textbf{Vergleich}
-        Die hellblauen und roten Balken zeigen die Standardwandler. Diese liegen preislich weit unter 100 Euro.
-        Ganz unten sehen sie die dunkelblauen Balken für die kompensierten Wandler bei 3000 und 4000 Ampere. Diese kosten mit über 300 bis 400 Euro ein Vielfaches der Standardgeräte.
-
-        \textbf{Bedeutung}
-        Wenn wir mit der Dreiecksanordnung die billigen Wandler auf das Niveau der teuren Wandler heben können, ist der wirtschaftliche Hebel enorm.
-    }
-\end{frame}
 
 
 \subsection{Gesamtvergleich und Effizienz}

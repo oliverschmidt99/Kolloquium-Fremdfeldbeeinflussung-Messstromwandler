@@ -1,7 +1,9 @@
 % --- Dateiname: 01_Einstellungen/layout.tex ---
-% Beschreibung: Design (Corporate Design), Farben, Templates und Notizen-Logik.
+% Beschreibung: Zentrales Design (Corporate Design), Farben, Templates und Notizen-Logik.
 
-% --- 1. BEAMER GRUNDEINSTELLUNGEN ---
+% ==========================================
+% 1. BEAMER GRUNDEINSTELLUNGEN
+% ==========================================
 \clubpenalty = 10000
 \widowpenalty = 10000
 \hyphenpenalty = 1000
@@ -9,95 +11,78 @@
 
 \useoutertheme{split}
 \useinnertheme{default}
-\setbeamertemplate{blocks}[rounded][shadow=false]
 \usefonttheme{professionalfonts}
-\setbeamertemplate{navigation symbols}{}
 
-% Abstände (aus fbtechnik übernommen)
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+% Abstände
 \parindent0.0cm
 \parskip1.5ex plus0.5ex minus0.5ex
 
-% --- 2. FARBDEFINITIONEN ---
-% Neue Corporate Farbe
+% ==========================================
+% 2. FARBDEFINITIONEN & ZUWEISUNGEN
+% ==========================================
+% -- Definitionen --
 \definecolor{JanssenDarkBlue}{HTML}{001F5F} 
-
-% Farben aus alter fbtechnik Datei (zur Kompatibilität erhalten)
-\definecolor{fbtechnik}{gray}{.2}
-\definecolor{logobg}{rgb}{0.537,0.7765,0.796}
 \definecolor{cHSmint}{RGB}{138,198,203}
 \definecolor{cHSfont}{RGB}{88,88,90}
+\definecolor{logobg}{rgb}{0.537,0.7765,0.796}
+\definecolor{fbtechnik}{gray}{.2} % Legacy
 
-% Mapping: Alte cHSblue wird zu JanssenDarkBlue
+% -- Aliase --
 \definecolor{cHSblue}{named}{JanssenDarkBlue}
 
-% --- 3. FARBZUWEISUNGEN ---
-\setbeamercolor{section in head/foot}{bg=white,fg=black}
-\setbeamercolor{subsection in head/foot}{bg=cHSmint,fg=white}
-
-\setbeamercolor{block body}{bg=white,fg=black}
-\setbeamercolor{block title}{bg=white,fg=JanssenDarkBlue}
-
-\setbeamercolor{item projected}{fg=white,bg=JanssenDarkBlue}
-\setbeamercolor{item}{fg=JanssenDarkBlue,bg=white}
-
-\setbeamercolor{frametitle}{bg=JanssenDarkBlue,fg=white}
-\setbeamercolor{framesubtitle}{bg=JanssenDarkBlue,fg=cHSmint}
+% -- Zuweisungen (Beamer Colors) --
+\setbeamercolor{normal text}{bg=white,fg=black}
+\setbeamercolor{structure}{bg=white,fg=JanssenDarkBlue}
 
 \setbeamercolor{title}{bg=white,fg=JanssenDarkBlue}
 \setbeamercolor{subtitle}{bg=white,fg=JanssenDarkBlue}
-\setbeamercolor{logo}{fg=logobg,bg=logobg}
+\setbeamercolor{frametitle}{bg=JanssenDarkBlue,fg=white}
+\setbeamercolor{framesubtitle}{bg=JanssenDarkBlue,fg=cHSmint}
 
+\setbeamercolor{section in head/foot}{bg=white,fg=black}
+\setbeamercolor{subsection in head/foot}{bg=cHSmint,fg=white}
 \setbeamercolor{title in head/foot}{bg=white,fg=black}
 \setbeamercolor{author in head/foot}{bg=JanssenDarkBlue,fg=white}
-\setbeamercolor{structure}{bg=white,fg=JanssenDarkBlue}
-\setbeamercolor{normal text}{bg=white,fg=black}
 
-% Progress Bar
+\setbeamercolor{block title}{bg=white,fg=JanssenDarkBlue}
+\setbeamercolor{block body}{bg=white,fg=black}
+
+\setbeamercolor{item projected}{fg=white,bg=JanssenDarkBlue}
+\setbeamercolor{item}{fg=JanssenDarkBlue,bg=white}
+\setbeamercolor{logo}{fg=logobg,bg=logobg}
+
 \setbeamercolor{progress bar background}{bg=gray!30}
 \setbeamercolor{progress bar foreground}{bg=JanssenDarkBlue}
 
-% --- 4. SCHRIFTARTEN ---
+% ==========================================
+% 3. SCHRIFTARTEN (FONTS)
+% ==========================================
+\setbeamerfont{title}{size=\Huge, series=\bfseries}
+\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
 \setbeamerfont{title in head/foot}{size=\normalsize}
 \setbeamerfont{footline content}{size=\normalsize}
-\setbeamerfont{frametitle}{size=\Large, series=\bfseries}
-\setbeamerfont{title}{size=\Huge, series=\bfseries}
 
-% --- 5. TEMPLATES (TOC, Itemize) ---
-\setbeamertemplate{section in toc}{%
-  \textcolor{JanssenDarkBlue}{$\blacktriangleright$}\ \inserttocsection\par\vskip0.1em
-}
-\setbeamertemplate{itemize subitem}{\textbullet}
-
-% --- 6. SPEZIELLE BLÖCKE (aus fbtechnik) ---
-\newenvironment{eblock}{
-    \setbeamercolor{block body}{bg=cHSblue!40,fg=black}
-    \begin{block}{}
-    \vspace{-3px}
-}{
-    \end{block}
-}
-
-\newenvironment{wblock}{
-    \setbeamercolor{block body}{bg=logobg!2,fg=black}
-    \begin{block}{}
-    \vspace{-3px}
-}{
-    \end{block}
-}
-
-% --- 7. KOPF- UND FUSSZEILE ---
+% ==========================================
+% 4. LAYOUT: KOPF- UND FUSSZEILE
+% ==========================================
 \setbeamertemplate{headline}{}
 
 \setbeamertemplate{footline}{%
   \leavevmode\hbox{%
+    % Linker Teil: Sektionsname
     \begin{beamercolorbox}[wd=0.9\paperwidth,ht=2.25ex,dp=1ex,leftskip=1cm,left]{section in head/foot}%
       \usebeamerfont{footline content}\scriptsize\insertsectionhead%
     \end{beamercolorbox}%
-    \begin{beamercolorbox}[wd=-0.9\paperwidth,ht=2.25ex,dp=1ex,rightskip=1cm,right]{section in head/foot}%
+    % Rechter Teil: Seitenzahl
+    \begin{beamercolorbox}[wd=0.1\paperwidth,ht=2.25ex,dp=1ex,rightskip=1cm,right]{section in head/foot}%
       \usebeamerfont{footline content}\scriptsize\insertframenumber/\inserttotalframenumber%
     \end{beamercolorbox}%
   }%
   \vskip0pt%
+  % Progress Bar
   \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=0ex]{progress bar background}%
     \ifnum\inserttotalframenumber>0%
       \begin{beamercolorbox}[wd=\dimexpr\paperwidth*\insertframenumber/\inserttotalframenumber\relax,ht=1ex,dp=0ex]{progress bar foreground}%
@@ -106,57 +91,123 @@
   \end{beamercolorbox}%
 }
 
-% --- 8. FOLIENTITEL (FRAMETITLE) ---
+% ==========================================
+% 5. LAYOUT: FOLIENTITEL (FRAMETITLE)
+% ==========================================
 \setbeamertemplate{frametitle}{%
-    \nointerlineskip% Dieser Befehl ist KORREKT (verbindet Header nahtlos mit dem Rand)
-    % 1. WIR BEHALTEN DEINE WERTE (ht=1.0cm, dp=0.4cm -> Total 1.4cm)
+    \nointerlineskip%
     \begin{beamercolorbox}[wd=\paperwidth,ht=1.0cm,dp=0.7cm]{frametitle}%
-        % Hier wurden die problematischen \vspace und \nointerlineskip entfernt.
-        % Die Minipage füllt die Box ohnehin komplett aus.
         \begin{minipage}[c][1.4cm][c]{\paperwidth}%
             \hspace{0.5cm}%
-            % Titel
-            \begin{minipage}[c]{0.65\paperwidth}%
+            \begin{minipage}[c]{0.80\paperwidth}%
                 \usebeamerfont{frametitle}\insertframetitle%
             \end{minipage}%
             \hfill%
-            % Logo
             \begin{minipage}[c]{1.5cm}%
                 \centering
-                % Logo etwas kleiner, damit es in 1.4cm gut aussieht
                 \includegraphics[height=1.2cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-ohne_text.pdf}%
             \end{minipage}%
-            \hspace{3.0cm}%
-            % Das \par und \nointerlineskip hier am Ende waren ebenfalls Fehlerquellen und wurden entfernt.
+            \hspace{0.5cm}%
         \end{minipage}%
     \end{beamercolorbox}%
 }
 
-% --- 9. NOTIZEN-LOGIK ---
+% ==========================================
+% 6. LAYOUT: DECKBLATT (TITLEFRAME)
+% ==========================================
+\newcommand{\titleframe}[1][]{
+    \begin{frame}[plain]
+        % Header Balken
+        \vspace{-2px} 
+        \begin{beamercolorbox}[wd=\paperwidth, ht=1.6cm, dp=1.1cm]{frametitle}
+             \begin{minipage}[c][2.0cm][c]{\paperwidth}
+                 \hspace{0.5cm}%
+                 \raisebox{0.3cm}{\includegraphics[height=2.0cm, valign=c]{03_Ressourcen/Logo/hsel-logo-removebg-preview.png}}%
+                 \hfill%
+                 \raisebox{0.3cm}{\includegraphics[height=3.0cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-mit_text.pdf}}%
+                 \hspace{0.5cm}%
+             \end{minipage}
+        \end{beamercolorbox}
+        
+        \vspace{0.5cm}
+        
+        % Titel
+        \begin{center}
+            \usebeamerfont{title}\usebeamercolor[fg]{title}
+            \LARGE \inserttitle\par
+            \vspace{0.1cm}
+            \usebeamerfont{subtitle}\large\insertsubtitle\par
+        \end{center}
+        
+        \vspace{0.2cm}
+        
+        % Info
+        \begin{center}
+            \insertinstitute
+        \end{center}
+        
+        \vfill
+        
+        % Datum
+        \centering
+        \small{\insertdate}
+        \vspace{0.3cm} 
 
-% Farben
+        % Notizen-Argument
+        #1 
+    \end{frame}
+    \setbeamertemplate{background canvas}{}
+}
+
+% ==========================================
+% 7. INHALT: STANDARD-ELEMENTE (TOC, Listen)
+% ==========================================
+\setbeamertemplate{section in toc}{%
+  \textcolor{JanssenDarkBlue}{$\blacktriangleright$}\ \inserttocsection\par\vskip0.1em
+}
+\setbeamertemplate{itemize subitem}{\textbullet}
+
+% ==========================================
+% 8. INHALT: SPEZIELLE BLÖCKE
+% ==========================================
+% E-Block (Blau)
+\newenvironment{eblock}{
+    \setbeamercolor{block body}{bg=cHSblue!40,fg=black}
+    \begin{block}{}
+    \vspace{-3px}
+}{
+    \end{block}
+}
+
+% W-Block (Hell)
+\newenvironment{wblock}{
+    \setbeamercolor{block body}{bg=logobg!2,fg=black}
+    \begin{block}{}
+    \vspace{-3px}
+}{
+    \end{block}
+}
+
+% ==========================================
+% 9. FUNKTIONEN: NOTIZEN-LOGIK
+% ==========================================
 \definecolor{MyPastelBackground}{RGB}{225, 250, 225} 
 \definecolor{MySeparator}{RGB}{0, 0, 0}
 \definecolor{CrimsonRed}{RGB}{220, 20, 60}
 
-% Variablen
 \gdef\insertkeynote{}
 \gdef\inserttimestart{--:--}
 \gdef\inserttimeend{--:--}
 
-% Befehle
-% WICHTIG: Hier \renewcommand nutzen, da die Präambel Dummies definiert hat
 \renewcommand{\keynote}[1]{\gdef\insertkeynote{#1}}
 \renewcommand{\slidetime}[2]{\gdef\inserttimestart{#1}\gdef\inserttimeend{#2}}
 
-% Reset nach jeder Seite
 \addtobeamertemplate{note page}{}{
    \gdef\insertkeynote{}
    \gdef\inserttimestart{--:--}
    \gdef\inserttimeend{--:--}
 }
 
-% Template Note Page
 \makeatletter
 \setbeamertemplate{note page}{
   \insertvrule{\paperheight}{MyPastelBackground}%
@@ -211,55 +262,3 @@
   }%
 }
 \makeatother
-
-% --- 10. TITLEFRAME (Deckblatt) ---
-\newcommand{\titleframe}[1][]{
-    \begin{frame}[plain]
-        % 1. Oberer blauer Balken
-        \vspace{-2px} 
-        \begin{beamercolorbox}[wd=\paperwidth, ht=1.6cm, dp=1.1cm]{frametitle}
-             \begin{minipage}[c][2.0cm][c]{\paperwidth}
-                 \hspace{0.5cm}%
-                 \raisebox{0.3cm}{\includegraphics[height=2.0cm, valign=c]{03_Ressourcen/Logo/hsel-logo-removebg-preview.png}}%
-                 \hfill%
-                 \raisebox{0.3cm}{\includegraphics[height=3.0cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-mit_text.pdf}}%
-                 \hspace{0.5cm}%
-             \end{minipage}
-        \end{beamercolorbox}
-        
-        % Weniger Abstand nach dem Header, damit mehr Platz bleibt
-        \vspace{0.5cm}
-        
-        % 2. Titel-Block
-        \begin{center}
-            \usebeamerfont{title}\usebeamercolor[fg]{title}
-            \LARGE \inserttitle\par % HIER: \Huge macht den Titel sehr groß
-            
-            % Falls du doch mal einen Untertitel nutzt:
-            \vspace{0.1cm}
-            \usebeamerfont{subtitle}\large\insertsubtitle\par
-        \end{center}
-        
-        \vspace{0.2cm} % Weniger Abstand zum Info-Block
-        
-        % 3. Info-Block (Autor & Betreuer)
-        \begin{center}
-            \insertinstitute
-        \end{center}
-        
-        % \vfill drückt das Datum nach unten, aber lässt es auf der Seite
-        \vfill
-        
-        % 4. Datum
-        \centering
-        \small{\insertdate}
-        
-        % Ein kleiner Puffer zum unteren Rand
-        \vspace{0.3cm} 
-
-        % Notizen
-        #1 
-
-    \end{frame}
-    \setbeamertemplate{background canvas}{}
-}
