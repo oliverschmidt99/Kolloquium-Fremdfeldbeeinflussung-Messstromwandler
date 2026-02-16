@@ -4,23 +4,23 @@
 
 % --- Folie 1: Motivation ---
 \begin{frame}{Motivation und Problemstellung}
-\begin{columns}[c, onlytextwidth]
-    % Text-Spalte verkleinert auf 0.40, um dem Bild mehr Raum zu geben
-    \begin{column}{0.40\textwidth}
-        \begin{itemize}
-            \item Trend zu hoher Leistungsdichte auf minimalem Bauraum
-            \item Hohe Primärströme bei geringen Schienenabständen
-            \item Starke magnetische Fremdfeldkopplung
-        \end{itemize}
-    \end{column}
-    
-    % Bild-Spalte vergrößert auf 0.58
-    \begin{column}{0.58\textwidth}
-        \centering
-        \includegraphics[width=\linewidth, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front.jpg}
-        \par\vspace{0.1cm} {\tiny \color{gray} Kompakte Feldverteilung}
-    \end{column}
-\end{columns}
+    \begin{columns}[c, onlytextwidth]
+        % Text-Spalte verkleinert auf 0.40, um dem Bild mehr Raum zu geben
+        \begin{column}{0.40\textwidth}
+            \begin{itemize}
+                \item Trend zu hoher Leistungsdichte auf minimalem Bauraum
+                \item Hohe Primärströme bei geringen Schienenabständen
+                \item Starke magnetische Fremdfeldkopplung
+            \end{itemize}
+        \end{column}
+
+        % Bild-Spalte vergrößert auf 0.58
+        \begin{column}{0.58\textwidth}
+            \centering
+            \includegraphics[width=\linewidth, keepaspectratio]{03_Ressourcen/Bilder/schaltschrank_front.jpg}
+            \par\vspace{0.1cm} {\tiny \color{gray} Kompakte Feldverteilung}
+        \end{column}
+    \end{columns}
 
     % Zeit: 45s (01:30 - 02:15)
     \slidetime{00:45}{01:35}
@@ -29,7 +29,7 @@
             \item Mehr Leistung auf weniger Raum
             \item Physikalisches Problem: Fremdfelder
             \item L2 misst falsch
-        \end{itemize} 
+        \end{itemize}
     }
     \note{
         \textbf{Trend}
@@ -47,104 +47,66 @@
 \end{frame}
 
 
-% --- Folie 2: Messabweichung ---
-\begin{frame}{Problemstellung – Messabweichung}
-    {\centering \footnotesize 
-    \textbf{Parameter:} Übersetzungsfehler $\varepsilon$ bei $100\,\%~I_{\text{pn}}$ \hspace{0.5cm} 
-    \textbf{Grenzwert:} Klasse 1 erlaubt $\pm 1\,\%$ \par}
-    
-    \vspace{0.2cm}
-    \textbf{Vergleich bei \SI{4000}{A} Primärstrom – Symmetrische Last}
-    \vspace{0.1cm}
-    
-    \begin{columns}[T]
-        % LINKE SPALTE
-        \begin{column}{0.48\textwidth}
+% --- Kombi-Folie: PAC + Wirtschaftlichkeit (nur Ergebnisse) ---
+\begin{frame}{Messabweichung \& wirtschaftliche Relevanz}
+
+
+    \noindent
+    \begin{minipage}[t]{0.32\textwidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.90\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.pdf}
+        \vspace{0.15cm}
+
+        {\footnotesize \textbf{\color{green!50!black} Referenz (Kl.~0,2S)}}
+        \vspace{0.15cm}
+
+        {\scriptsize Ergebnis (Fokus):\par\vspace{0.05cm}}
+        {\Large \textbf{\color{green!50!black} L2: \SI{0,047}{\percent}}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.32\textwidth}
+        \vspace{0pt}
+        \centering
+        \includegraphics[width=0.90\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.pdf}
+        \vspace{0.15cm}
+
+        {\footnotesize \textbf{\color{red} Prüfling (Kl.~1,0)}}
+        \vspace{0.15cm}
+
+        {\scriptsize Ergebnis (Fokus):\par\vspace{0.05cm}}
+        {\Large \textbf{\color{red} L2: \SI{-3,24}{\percent}}}
+    \end{minipage}
+    \hfill
+    \begin{minipage}[t]{0.34\textwidth}
+        \vspace{0pt}
+        \raggedright
+
+        \setbeamercolor{lossbox}{bg=cHSblue!10,fg=black}
+        \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, rounded=true, shadow=true]{lossbox}
             \centering
-            \includegraphics[width=0.55\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.pdf}
-            
-            \vspace{0.1cm}
-            \textbf{\footnotesize \color{green!50!black} Referenz (Sollwert) Kl. 0,2S}
-            
-            \vspace{0.1cm} \scriptsize
-            \begin{tabular}{l r}
-                \color{gray} L1 & \color{gray} \SI{-0.005}{\percent} \\ 
-                \color{green!50!black}\textbf{L2} & \color{green!50!black}\textbf{\SI{0.047}{\percent}} \\
-                \color{gray} L3 & \color{gray} \SI{-0.012}{\percent}
-            \end{tabular}
-        \end{column}
-        
-        % RECHTE SPALTE
-        \begin{column}{0.48\textwidth}
-            \centering
-            % ÄNDERUNG: Ebenfalls 0.75\linewidth
-            \includegraphics[width=0.55\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.pdf}
-            
-            \vspace{0.1cm}
-            \textbf{\footnotesize \color{red} Prüfling (Beeinflusst) Kl. 1,0}
-            
-            \vspace{0.1cm} \scriptsize
-            \begin{tabular}{l r}
-                \color{gray} L1 & \color{gray} $\approx$ \SI{-0.704}{\percent} \\ 
-                \color{red}\textbf{L2} & \color{red}\textbf{$\approx$ \SI{-3.238}{\percent}} \\
-                \color{gray} L3 & \color{gray} $\approx$ \SI{-1.230}{\percent}
-            \end{tabular}
-        \end{column}
-    \end{columns}
-
-    % Deine Notizen bleiben hier gleich...
-    \slidetime{01:35}{02:35}
-    % ...
-\end{frame}
-
-\subsection{Wirtschaftliche Relevanz}
-
-% --- Folie 2b: Problemstellung - Wirtschaftlichkeit ---
-
-\begin{frame}{Problemstellung – Wirtschaftliche Relevanz}
-    \vspace{0.2cm}
-    \textbf{Analyse der Abweichung}
-    \begin{itemize}
-        \item Messdifferenz / Untererfassung Phase L2 \(\Delta I \approx \SI{130}{A}\)
-        \item Relative Abweichung \(\approx \SI{-3,25}{\%}\)
-        \item Kritisch für Netzschutz und Verrechnung
-    \end{itemize}
-    \vspace{0.2cm}
-    \setbeamercolor{bluebox}{bg=cHSblue!10,fg=black}
-    \begin{center}
-        \begin{beamercolorbox}[wd=0.95\textwidth, sep=0.5em, center, rounded=true, shadow=true]{bluebox}
-            \small \textbf{Potenzieller Abrechnungsfehler (Beispielrechnung)}
-            \par\vspace{0.3em}
-            % Formelzeile für Klarheit
-            \footnotesize \( \Delta E = U_{\text{L-N}} \cdot \Delta I_{\text{L2}} \cdot \cos \varphi \cdot t \)
-            \par\vspace{0.3em}            
-            \renewcommand{\arraystretch}{1.05}
-            \small
-            \begin{tabular}{rl}
-                                              & \(\Delta I_{\text{L2}} = \SI{130}{A}\) bei \SI{230}{V} (L-N) \\
-                \(\times\)                    & Leistungsfaktor (\(\cos \varphi = 0,9\))               \\
-                \(\times\)                    & Dauerlast (\SI{8760}{h/a})                             \\
-                \(\times\)                    & Strompreis (\SI{0,20}{}~\text{€}/\text{kWh})           \\
-                \hline
-                \rule{0pt}{1.2em} \(\approx\) & \textbf{\Large \color{red} 47\,000\,\text{€} / Jahr}
-            \end{tabular}
+            \small \textbf{Wirtschaftlicher Verlust}
+            \par\vspace{0.35em}
+            {\Large \textbf{\color{red} \(\approx\) 47\,000\,€ / Jahr}}
+            \par\vspace{0.2em}
+            {\scriptsize (Beispielrechnung, Dauerlast)}
+            % optional, wenn du's noch knapper willst: diese Zeile löschen
         \end{beamercolorbox}
-    \end{center}
 
-    % Zeit: 45s (03:15 - 04:00)
-    \slidetime{02:35}{03:20}
-    \keynote{ \begin{itemize} \item 130 A Untererfassung \item 47k€ Differenz \end{itemize} }
-    \note{
-        \textbf{Messdifferenz:}
-        Durch die Abweichung fehlen uns in der Phase L2 dauerhaft etwa 130 Ampere im gemessenen Stromwert, was wir als Untererfassung bezeichnen.
+        \note{
+            \textbf{Witz (Augenzwinkern):}
+            Man könnte das Fremdfeld fast als \glqq Feature\grqq{} verkaufen:
+            \glqq Sie sparen sich ca. 47\,000\,€ pro Jahr \textendash{} wird verbraucht, aber nicht erfasst.\grqq{}
+            \par\smallskip
+            \textbf{Spaß beiseite:} Genau deshalb ist das für Verrechnung und Schutz kritisch.
+        }
 
-        \textbf{Kosten:}
-        Rechnet man diesen Fehler über die Formel für die Wirkleistung auf ein Jahr Dauerlast hoch, ergibt sich eine Abrechnungsdifferenz von knapp 47.000 Euro.
 
-        \textbf{Relevanz:}
-        Dieser Wert gilt pro Abgangsfeld, was das wirtschaftliche Risiko für den Betreiber verdeutlicht.
-    }
+    \end{minipage}
+
+
 \end{frame}
+
 
 \subsection{Zielsetzung der Arbeit}
 
@@ -155,7 +117,7 @@
     \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{cHSblue!10}
         \textit{Welche Kombination aus Wandler, Geometrie und FFP hält Klasse 1 unter Fremdfeldbedingungen ein – bei minimalen Mehrkosten?}
     \end{beamercolorbox}
-    
+
     \vspace{0.5cm}
     \textbf{Untersuchungsschwerpunkte}
     \begin{itemize}
