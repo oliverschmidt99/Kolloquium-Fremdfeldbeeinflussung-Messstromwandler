@@ -5,12 +5,10 @@
 
 % --- Folie 6: Messstrecke ---
 \begin{frame}{Versuchsaufbau: Hochstrom-Prüfstand}
-    \centering
-    \textbf{Schematischer Aufbau der automatisierten Messstrecke}
 
-    \vspace{0.2cm}
-
-    \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_hochstrom_pruefstand_new.drawio.pdf}
+    \begin{center}
+        \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbaz_hochstrom_pruefstand_neu.drawio}
+    \end{center}
 
     \slidetime{07:05}{07:55}
     \keynote{
@@ -63,24 +61,24 @@
         \end{itemize}
     }
     \note{
-    \textbf{Baseline bei \SI{2000}{A}}
-    Diese Messung dient als Referenz im weitgehend linearen Bereich: Die Kurven liegen eng um 0\,\%,
-    Fremdfeld- und Sättigungseffekte sind hier noch klein.
+        \textbf{Baseline bei \SI{2000}{A}}
+        Diese Messung dient als Referenz im weitgehend linearen Bereich: Die Kurven liegen eng um 0\,\%,
+        Fremdfeld- und Sättigungseffekte sind hier noch klein.
 
-    \textbf{So liest man die Kurven}
-    Durchgezogen = Parallel, gestrichelt = Dreieck (gleicher Wandler, andere Geometrie).
-    Wichtig ist besonders L2, weil dort später der stärkste Fremdfeldeinfluss zu erwarten ist.
+        \textbf{So liest man die Kurven}
+        Durchgezogen = Parallel, gestrichelt = Dreieck (gleicher Wandler, andere Geometrie).
+        Wichtig ist besonders L2, weil dort später der stärkste Fremdfeldeinfluss zu erwarten ist.
 
-    \textbf{Überleitung}
-    Wenn bei \SI{4000}{A} starke Abweichungen auftreten, ist das damit klar als physikalischer Nichtlinearitäts-/Sättigungseffekt
-    einzuordnen – nicht als Messstreuung.
+        \textbf{Überleitung}
+        Wenn bei \SI{4000}{A} starke Abweichungen auftreten, ist das damit klar als physikalischer Nichtlinearitäts-/Sättigungseffekt
+        einzuordnen – nicht als Messstreuung.
     }
 \end{frame}
 
 \begin{frame}{Aufbau FFP-Wandler (kompensiert)}
     \centering
     \includegraphics[width=\textwidth, keepaspectratio]
-            {03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
+    {03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
 
     \slidetime{05:40}{06:10}
 
@@ -142,79 +140,3 @@
 
 
 
-
-
-\subsection{Gesamtvergleich und Effizienz}
-
-% --- DIAGRAMM 0: Wahrer Fehler ---
-\begin{frame}{Gesamtfehler im Vergleich: Parallel vs. Dreieck}
-    \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag0_wahre_fehler_horizontal.png}
-
-    \slidetime{13:30}{14:50}
-    \keynote{
-        \begin{itemize}
-            \item Volle Balken sind Parallelanordnung
-            \item Schraffierte Balken sind Dreiecksanordnung
-            \item Massive Reduktion der Balkenlänge durch Dreieck
-        \end{itemize}
-    }
-    \note{
-        \textbf{Analyse der absoluten Fehler}
-        Dieses Diagramm zeigt die summierten Fehlerwerte über alle Messpunkte.
-
-        \textbf{Lesehilfe}
-        Die vollen Balken repräsentieren die klassische Parallelanordnung. Die schraffierten Balken zeigen denselben Wandler in der optimierten Dreiecksanordnung.
-
-        \textbf{Erkenntnis}
-        Man sieht auf den ersten Blick, dass die schraffierten Balken fast überall deutlich kürzer sind. Besonders beim Celsa Standardwandler bei 2500 Ampere fällt der Fehler von über 7 auf unter 2 Einheiten. Die Geometrie wirkt hier wie ein physischer Filter gegen Störfelder.
-    }
-\end{frame}
-
-% --- DIAGRAMM 1: Verbesserung Dreieck (%) ---
-\begin{frame}{Wirksamkeit der geometrischen Optimierung}
-    \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag1_dreieck_pct.png}
-
-    \slidetime{14:50}{15:55}
-    \keynote{
-        \begin{itemize}
-            \item Relative Fehlerreduktion durch Geometrie
-            \item Über 90 Prozent Verbesserung bei 3000 A
-            \item Standardwandler zeigen größten Effekt
-        \end{itemize}
-    }
-    \note{
-        \textbf{Geometrische Optimierung}
-        Hier sehen wir die prozentuale Fehlerreduktion durch den Wechsel von Parallelanordnung auf Dreiecksanordnung.
-
-        \textbf{Beobachtung}
-        Besonders bei 3000 Ampere zeigen sich hohe Werte. Das bedeutet hier eliminiert die Dreiecksanordnung fast den gesamten Fehler der in der Parallelanordnung auftrat.
-
-        \textbf{Schlussfolgerung}
-        Der Standardwandler profitiert am stärksten von der geometrischen Anordnung und erreicht dadurch fast die Güte der teureren Systeme.
-    }
-\end{frame}
-
-% --- DIAGRAMM 2: Wirtschaftlichkeit Dreieck (%/€) ---
-\begin{frame}{Ökonomische Bewertung der Maßnahmen}
-    \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag2_dreieck_pct_eur.png}
-
-    \slidetime{15:55}{16:50}
-    \keynote{
-        \begin{itemize}
-            \item Verbesserung normiert auf Investitionskosten
-            \item Hohe Effizienz bei günstigen Wandlern
-            \item Teure Systeme profitieren weniger stark
-        \end{itemize}
-    }
-    \note{
-        \textbf{Wirtschaftliche Analyse}
-        Wenn wir die technische Verbesserung in Relation zum Kaufpreis setzen ändert sich das Bild.
-
-        \textbf{Ergebnis}
-        Da die Standardwandler sehr günstig sind ist ihr Gewinn an Genauigkeit pro investiertem Euro sehr hoch.
-        Die FFP Wandler sind zwar technisch führend aber der relative Gewinn durch die Geometrie fällt kaufmännisch weniger ins Gewicht da die Basiskosten bereits höher sind.
-    }
-\end{frame}
