@@ -10,7 +10,7 @@
         \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbaz_hochstrom_pruefstand_neu.drawio}
     \end{center}
 
-    \slidetime{07:05}{07:55}
+    \slidetime{08:00}{08:50}
     \keynote{
         \begin{itemize}
             \item Referenz -> Trafo -> 4kA
@@ -19,10 +19,12 @@
         \end{itemize}
     }
     \note{
-        Ziel: reproduzierbare, synchrone Vergleichsmessung (gleicher Strom, gleiche Bedingungen).
-        Messkette: Referenz (PAC 4220) vs. Prüfling (PAC 3220 + Wandler) \(\Rightarrow\) direkt \(\varepsilon\) gegen Klasse~1.
-        SPS/WinCC steuern Stufen + Haltezeiten \(\Rightarrow\) Kurveneinbruch ist physikalisch (Sättigung), kein Messartefakt.
-    }
+        \begin{itemize}
+            \item \textbf{Ziel:} Reproduzierbare, \textbf{synchrone} Vergleichsmessung (gleicher Strom, gleiche Bedingungen).
+            \item \textbf{Messkette:} Referenz (PAC 4220) vs. Prüfling (PAC 3220 + Wandler) \(\Rightarrow\) direkte Abweichung \(\varepsilon\) gegen \textbf{Klasse~1}.
+            \item \textbf{Automatisierung:} SPS/WinCC steuert Stromstufen und Haltezeiten \(\Rightarrow\) Einbrüche sind \textbf{physikalisch} (Sättigung), kein Messartefakt.
+        \end{itemize}
+}
 \end{frame}
 
 
@@ -39,7 +41,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/redur_2000A_special.png}
 
-    \slidetime{08:40}{10:05}
+    \slidetime{09:35}{11:00}
     \keynote{
         \begin{itemize}
             \item Referenzmessung im weitgehend linearen Bereich (\SI{2000}{A})
@@ -49,11 +51,14 @@
         \end{itemize}
     }
     \note{
-    \textbf{2000 A = Referenz (linear):} Abweichungen nahe 0\,\%.
-    \textbf{Parallel:} seitliche FFP \(\Rightarrow\) normkonform.
-    \textbf{Dreieck:} L2 bei 120\,\%~$I_\mathrm{n}$ ca.\ \(-1{,}50\,\%\) (außerhalb) \(\Rightarrow\) ungeschirmte Rückseite, Einkopplung/partielle Sättigung.
-    Überleitung: bei \SI{4000}{A} wird der Sättigungseffekt dominant.
-    }
+        \begin{itemize}
+            \item \textbf{\SI{2000}{A} = Referenz (linear):} Abweichungen nahe \(\SI{0}{\percent}\).
+            \item \textbf{Parallel:} seitliche \textbf{FFP} \(\Rightarrow\) normkonform (Klasse~1) in allen Phasen.
+            \item \textbf{Dreieck:} \textbf{L2} bei \(120\,\%~I_\mathrm{n}\) ca.\ \(\varepsilon\approx -1{,}50\,\%\) \(\Rightarrow\) außerhalb Klasse~1.
+            \item \textbf{Interpretation:} ungeschirmte Rückseite \(\rightarrow\) Fremdfeld-Einkopplung \(\rightarrow\) partielle \textbf{Kernsättigung}.
+            \item \textbf{Überleitung:} Bei \SI{4000}{A} wird der Sättigungseffekt dominant.
+        \end{itemize}
+}
 \end{frame}
 
 
@@ -69,7 +74,7 @@
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_4000A_presentation.png}
 
-    \slidetime{10:05}{11:20}
+    \slidetime{11:00}{12:15}
     \keynote{
         \begin{itemize}
             \item Fokus: \textbf{Standard in Dreieck} vs. \textbf{kompensierter Wandler}
@@ -79,11 +84,13 @@
         \end{itemize}
     }
     \note{
-        Blickführung: hellblau gestrichelt = \textbf{Standard (Dreieck)}, dunkelblau = \textbf{kompensiert}.
-        Standard (Dreieck): bis ca.\ 80--100\,\% stabil, am oberen Lastpunkt Ausreißer \(\Rightarrow\) Klasse~1 nicht durchgängig.
-        Kompensiert: nahe 0\,\% \(\Rightarrow\) Fremdfeld-/Sättigungseinfluss stark reduziert.
-        Take-away: bei \SI{4000}{A} ist \textbf{Kompensation} der dominante Hebel; Geometrie sekundär.
-    }
+        \begin{itemize}
+            \item \textbf{Blickführung:} hellblau gestrichelt = \textbf{Standard (Dreieck)}, dunkelblau = \textbf{kompensiert}.
+            \item \textbf{Standard (Dreieck):} bis ca.\ 80--100\,\% stabil, am oberen Lastpunkt Ausreißer \(\Rightarrow\) Klasse~1 nicht durchgängig.
+            \item \textbf{Kompensiert:} Abweichungen nahe \(\SI{0}{\percent}\) \(\Rightarrow\) Fremdfeld-/Sättigungseinfluss stark reduziert.
+            \item \textbf{Take-away:} Bei \SI{4000}{A} ist \textbf{Kompensation} der dominante Hebel; Geometrie ist sekundär.
+        \end{itemize}
+}
 \end{frame}
 
 

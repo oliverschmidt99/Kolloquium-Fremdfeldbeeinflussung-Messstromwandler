@@ -23,7 +23,7 @@
     \end{columns}
 
     % Zeit: 45s (01:30 - 02:15)
-    \slidetime{00:45}{01:35}
+    \slidetime{01:30}{02:15}
     \keynote{
         \begin{itemize}
             \item Mehr Leistung auf weniger Raum
@@ -32,18 +32,14 @@
         \end{itemize}
     }
     \note{
-        \textbf{Trend}
-        Schaltanlagen müssen heute immer leistungsfähiger werden, während der verfügbare Bauraum gleich bleibt oder sogar schrumpft. Wir bringen also mehr Strom auf weniger Fläche unter.
-
-        \textbf{Physik}
-        Diese Kombination aus hohen Primärströmen und minimalen Abständen führt zwangsläufig zu starken magnetischen Fremdfeldern.
-
-        \textbf{Problem}
-        Besonders die mittlere Phase L2 ist diesen Feldern von beiden Seiten ausgesetzt. Das führt zu einer verzerrten Messung und im schlimmsten Fall zur Sättigung des Wandlers.
-
-        \textbf{Ziel}
-        Meine Aufgabe war es daher, eine Lösung zu finden, die technisch robust gegen diese Störungen ist, aber wirtschaftlich im Rahmen bleibt.
-    }
+        \begin{itemize}
+            \item \textbf{Trend:} Mehr \textbf{Leistungsdichte} \(\rightarrow\) höhere Ströme bei weniger Bauraum.
+            \item \textbf{Ursache:} Kleine Leiterabstände \(\Rightarrow\) starke \textbf{magnetische Fremdfelder}.
+            \item \textbf{Worst Case:} \textbf{L2} wird von beiden Nachbarphasen überlagert \(\Rightarrow\) stärkste Einkopplung.
+            \item \textbf{Konsequenz:} \textbf{Sättigung} des Kerns \(\rightarrow\) Sekundärstrom sinkt \(\rightarrow\) \textbf{Untererfassung}.
+            \item \textbf{Ziel:} Robustheit gegen Fremdfeld bei vertretbaren \textbf{Kosten} und \textbf{Verfügbarkeit}.
+        \end{itemize}
+}
 \end{frame}
 
 
@@ -94,16 +90,27 @@
         \end{beamercolorbox}
 
         \note{
-            \textbf{Witz (Augenzwinkern):}
-            Man könnte das Fremdfeld fast als \glqq Feature\grqq{} verkaufen:
-            \glqq Sie sparen sich ca. 50\,000\,€ pro Jahr \textendash{} wird verbraucht, aber nicht erfasst.\grqq{}
-            \par\smallskip
-            \textbf{Spaß beiseite:} Genau deshalb ist das für Verrechnung und Schutz kritisch.
-        }
+            \begin{itemize}
+                \item \textbf{Vergleich:} Referenz (Kl.~0,2S) vs. Prüfling (Kl.~1,0) bei \SI{4000}{A}.
+                \item \textbf{Worst Case:} \textbf{L2} zeigt \(\varepsilon \approx \SI{-3,24}{\percent}\) \(\Rightarrow\) deutliche \textbf{Untererfassung}.
+                \item \textbf{Relevanz:} Bei Verrechnung/Monitoring summiert sich der Fehler \(\rightarrow\) \textbf{realer Kostenhebel}.
+                \item \textbf{Point (mit Augenzwinkern):} \glqq weniger erfasst \(\Rightarrow\) scheinbar gespart\grqq{} \(\rightarrow\) für \textbf{Abrechnung} und \textbf{Schutz} aber kritisch.
+            \end{itemize}
+}
 
 
     \end{minipage}
 
+
+
+    \slidetime{02:15}{04:00}
+    \keynote{
+        \begin{itemize}
+            \item PAC-Vergleich: Referenz vs. Prüfling
+            \item Worst Case L2: \(\varepsilon \approx \SI{-3,24}{\percent}\)
+            \item \(\approx\) 50\,000\,€ / Jahr (Beispiel)
+        \end{itemize}
+    }
 
 \end{frame}
 
@@ -120,14 +127,14 @@
     \end{itemize}
     \hfill
     % Zeit: 30s (04:00 - 04:30)
-    \slidetime{03:20}{03:45}
+    \slidetime{04:00}{04:30}
     \keynote{ \begin{itemize} \item Leitfrage \item Vergleich \& Empfehlung \end{itemize} }
     \note{
-
-        \textbf{Vorgehen:}
-        Dazu analysiere ich die Fehler im System, vergleiche verschiedene Wandlertechnologien und prüfe geometrische Anpassungen.
-
-        \textbf{Output:}
-        Am Ende steht eine klare Handlungsempfehlung für die Konstruktion neuer Anlagen.
-    }
+        \begin{itemize}
+            \item \textbf{Analyse:} Fehlermechanismen im \textbf{Drehstromsystem} (insb. L2) systematisch verstehen.
+            \item \textbf{Vergleich:} \textbf{Standard}, \textbf{kompensierte} und \textbf{Spezial}-Wandler sowie Geometrievarianten.
+            \item \textbf{Bewertung:} Normkonformität, Robustheit gegen Fremdfeld und wirtschaftliche Randbedingungen.
+            \item \textbf{Output:} Konkrete \textbf{Handlungsempfehlung} für die Neukonstruktion.
+        \end{itemize}
+}
 \end{frame}

@@ -22,75 +22,18 @@
     \end{columns}
 
     % Zeit angepasst an neuen Fluss: (05:00 - 05:45)
-    \slidetime{03:45}{04:25}
+    \slidetime{05:00}{05:45}
     \keynote{ \begin{itemize} \item Transformator-Prinzip \item Schutzfunktion \end{itemize} }
     \note{
-        \textbf{Kurz}
-        Messstromwandler = Stromtransformator: \SI{1000}{A} \(\rightarrow\) normierter Sekundärstrom (\SI{1}{A}/\SI{5}{A}) mit galvanischer Trennung.
-
-        \textbf{Prinzip}
-        Aufsteckwandler: Kupferschiene entspricht \(N_\mathrm{p}=1\), Sekundärwicklung \(N_\mathrm{s}\).
-        Sättigungsnähe erhöht den Magnetisierungsstrom \(I_\mathrm{m}\) \(\Rightarrow\) \(I_\mathrm{s}\) wird kleiner \(\Rightarrow\) Untererfassung.
-
-        \textbf{Relevanz}
-        Fremdfeld addiert Störfluss im Kern (Worst Case: L2) und treibt \(I_\mathrm{m}\) hoch.
-        Bürde/Last beeinflusst, wie früh Sättigung einsetzt.
-    }
+        \begin{itemize}
+            \item \textbf{Messstromwandler:} Stromtransformator \(\rightarrow\) hoher Primärstrom auf \textbf{\SI{1}{A}/\SI{5}{A}} skaliert, mit \textbf{galvanischer Trennung}.
+            \item \textbf{Aufsteckprinzip:} Kupferschiene \(N_\mathrm{p}=1\), Sekundärwicklung \(N_\mathrm{s}\) \(\Rightarrow\) Übersetzung über Windungsverhältnis.
+            \item \textbf{Sättigung:} Kern nahe Sättigung \(\Rightarrow\) Magnetisierungsstrom \(I_\mathrm{m}\uparrow\) \(\Rightarrow\) \(I_\mathrm{s}\downarrow\) \(\rightarrow\) \textbf{Untererfassung}.
+            \item \textbf{Fremdfeld:} zusätzlicher Störfluss addiert zum Nutzfluss (kritisch bei \textbf{L2}) \(\rightarrow\) Sättigung früher; \textbf{Bürde} beeinflusst den Einsatzpunkt.
+        \end{itemize}
+}
 \end{frame}
 
-% --- Folie 2: Physik (mit Bild) ---
-\begin{frame}{Physikalisches Problem: Fremdfeldeinfluss}
-
-    \begin{columns}[T,onlytextwidth]
-        % --- Links: Kernaussagen ---
-        \begin{column}{0.42\textwidth}
-            \textbf{Ursache: Räumliche Nähe}
-            \begin{itemize}\scriptsize
-                \item Starke Magnetfelder der Nachbarleiter koppeln ein
-            \end{itemize}
-
-            \vspace{0.2cm}
-            \textbf{Wirkung: Partielle Sättigung}
-            \begin{itemize}\scriptsize
-                \item Nutzfluss + Störfluss \(\Rightarrow\) lokale Sättigung
-                \item \(\mu_r\) sinkt \(\Rightarrow\) Magnetisierungsanteil steigt
-            \end{itemize}
-
-            \vspace{0.2cm}
-            \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
-                \textbf{Resultat:} Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
-            \end{beamercolorbox}
-        \end{column}
-
-        % --- Rechts: Simulation ---
-        \begin{column}{0.58\textwidth}
-            \centering
-            \includegraphics[
-                width=\linewidth,
-                height=0.62\textheight,
-                keepaspectratio
-            ]{03_Ressourcen/Bilder/sim_2500A_magnetfelder.png}
-
-            \vspace{0.1cm}
-            {\tiny \color{gray}
-                Simulation: Feldstärkeverteilung \(|H|\) bei \SI{2500}{A} \;—\;
-                mittlere Phase (L2) wird von beiden Nachbarphasen überlagert.}
-        \end{column}
-    \end{columns}
-
-    % Zeit: (07:15 - 08:00)
-    \slidetime{04:25}{05:05}
-    \keynote{ \begin{itemize}\item Fremdfeld koppelt ein \item lokale Sättigung \item Sekundärstrom sinkt \end{itemize} }
-
-    \note{
-        Fremdfeld aus Nachbarleitern koppelt in den Eisenkern ein (Worst Case: mittlere Phase L2).
-        Nutzfluss + Störfluss \(\Rightarrow\) lokale/partielle Sättigung, \(\mu_r\) sinkt.
-        Folge: Magnetisierungsanteil steigt, Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
-    }
-\end{frame}
-
-
-% --- Sammelfolie: 3 Technologien (Bilder + Überschrift, zentriert, Quelle + Notizen) ---
 \begin{frame}{Technologievergleich}
 
     \begin{columns}[T,onlytextwidth] % Überschriften oben bündig
@@ -138,18 +81,72 @@
         \end{column}
     \end{columns}
 
-    \slidetime{05:05}{07:05}
+    \slidetime{05:45}{07:15}
     \keynote{\begin{itemize}
             \item Drei Lösungswege: Wandlertechnik / Schirmung / Geometrie
         \end{itemize}}
 
     \note{
-        Drei Hebel gegen Fremdfeld:
-        (1) \textbf{Kompensation} (Gegenfeld) \(\rightarrow\) beste Stabilität, aber teuer/Verfügbarkeit.
-        (2) \textbf{FFP} (Störfluss umlenken) \(\rightarrow\) guter Kompromiss, braucht Bauraum.
-        (3) \textbf{Dreieck} (Geometrie) \(\rightarrow\) reduziert L2-Einkopplung, nutzt Standardwandler.
-        Überleitung: Bewertung nach Normrobustheit vs. Kosten.
-    }
+        \begin{itemize}
+            \item (1) \textbf{Kompensation} (Gegenfeld) \(\rightarrow\) beste \textbf{Stabilität}, aber teuer/\textbf{Verfügbarkeit}.
+            \item (2) \textbf{FFP} (Störfluss umlenken) \(\rightarrow\) guter \textbf{Kompromiss}, braucht \textbf{Bauraum}.
+            \item (3) \textbf{Dreieck} (Geometrie) \(\rightarrow\) reduziert \textbf{L2}-Einkopplung, nutzt \textbf{Standardwandler}.
+            \item \textbf{Überleitung:} Bewertung nach \textbf{Normrobustheit} vs. \textbf{Kosten}.
+        \end{itemize}
+}
 \end{frame}
+
+\begin{frame}{Physikalisches Problem: Fremdfeldeinfluss}
+
+    \begin{columns}[T,onlytextwidth]
+        % --- Links: Kernaussagen ---
+        \begin{column}{0.42\textwidth}
+            \textbf{Ursache: Räumliche Nähe}
+            \begin{itemize}\scriptsize
+                \item Starke Magnetfelder der Nachbarleiter koppeln ein
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \textbf{Wirkung: Partielle Sättigung}
+            \begin{itemize}\scriptsize
+                \item Nutzfluss + Störfluss \(\Rightarrow\) lokale Sättigung
+                \item \(\mu_r\) sinkt \(\Rightarrow\) Magnetisierungsanteil steigt
+            \end{itemize}
+
+            \vspace{0.2cm}
+            \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
+                \textbf{Resultat:} Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
+            \end{beamercolorbox}
+        \end{column}
+
+        % --- Rechts: Simulation ---
+        \begin{column}{0.58\textwidth}
+            \centering
+            \includegraphics[
+                width=\linewidth,
+                height=0.62\textheight,
+                keepaspectratio
+            ]{03_Ressourcen/Bilder/sim_2500A_magnetfelder.png}
+
+            \vspace{0.1cm}
+            {\tiny \color{gray}
+                Simulation: Feldstärkeverteilung \(|H|\) bei \SI{2500}{A} \;—\;
+                mittlere Phase (L2) wird von beiden Nachbarphasen überlagert.}
+        \end{column}
+    \end{columns}
+
+    % Zeit: (07:15 - 08:00)
+    \slidetime{07:15}{08:00}
+    \keynote{ \begin{itemize}\item Fremdfeld koppelt ein \item lokale Sättigung \item Sekundärstrom sinkt \end{itemize} }
+
+    \note{
+        \begin{itemize}
+            \item \textbf{Einkopplung:} Magnetfelder benachbarter Leiter koppeln in den Kern ein (Worst Case: \textbf{L2}).
+            \item \textbf{Mechanismus:} Nutzfluss + Störfluss \(\Rightarrow\) lokale/partielle \textbf{Sättigung}, \(\mu_r\downarrow\).
+            \item \textbf{Folge:} Magnetisierungsanteil steigt \(\Rightarrow\) Sekundärstrom sinkt \(\Rightarrow\) Anzeige \textbf{zu klein}.
+        \end{itemize}
+}
+\end{frame}
+
 
 
