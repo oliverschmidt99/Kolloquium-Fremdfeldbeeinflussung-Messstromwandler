@@ -24,7 +24,7 @@
 % 2. FARBDEFINITIONEN & ZUWEISUNGEN
 % ==========================================
 % -- Definitionen --
-\definecolor{JanssenDarkBlue}{HTML}{001F5F} 
+\definecolor{JanssenDarkBlue}{HTML}{001F5F}
 \definecolor{cHSmint}{RGB}{138,198,203}
 \definecolor{cHSfont}{RGB}{88,88,90}
 \definecolor{logobg}{rgb}{0.537,0.7765,0.796}
@@ -95,68 +95,68 @@
 % 5. LAYOUT: FOLIENTITEL (FRAMETITLE)
 % ==========================================
 \setbeamertemplate{frametitle}{%
-    \nointerlineskip%
-    \begin{beamercolorbox}[wd=\paperwidth,ht=1.0cm,dp=0.7cm]{frametitle}%
-        \begin{minipage}[c][1.4cm][c]{\paperwidth}%
-            \hspace{0.5cm}%
-            \begin{minipage}[c]{0.80\paperwidth}%
-                \usebeamerfont{frametitle}\insertframetitle%
-            \end{minipage}%
-            \hfill%
-            \begin{minipage}[c]{1.5cm}%
-                \centering
-                \includegraphics[height=1.2cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-ohne_text.pdf}%
-            \end{minipage}%
-            \hspace{0.5cm}%
-        \end{minipage}%
-    \end{beamercolorbox}%
+  \par\nointerlineskip%
+  \begin{beamercolorbox}[wd=\paperwidth,ht=1.0cm,dp=0.7cm]{frametitle}%
+    \begin{minipage}[c][1.4cm][c]{\paperwidth}%
+      \hspace{0.5cm}%
+      \begin{minipage}[c]{0.80\paperwidth}%
+        \usebeamerfont{frametitle}\insertframetitle%
+      \end{minipage}%
+      \hfill%
+      \begin{minipage}[c]{1.5cm}%
+        \centering
+        \includegraphics[height=1.2cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-ohne_text.pdf}%
+      \end{minipage}%
+      \hspace{0.5cm}%
+    \end{minipage}%
+  \end{beamercolorbox}%
 }
 
 % ==========================================
 % 6. LAYOUT: DECKBLATT (TITLEFRAME)
 % ==========================================
 \newcommand{\titleframe}[1][]{
-    \begin{frame}[plain]
-        % Header Balken
-        \vspace{-2px} 
-        \begin{beamercolorbox}[wd=\paperwidth, ht=1.6cm, dp=1.1cm]{frametitle}
-             \begin{minipage}[c][2.0cm][c]{\paperwidth}
-                 \hspace{0.5cm}%
-                 \raisebox{0.3cm}{\includegraphics[height=2.0cm, valign=c]{03_Ressourcen/Logo/hsel-logo-removebg-preview.png}}%
-                 \hfill%
-                 \raisebox{0.3cm}{\includegraphics[height=3.0cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-mit_text.pdf}}%
-                 \hspace{0.5cm}%
-             \end{minipage}
-        \end{beamercolorbox}
-        
-        \vspace{0.5cm}
-        
-        % Titel
-        \begin{center}
-            \usebeamerfont{title}\usebeamercolor[fg]{title}
-            \LARGE \inserttitle\par
-            \vspace{0.1cm}
-            \usebeamerfont{subtitle}\large\insertsubtitle\par
-        \end{center}
-        
-        \vspace{0.2cm}
-        
-        % Info
-        \begin{center}
-            \insertinstitute
-        \end{center}
-        
-        \vfill
-        
-        % Datum
-        \centering
-        \small{\insertdate}
-        \vspace{0.3cm} 
+  \begin{frame}[plain]
+    % Header Balken
+    \vspace{-2pt}
+    \begin{beamercolorbox}[wd=\paperwidth, ht=1.6cm, dp=1.1cm]{frametitle}
+      \begin{minipage}[c][2.0cm][c]{\paperwidth}
+        \hspace{0.5cm}%
+        \raisebox{0.3cm}{\includegraphics[height=2.0cm, valign=c]{03_Ressourcen/Logo/hsel-logo-removebg-preview.png}}%
+        \hfill%
+        \raisebox{0.3cm}{\includegraphics[height=3.0cm, valign=c]{03_Ressourcen/Logo/logo-rolf_janssen-mit_text.pdf}}%
+        \hspace{0.5cm}%
+      \end{minipage}
+    \end{beamercolorbox}
 
-        % Notizen-Argument
-        #1 
-    \end{frame}
-    \setbeamertemplate{background canvas}{}
+    \vspace{0.5cm}
+
+    % Titel
+    \begin{center}
+      \usebeamerfont{title}\usebeamercolor[fg]{title}
+      \LARGE \inserttitle\par
+      \vspace{0.1cm}
+      \usebeamerfont{subtitle}\large\insertsubtitle\par
+    \end{center}
+
+    \vspace{0.2cm}
+
+    % Info
+    \begin{center}
+      \insertinstitute
+    \end{center}
+
+    \vfill
+
+    % Datum
+    \centering
+    \small{\insertdate}
+    \vspace{0.3cm}
+
+    % Notizen-Argument
+    #1
+  \end{frame}
+  \setbeamertemplate{background canvas}{}
 }
 
 % ==========================================
@@ -172,26 +172,26 @@
 % ==========================================
 % E-Block (Blau)
 \newenvironment{eblock}{
-    \setbeamercolor{block body}{bg=cHSblue!40,fg=black}
-    \begin{block}{}
-    \vspace{-3px}
-}{
-    \end{block}
+  \setbeamercolor{block body}{bg=cHSblue!40,fg=black}
+  \begin{block}{}
+    \vspace{-3pt}
+    }{
+  \end{block}
 }
 
 % W-Block (Hell)
 \newenvironment{wblock}{
-    \setbeamercolor{block body}{bg=logobg!2,fg=black}
-    \begin{block}{}
-    \vspace{-3px}
-}{
-    \end{block}
+  \setbeamercolor{block body}{bg=logobg!2,fg=black}
+  \begin{block}{}
+    \vspace{-3pt}
+    }{
+  \end{block}
 }
 
 % ==========================================
 % 9. FUNKTIONEN: NOTIZEN-LOGIK
 % ==========================================
-\definecolor{MyPastelBackground}{RGB}{225, 250, 225} 
+\definecolor{MyPastelBackground}{RGB}{225, 250, 225}
 \definecolor{MySeparator}{RGB}{0, 0, 0}
 \definecolor{CrimsonRed}{RGB}{220, 20, 60}
 
@@ -203,16 +203,16 @@
 \renewcommand{\slidetime}[2]{\gdef\inserttimestart{#1}\gdef\inserttimeend{#2}}
 
 \addtobeamertemplate{note page}{}{
-   \gdef\insertkeynote{}
-   \gdef\inserttimestart{--:--}
-   \gdef\inserttimeend{--:--}
+  \gdef\insertkeynote{}
+  \gdef\inserttimestart{--:--}
+  \gdef\inserttimeend{--:--}
 }
 
 \makeatletter
 \setbeamertemplate{note page}{
   \insertvrule{\paperheight}{MyPastelBackground}%
   \vskip-\paperheight%
-  \nointerlineskip%
+  \par\nointerlineskip%
   \vbox to \paperheight{%
     % OBEN: Keynote & Zeit
     \hbox to \paperwidth{%
@@ -236,16 +236,16 @@
         \textbf{\large Zeitplanung}
         \par \vspace{1.em}
         \begingroup
-          \color{black}
-          \Huge \textbf{\inserttimestart} \\[0.2em]
-          \large \color{gray} bis \\[0.2em]
-          \Huge \textbf{\inserttimeend}
+        \color{black}
+        \Huge \textbf{\inserttimestart} \\[0.2em]
+        \large \color{gray} bis \\[0.2em]
+        \Huge \textbf{\inserttimeend}
         \endgroup
       \end{minipage}%
     }%
-    \nointerlineskip
+    \par\nointerlineskip
     \textcolor{MySeparator}{\hrule height 1.5pt}%
-    \nointerlineskip
+    \par\nointerlineskip
     % UNTEN: Details
     \begin{minipage}[t][\textwidth]{\textwidth}
       \vspace{1em}\centering

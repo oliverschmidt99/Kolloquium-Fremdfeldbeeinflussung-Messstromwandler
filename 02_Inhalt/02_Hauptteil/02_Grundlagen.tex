@@ -25,149 +25,131 @@
     \slidetime{03:45}{04:25}
     \keynote{ \begin{itemize} \item Transformator-Prinzip \item Schutzfunktion \end{itemize} }
     \note{
-        \textbf{Einordnung}
-        Ein Messstromwandler ist im Kern ein Transformator für Ströme: Aus mehreren \SI{1000}{A} Primärstrom wird ein normierter Sekundärstrom von \SI{1}{A} oder \SI{5}{A}, den Schutzrelais und Zähler sicher verarbeiten können.
+        \textbf{Kurz}
+        Messstromwandler = Stromtransformator: \SI{1000}{A} \(\rightarrow\) normierter Sekundärstrom (\SI{1}{A}/\SI{5}{A}) mit galvanischer Trennung.
 
-        \textbf{Aufbau (Aufsteckwandler)}
-        Die Kupferschiene bildet dabei praktisch eine \emph{einzige Primärwindung} (\(N_\mathrm{p}=1\)). Um sie herum liegt der geschlossene Eisenkern mit der Sekundärwicklung \(N_\mathrm{s}\). Idealisierend gilt
-        \[
-        I_\mathrm{s} \approx \frac{N_\mathrm{p}}{N_\mathrm{s}}\, I_\mathrm{p},
-        \qquad
-        I_\mathrm{p}=N_\mathrm{s} I_\mathrm{s} + I_\mathrm{m}.
-        \]
-        Der Magnetisierungsstrom \(I_\mathrm{m}\) ist der entscheidende Störanteil: Er wächst stark an, sobald der Kern in die Sättigung gerät.
+        \textbf{Prinzip}
+        Aufsteckwandler: Kupferschiene entspricht \(N_\mathrm{p}=1\), Sekundärwicklung \(N_\mathrm{s}\).
+        Sättigungsnähe erhöht den Magnetisierungsstrom \(I_\mathrm{m}\) \(\Rightarrow\) \(I_\mathrm{s}\) wird kleiner \(\Rightarrow\) Untererfassung.
 
-        \textbf{Warum das später wichtig ist}
-        Für Genauigkeitsklasse 1 darf der Übersetzungsfehler nur innerhalb \(\pm 1\,\%\) liegen. Jeder zusätzliche Fluss im Kern (z.\,B. durch Fremdfelder) erhöht \(I_\mathrm{m}\) \(\rightarrow\) der Sekundärstrom wird \emph{zu klein} \(\rightarrow\) wir \emph{untererfassen} den Primärstrom. Genau diesen Mechanismus sehen wir später in den Messergebnissen, besonders auf Phase L2.
-
-        \textbf{Randbedingungen}
-        Die Genauigkeit hängt außerdem von der \emph{Bürde} (Sekundärlast) und der Frequenz ab: Je höher die Bürde, desto höher die erforderliche Sekundärspannung und desto früher erreicht der Kern seinen Sättigungsbereich.
+        \textbf{Relevanz}
+        Fremdfeld addiert Störfluss im Kern (Worst Case: L2) und treibt \(I_\mathrm{m}\) hoch.
+        Bürde/Last beeinflusst, wie früh Sättigung einsetzt.
     }
 \end{frame}
 
 % --- Folie 2: Physik (mit Bild) ---
 \begin{frame}{Physikalisches Problem: Fremdfeldeinfluss}
 
-\begin{columns}[T,onlytextwidth]
-    % --- Links: Kernaussagen ---
-    \begin{column}{0.42\textwidth}
-        \textbf{Ursache: Räumliche Nähe}
-        \begin{itemize}\scriptsize
-            \item Starke Magnetfelder der Nachbarleiter koppeln ein
-        \end{itemize}
+    \begin{columns}[T,onlytextwidth]
+        % --- Links: Kernaussagen ---
+        \begin{column}{0.42\textwidth}
+            \textbf{Ursache: Räumliche Nähe}
+            \begin{itemize}\scriptsize
+                \item Starke Magnetfelder der Nachbarleiter koppeln ein
+            \end{itemize}
 
-        \vspace{0.2cm}
-        \textbf{Wirkung: Partielle Sättigung}
-        \begin{itemize}\scriptsize
-            \item Nutzfluss + Störfluss \(\Rightarrow\) lokale Sättigung
-            \item \(\mu_r\) sinkt \(\Rightarrow\) Magnetisierungsanteil steigt
-        \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Wirkung: Partielle Sättigung}
+            \begin{itemize}\scriptsize
+                \item Nutzfluss + Störfluss \(\Rightarrow\) lokale Sättigung
+                \item \(\mu_r\) sinkt \(\Rightarrow\) Magnetisierungsanteil steigt
+            \end{itemize}
 
-        \vspace{0.2cm}
-        \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
-            \textbf{Resultat:} Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
-        \end{beamercolorbox}
-    \end{column}
+            \vspace{0.2cm}
+            \begin{beamercolorbox}[sep=0.5em,center,rounded=true,shadow=false]{alerted text}
+                \textbf{Resultat:} Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
+            \end{beamercolorbox}
+        \end{column}
 
-    % --- Rechts: Simulation ---
-    \begin{column}{0.58\textwidth}
-        \centering
-        \includegraphics[
-            width=\linewidth,
-            height=0.62\textheight,
-            keepaspectratio
-        ]{03_Ressourcen/Bilder/sim_2500A_magnetfelder.png}
+        % --- Rechts: Simulation ---
+        \begin{column}{0.58\textwidth}
+            \centering
+            \includegraphics[
+                width=\linewidth,
+                height=0.62\textheight,
+                keepaspectratio
+            ]{03_Ressourcen/Bilder/sim_2500A_magnetfelder.png}
 
-        \vspace{0.1cm}
-        {\tiny \color{gray}
-        Simulation: Feldstärkeverteilung \(|H|\) bei \SI{2500}{A} \;—\;
-        mittlere Phase (L2) wird von beiden Nachbarphasen überlagert.}
-    \end{column}
-\end{columns}
+            \vspace{0.1cm}
+            {\tiny \color{gray}
+                Simulation: Feldstärkeverteilung \(|H|\) bei \SI{2500}{A} \;—\;
+                mittlere Phase (L2) wird von beiden Nachbarphasen überlagert.}
+        \end{column}
+    \end{columns}
 
-% Zeit: (07:15 - 08:00)
-\slidetime{04:25}{05:05}
-\keynote{ \begin{itemize}\item Fremdfeld koppelt ein \item lokale Sättigung \item Sekundärstrom sinkt \end{itemize} }
+    % Zeit: (07:15 - 08:00)
+    \slidetime{04:25}{05:05}
+    \keynote{ \begin{itemize}\item Fremdfeld koppelt ein \item lokale Sättigung \item Sekundärstrom sinkt \end{itemize} }
 
-\note{
-% deine ausführlichen Notizen bleiben wie gehabt
-... (dein bestehender \note{}-Text) ...
-}
+    \note{
+        Fremdfeld aus Nachbarleitern koppelt in den Eisenkern ein (Worst Case: mittlere Phase L2).
+        Nutzfluss + Störfluss \(\Rightarrow\) lokale/partielle Sättigung, \(\mu_r\) sinkt.
+        Folge: Magnetisierungsanteil steigt, Sekundärstrom sinkt \(\Rightarrow\) Messung zeigt zu wenig an.
+    }
 \end{frame}
 
 
 % --- Sammelfolie: 3 Technologien (Bilder + Überschrift, zentriert, Quelle + Notizen) ---
 \begin{frame}{Technologievergleich}
 
-\begin{columns}[T,onlytextwidth] % Überschriften oben bündig
-    % --- Links: Kompensiert ---
-    \begin{column}{0.33\textwidth}
-        \centering
-        \textbf{\footnotesize Kompensiert}
-        \vspace{0.15cm}
-
-        \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+    \begin{columns}[T,onlytextwidth] % Überschriften oben bündig
+        % --- Links: Kompensiert ---
+        \begin{column}{0.33\textwidth}
             \centering
-            \includegraphics[width=0.90\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.pdf}
+            \textbf{\footnotesize Kompensiert}
+            \vspace{0.15cm}
 
-            % optional: falls du unten noch ein zweites Bild (Schaltbild) hast
-            % \vspace{0.25cm}
-            % \includegraphics[width=0.95\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/<DEIN_SCHALTBILD>.pdf}
-        \end{minipage}
-    \end{column}
+            \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+                \centering
+                \includegraphics[width=0.90\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.pdf}
 
-    % --- Mitte: FFP (Redur) ---
-    \begin{column}{0.33\textwidth}
-        \centering
-        \textbf{\footnotesize FFP}
-        \vspace{0.15cm}
+                % optional: falls du unten noch ein zweites Bild (Schaltbild) hast
+                % \vspace{0.25cm}
+                % \includegraphics[width=0.95\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/<DEIN_SCHALTBILD>.pdf}
+            \end{minipage}
+        \end{column}
 
-        \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+        % --- Mitte: FFP (Redur) ---
+        \begin{column}{0.33\textwidth}
             \centering
-            \includegraphics[width=\linewidth,keepaspectratio]{03_Ressourcen/Bilder/wandler-ffp-redur-patent.png}
+            \textbf{\footnotesize FFP}
+            \vspace{0.15cm}
 
-            \vspace{0.2cm}
-            {\tiny \color{gray} Quelle: Patent DE102021106843A1 (Redur)}
-        \end{minipage}
-    \end{column}
+            \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+                \centering
+                \includegraphics[width=\linewidth,keepaspectratio]{03_Ressourcen/Bilder/wandler-ffp-redur-patent.png}
 
-    % --- Rechts: Dreieck ---
-    \begin{column}{0.33\textwidth}
-        \centering
-        \textbf{\footnotesize Dreieck (Standardwandler)}
-        \vspace{0.15cm}
+                \vspace{0.2cm}
+                {\tiny \color{gray} Quelle: Patent DE102021106843A1 (Redur)}
+            \end{minipage}
+        \end{column}
 
-        \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+        % --- Rechts: Dreieck ---
+        \begin{column}{0.33\textwidth}
             \centering
-            \includegraphics[width=\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_FFP.1.drawio.pdf}
-        \end{minipage}
-    \end{column}
-\end{columns}
+            \textbf{\footnotesize Dreieck (Standardwandler)}
+            \vspace{0.15cm}
 
-\slidetime{05:05}{07:05}
-\keynote{\begin{itemize}
-    \item Drei Lösungswege: Wandlertechnik / Schirmung / Geometrie
-\end{itemize}}
+            \begin{minipage}[c][0.72\textheight][c]{\linewidth}
+                \centering
+                \includegraphics[width=\linewidth,keepaspectratio]{03_Ressourcen/zeichnungen/aufbau_wandler_FFP.1.drawio.pdf}
+            \end{minipage}
+        \end{column}
+    \end{columns}
 
-\note{
-\textbf{Übersicht (Einordnung)}
-Hier zeige ich drei Lösungsprinzipien nebeneinander – von „Wandler intern“ bis „Schaltschrank-Geometrie“.
+    \slidetime{05:05}{07:05}
+    \keynote{\begin{itemize}
+            \item Drei Lösungswege: Wandlertechnik / Schirmung / Geometrie
+        \end{itemize}}
 
-\textbf{Links: Kompensiert}
-Zusatzwicklungen erzeugen ein Gegenfeld. Das stabilisiert den Kern gegen lokale Sättigung und liefert die beste Genauigkeit,
-ist aber typischerweise deutlich teurer (mehrere Faktoren gegenüber Standard) und oft schlechter verfügbar.
-
-\textbf{Mitte: FFP}
-Ein ferromagnetischer Protektor führt den Störfluss am Messkern vorbei (passive Schirmung/Umleitung).
-Das ist ein guter Kompromiss: Standardwandler bleiben möglich und die Messung wird stabiler – allerdings mit Zusatzkosten und Bauraum.
-
-\textbf{Rechts: Dreieck}
-Die Geometrie wird so verändert, dass L2 weniger stark von beiden Nachbarphasen „in die Zange“ genommen wird.
-Damit kann man Standardwandler weiter verwenden, bezahlt aber mit mehr Kupfer und höherer mechanischer Komplexität im Schaltschrank.
-
-\textbf{Überleitung}
-Im nächsten Schritt bewerte ich, welche Option die Klasse~1 unter Fremdfeld bei minimalen Mehrkosten am besten trifft.
-}
+    \note{
+        Drei Hebel gegen Fremdfeld:
+        (1) \textbf{Kompensation} (Gegenfeld) \(\rightarrow\) beste Stabilität, aber teuer/Verfügbarkeit.
+        (2) \textbf{FFP} (Störfluss umlenken) \(\rightarrow\) guter Kompromiss, braucht Bauraum.
+        (3) \textbf{Dreieck} (Geometrie) \(\rightarrow\) reduziert L2-Einkopplung, nutzt Standardwandler.
+        Überleitung: Bewertung nach Normrobustheit vs. Kosten.
+    }
 \end{frame}
 
 

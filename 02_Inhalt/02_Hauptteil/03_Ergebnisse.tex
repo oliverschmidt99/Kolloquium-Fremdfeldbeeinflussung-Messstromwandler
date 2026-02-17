@@ -19,22 +19,9 @@
         \end{itemize}
     }
     \note{
-        \textbf{Ziel des Aufbaus}
-        Damit die Unterschiede zwischen Wandlern, FFP und Geometrie wirklich vergleichbar sind, muss die Messung reproduzierbar und synchron sein: \emph{gleicher Strom, gleiche Temperaturbedingungen, gleiche Auswertung}.
-
-        \textbf{Messkette / Signalfluss}
-        Wir erzeugen den hohen Prüfstrom über den Hochstromtrafo und regeln ihn stufenweise bis \SI{4000}{A}. Parallel dazu messen wir synchron:
-        \begin{itemize}
-            \item \textbf{Referenz:} PAC 4220 (hohe Genauigkeit) als ``Wahrheit''.
-            \item \textbf{Prüfling:} PAC 3220 + der jeweils getestete Stromwandler.
-        \end{itemize}
-        Aus der Differenz zwischen Referenz und Prüfling erhalten wir direkt den Übersetzungsfehler und können Normgrenzen (Klasse 1) bewerten.
-
-        \textbf{Automatisierung und Datenqualität}
-        Die komplette Sequenz läuft SPS-geführt (Profinet), inklusive Haltezeiten zum Einschwingen. Dadurch eliminieren wir typische Fehlerquellen wie manuelles Nachregeln, Ablesefehler oder variable Einschwingzeiten. Die Messwerte werden in WinCC mit Zeitstempel archiviert, was eine saubere Nachauswertung ermöglicht.
-
-        \textbf{Wichtiger Punkt für die späteren Ergebnisse}
-        So stellen wir sicher, dass ein Kurveneinbruch (z.\,B. bei L2/Parallel) \emph{wirklich} aus der Kernphysik/Sättigung kommt und nicht aus einem Messartefakt des Prüfstands.
+        Ziel: reproduzierbare, synchrone Vergleichsmessung (gleicher Strom, gleiche Bedingungen).
+        Messkette: Referenz (PAC 4220) vs. Prüfling (PAC 3220 + Wandler) \(\Rightarrow\) direkt \(\varepsilon\) gegen Klasse~1.
+        SPS/WinCC steuern Stufen + Haltezeiten \(\Rightarrow\) Kurveneinbruch ist physikalisch (Sättigung), kein Messartefakt.
     }
 \end{frame}
 
@@ -47,59 +34,28 @@
 
 \subsection{Messung bei 2000 A}
 
-% --- 2000 A: Genauigkeitsmessung ---
-\begin{frame}{Genauigkeitsmessung bei \SI{2000}{A} (Linearer Bereich)}
+% --- 2000 A: Referenzanalyse (Redur 13A1030.ffp mit FFP) ---
+\begin{frame}{Redur 13A1030.ffp (FFP)}
     \centering
-    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_2000A_presentation.png}
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/redur_2000A_special.png}
 
     \slidetime{08:40}{10:05}
     \keynote{
         \begin{itemize}
-            \item Referenzmessung im Nennbereich
-            \item Alle Wandler arbeiten präzise
-            \item Kaum Unterschiede zwischen Parallel und Dreieck
+            \item Referenzmessung im weitgehend linearen Bereich (\SI{2000}{A})
+            \item Parallel: durch seitliche FFP in allen Phasen normkonform (Klasse 1)
+            \item Dreieck: Ausreißer bei L2 / 120\,\%~$I_\mathrm{n}$ (ca.\,$\varepsilon=-1{,}50\,\%$) \(\rightarrow\) außerhalb Klasse 1
+            \item Interpretation: ungeschirmte Rückseite \(\rightarrow\) Feld-Einkopplung benachbarter Leiter, partielle Kernsättigung
         \end{itemize}
     }
     \note{
-        \textbf{Baseline bei \SI{2000}{A}}
-        Diese Messung dient als Referenz im weitgehend linearen Bereich: Die Kurven liegen eng um 0\,\%,
-        Fremdfeld- und Sättigungseffekte sind hier noch klein.
-
-        \textbf{So liest man die Kurven}
-        Durchgezogen = Parallel, gestrichelt = Dreieck (gleicher Wandler, andere Geometrie).
-        Wichtig ist besonders L2, weil dort später der stärkste Fremdfeldeinfluss zu erwarten ist.
-
-        \textbf{Überleitung}
-        Wenn bei \SI{4000}{A} starke Abweichungen auftreten, ist das damit klar als physikalischer Nichtlinearitäts-/Sättigungseffekt
-        einzuordnen – nicht als Messstreuung.
+    \textbf{2000 A = Referenz (linear):} Abweichungen nahe 0\,\%.
+    \textbf{Parallel:} seitliche FFP \(\Rightarrow\) normkonform.
+    \textbf{Dreieck:} L2 bei 120\,\%~$I_\mathrm{n}$ ca.\ \(-1{,}50\,\%\) (außerhalb) \(\Rightarrow\) ungeschirmte Rückseite, Einkopplung/partielle Sättigung.
+    Überleitung: bei \SI{4000}{A} wird der Sättigungseffekt dominant.
     }
 \end{frame}
 
-\begin{frame}{Aufbau FFP-Wandler (kompensiert)}
-    \centering
-    \includegraphics[width=\textwidth, keepaspectratio]
-    {03_Ressourcen/zeichnungen/aufbau_wandler_FFP.drawio.pdf}
-
-    \slidetime{05:40}{06:10}
-
-    \note{
-        \textbf{Was sieht man in der Skizze?}
-        Der Primärleiter erzeugt das Hauptmagnetfeld im Ringkern.
-        Die zusätzlichen Wicklungen detektieren Streufelder und führen über die Kompensationswicklung
-        ein gezieltes Gegenfeld ein.
-
-        \textbf{Physikalische Idee}
-        Dadurch bleibt der resultierende Fluss im Eisenkern näher am linearen Bereich.
-        Die lokale Sättigung – insbesondere bei asymmetrischen Feldverteilungen – wird reduziert.
-
-        \textbf{Einordnung}
-        Das ist eine aktive, konstruktive Lösung.
-        Im späteren Vergleich prüfen wir, ob eine rein geometrische Maßnahme
-        (Dreiecksanordnung der Leiter) einen ähnlichen Effekt erzielen kann –
-        jedoch ohne Zusatzwicklung und ohne Mehrkosten.
-    }
-
-\end{frame}
 
 
 
@@ -107,36 +63,31 @@
 
 \subsection{Messung bei 4000 A}
 
-% --- 4000 A: Genauigkeitsmessung ---
-\begin{frame}{Genauigkeitsmessung bei \SI{4000}{A} (Kritischer Bereich)}
+
+% --- 4000 A: Vergleich Standard (Dreieck) vs. Kompensiert ---
+\begin{frame}{Standard (Dreieck) vs. Kompensiert}
     \centering
     \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/verlauf_4000A_presentation.png}
 
-    \slidetime{10:05}{11:45}
+    \slidetime{10:05}{11:20}
     \keynote{
         \begin{itemize}
-            \item 4000 A = Extremfall
-            \item Parallel zeigt Totalausfall (Absturz der Kurve)
-            \item Dreieck hält die Genauigkeit deutlich länger
+            \item Fokus: \textbf{Standard in Dreieck} vs. \textbf{kompensierter Wandler}
+            \item Standard (Dreieck): bis ca.\ 80--100\,\% relativ stabil, am oberen Lastpunkt deutliche Abweichungen (teils außerhalb Klasse 1)
+            \item Kompensiert: in allen Phasen deutlich näher an 0\,\% \(\rightarrow\) Sättigungs-/Fremdfeldeinfluss stark reduziert
+            \item Kernaussage: \textbf{Kompensation} ist bei \SI{4000}{A} wirksamer als die reine Geometrieoptimierung
         \end{itemize}
     }
     \note{
-        \textbf{Eskalation auf 4000 A}
-        Im direkten Vergleich sehen wir nun die drastischen Effekte bei 4000 Ampere.
-
-        \textbf{Analyse}
-        Achten Sie auf die hellblaue Linie in der Mitte (Phase L2, Parallel). Der Fehler stürzt komplett ab auf unter -6\,\%. Das ist messtechnisch ein Totalausfall durch Sättigung.
-
-        \textbf{Lösung}
-        Die Dreiecksanordnung (dunkelblau gestrichelt) kommt zwar auch an ihre Grenzen, bleibt aber noch stabil genug, um nutzbare Werte zu liefern. Der Unterschied zur vorherigen Folie ist massiv.
+        Blickführung: hellblau gestrichelt = \textbf{Standard (Dreieck)}, dunkelblau = \textbf{kompensiert}.
+        Standard (Dreieck): bis ca.\ 80--100\,\% stabil, am oberen Lastpunkt Ausreißer \(\Rightarrow\) Klasse~1 nicht durchgängig.
+        Kompensiert: nahe 0\,\% \(\Rightarrow\) Fremdfeld-/Sättigungseinfluss stark reduziert.
+        Take-away: bei \SI{4000}{A} ist \textbf{Kompensation} der dominante Hebel; Geometrie sekundär.
     }
 \end{frame}
 
 
-% ==========================================
-% TEIL 3: ANALYSE UND WIRTSCHAFTLICHKEIT
-% ==========================================
-\section{Vergleichende Analyse}
+
 
 
 
