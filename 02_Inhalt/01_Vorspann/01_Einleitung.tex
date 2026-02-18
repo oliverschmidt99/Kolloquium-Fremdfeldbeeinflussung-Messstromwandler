@@ -46,95 +46,114 @@
 % --- Kombi-Folie: PAC + Wirtschaftlichkeit (nur Ergebnisse) ---
 \begin{frame}{Messabweichung \& wirtschaftliche Relevanz}
 
-
     \noindent
     \begin{minipage}[t]{0.32\textwidth}
         \vspace{0pt}
         \centering
-        \includegraphics[width=0.90\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.pdf}
+        \includegraphics[width=0.90\linewidth, keepaspectratio]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.pdf}
         \vspace{0.15cm}
 
-        {\footnotesize \textbf{\color{green!50!black} Referenz (Kl.~0,2S)}}
+        {\footnotesize \textbf{\color{green!50!black} Referenz (Kl. 0,2S)}}
         \vspace{0.15cm}
 
-        {\scriptsize Ergebnis (Fokus):\par\vspace{0.05cm}}
-        {\Large \textbf{\color{green!50!black} L2: \SI{0,047}{\percent}}}
+        {\scriptsize Ergebnis:\par\vspace{0.05cm}}
+        {\Large \textbf{\color{green!50!black} L2: 0,047\%}}
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.32\textwidth}
         \vspace{0pt}
         \centering
-        \includegraphics[width=0.90\linewidth, keepaspectratio, page=1]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.pdf}
+        \includegraphics[width=0.90\linewidth, keepaspectratio]{03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.pdf}
         \vspace{0.15cm}
 
-        {\footnotesize \textbf{\color{red} Prüfling (Kl.~1,0)}}
+        {\footnotesize \textbf{\color{red} Prüfling (Kl. 1,0)}}
         \vspace{0.15cm}
 
-        {\scriptsize Ergebnis (Fokus):\par\vspace{0.05cm}}
-        {\Large \textbf{\color{red} L2: \SI{-3,24}{\percent}}}
+        {\scriptsize Ergebnis:\par\vspace{0.05cm}}
+        {\Large \textbf{\color{red} L2: -3,24\%}}
     \end{minipage}
     \hfill
     \begin{minipage}[t]{0.34\textwidth}
         \vspace{0pt}
-        \raggedright
-
+        \centering % Hier auf Zentrierung umgestellt
+        
         \setbeamercolor{lossbox}{bg=cHSblue!10,fg=black}
         \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, rounded=true, shadow=true]{lossbox}
-            \centering
-            \small \textbf{Wirtschaftlicher Verlust}
-            \par\vspace{0.35em}
-            {\Large \textbf{\color{red} \(\approx\) 50\,000\,€ / Jahr}}
-            \par\vspace{0.2em}
+            \centering % Zentriert den Text innerhalb der Box
+            \small \textbf{Wirtschaftlicher Verlust}\par\vspace{0.35em}
+            {\Large \textbf{\textcolor{red}{$\approx$ 50.000 € / Jahr}}}\par\vspace{0.2em}
             {\scriptsize (Beispielrechnung, Dauerlast)}
-            % optional, wenn du's noch knapper willst: diese Zeile löschen
         \end{beamercolorbox}
-
+        
         \note{
             \begin{itemize}
-                \item \textbf{Vergleich:} Referenz (Kl.~0,2S) vs. Prüfling (Kl.~1,0) bei \SI{4000}{A}.
-                \item \textbf{Worst Case:} \textbf{L2} zeigt \(\varepsilon \approx \SI{-3,24}{\percent}\) \(\Rightarrow\) deutliche \textbf{Untererfassung}.
-                \item \textbf{Relevanz:} Bei Verrechnung/Monitoring summiert sich der Fehler \(\rightarrow\) \textbf{realer Kostenhebel}.
-                \item \textbf{Point (mit Augenzwinkern):} \glqq weniger erfasst \(\Rightarrow\) scheinbar gespart\grqq{} \(\rightarrow\) für \textbf{Abrechnung} und \textbf{Schutz} aber kritisch.
+                \item \textbf{Vergleich:} Referenz (Kl. 0,2S) vs. Prüfling (Kl. 1,0) bei 4000 A.
+                \item \textbf{Worst Case:} \textbf{L2} zeigt $\varepsilon \approx -3,24\%$ $\Rightarrow$ deutliche \textbf{Untererfassung}.
+                \item \textbf{Relevanz:} Bei Verrechnung summiert sich der Fehler $\rightarrow$ \textbf{realer Kostenhebel}.
+                \item \textbf{Point:} Weniger erfasst $\Rightarrow$ scheinbar gespart, aber für die Abrechnung kritisch.
             \end{itemize}
-}
-
-
+        }
     \end{minipage}
 
-
-
-    \slidetime{02:15}{04:00}
-    \keynote{
-        \begin{itemize}
-            \item PAC-Vergleich: Referenz vs. Prüfling
-            \item Worst Case L2: \(\varepsilon \approx \SI{-3,24}{\percent}\)
-            \item \(\approx\) 50\,000\,€ / Jahr (Beispiel)
-        \end{itemize}
-    }
-
 \end{frame}
-
 
 \subsection{Zielsetzung der Arbeit}
 
 % --- Folie 3: Zielsetzung ---
 \begin{frame}{Zielsetzung der Arbeit}
-    \hfill
-    \begin{itemize}
-        \item Systematische Analyse der Fehler im Drehstromsystem
-        \item Vergleich von Standard-, Kompensierten- und Spezialwandlern
-        \item Ableitung von Handlungsempfehlungen für die Neukonstruktion
-    \end{itemize}
-    \hfill
+
+    % Farben lokal wie bei deiner Loss-Box-Logik
+    \setbeamercolor{goalbox}{bg=cHSblue!8, fg=black}
+    \setbeamercolor{stepbox}{bg=cHSblue!10, fg=black}
+
+    % Leitfrage (oben, 1 Satz)
+    \begin{beamercolorbox}[wd=\linewidth, sep=0.7em, rounded=true, shadow=true]{goalbox}
+        \small \textbf{Leitfrage:}
+        Wie wird die Strommessung im kompakten Drehstromsystem
+        (Worst Case: \textbf{L2}) \textbf{fremdfeldrobust} – bei vertretbaren Kosten/Bauraum?
+    \end{beamercolorbox}
+
+    \vspace{0.6em}
+
+    % 3-Schritt-Logik als Kacheln
+    \begin{columns}[T,onlytextwidth]
+        \begin{column}{0.32\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+                \textbf{1 \,Analyse}\par
+                {\scriptsize Fehlermechanismen \& Einflussgrößen}
+            \end{beamercolorbox}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+                \textbf{2 \,Vergleich}\par
+                {\scriptsize Standard / kompensiert / Spezial \& Geometrien}
+            \end{beamercolorbox}
+        \end{column}
+
+        \begin{column}{0.32\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+                \textbf{3 \,Empfehlung}\par
+                {\scriptsize Entscheidungsvorlage für die Neukonstruktion}
+            \end{beamercolorbox}
+        \end{column}
+    \end{columns}
+
+    \vspace{0.5em}
+
+    % Kriterien (unten als „Footline“ der Folie)
+    \begin{beamercolorbox}[wd=\linewidth, sep=0.5em, rounded=true]{alerted text}
+        \scriptsize \textbf{Bewertung:} Normkonformität \(\cdot\) Fremdfeldrobustheit \(\cdot\) Bauraum \(\cdot\) Kosten \(\cdot\) Verfügbarkeit
+    \end{beamercolorbox}
+
     % Zeit: 30s (04:00 - 04:30)
     \slidetime{04:00}{04:30}
-    \keynote{ \begin{itemize} \item Leitfrage \item Vergleich \& Empfehlung \end{itemize} }
+    \keynote{ \begin{itemize} \item Leitfrage \item 3 Schritte \item Kriterien \end{itemize} }
     \note{
         \begin{itemize}
-            \item \textbf{Analyse:} Fehlermechanismen im \textbf{Drehstromsystem} (insb. L2) systematisch verstehen.
-            \item \textbf{Vergleich:} \textbf{Standard}, \textbf{kompensierte} und \textbf{Spezial}-Wandler sowie Geometrievarianten.
-            \item \textbf{Bewertung:} Normkonformität, Robustheit gegen Fremdfeld und wirtschaftliche Randbedingungen.
-            \item \textbf{Output:} Konkrete \textbf{Handlungsempfehlung} für die Neukonstruktion.
+            \item Ziel: Ursache der Abweichung im 3-Phasen-Aufbau (Worst Case L2) verstehen.
+            \item Dann Konzepte/Geometrien gegeneinander bewerten.
+            \item Ergebnis: klare Empfehlung + Randbedingungen (Norm/Kosten/Bauraum/Verfügbarkeit).
         \end{itemize}
-}
+    }
 \end{frame}
