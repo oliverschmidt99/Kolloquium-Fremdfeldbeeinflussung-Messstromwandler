@@ -47,7 +47,6 @@
             \item Referenzmessung im weitgehend linearen Bereich (\SI{2000}{A})
             \item Parallel: durch seitliche FFP in allen Phasen normkonform (Klasse 1)
             \item Dreieck: Ausreißer bei L2 / 120\,\%~$I_\mathrm{n}$ (ca.\,$\varepsilon=-1{,}50\,\%$) \(\rightarrow\) außerhalb Klasse 1
-            \item Interpretation: ungeschirmte Rückseite \(\rightarrow\) Feld-Einkopplung benachbarter Leiter, partielle Kernsättigung
         \end{itemize}
     }
     \note{
@@ -98,3 +97,48 @@
 
 
 
+% --- Zusammenfassung: Parallel vs. Dreieck (Verbesserung) ---
+\begin{frame}{Parallel vs. Dreieck: Verbesserung}
+    \centering
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag1_dreieck_pct.png}
+
+    \slidetime{12:15}{12:55}
+    \keynote{
+        \begin{itemize}
+            \item Standard-Wandler profitieren deutlich von \textbf{Parallel}-Anordnung (z.\,B. ALO~10030/12070: typ. \(\approx\)\,\(+70\) bis \(+80\)\,\% bei 2--4\,kA)
+            \item \textbf{Kompensierte} Varianten: geringere, teils negative Effekte \(\rightarrow\) primärer Hebel bleibt die Kompensation
+            \item Auffälligkeit: Redur~13A1030.3ffp mit FFP bei \SI{2000}{A} zeigt eine negative Verbesserung \(\rightarrow\) hohe Sensitivität auf Feldführung/Anordnung
+        \end{itemize}
+    }
+    \note{
+        \begin{itemize}
+            \item \textbf{Definition:} „Verbesserung“ = relative Annäherung an \(\varepsilon=0\,\%\) beim Wechsel von \textbf{Dreieck} zu \textbf{Parallel}.
+            \item \textbf{Kernaussage:} Für \textbf{Standard}-Wandler ist die \textbf{Anordnung} ein sehr wirksamer Hebel (große Zugewinne in mehreren Stromstufen).
+            \item \textbf{Kompensierte} Wandler sind bereits gegen Fremdfeld/Sättigung gehärtet \(\Rightarrow\) weniger Zusatznutzen durch reine Geometrieänderung.
+            \item \textbf{Randfall (FFP):} Das Ergebnis deutet auf \textbf{wechselseitige Effekte} zwischen FFP-Positionierung und Leitergeometrie hin.
+        \end{itemize}
+    }
+\end{frame}
+
+
+% --- Kostenvergleich der Wandler ---
+\begin{frame}{Übersicht der Kosten der Wandler}
+    \centering
+    \includegraphics[width=\textwidth, height=0.85\textheight, keepaspectratio]{03_Ressourcen/diagramme/diag_kosten.png}
+
+    \slidetime{12:55}{13:25}
+    \keynote{
+        \begin{itemize}
+            \item Standard-Wandler liegen im Bereich von ca. \(\SI{44}{\euro}\) bis \(\SI{72}{\euro}\) (je nach Typ/Stromstufe)
+            \item FFP-Lösung (Redur~13A1030.3ffp) im mittleren Kostenniveau (\(\approx\SI{146}{\euro}\))
+            \item Kompensation ist der Kostentreiber: ALO~12070K bei 3--4\,kA (\(\approx\SI{346}{\euro}\) bis \(\SI{402}{\euro}\))
+        \end{itemize}
+    }
+    \note{
+        \begin{itemize}
+            \item \textbf{Take-away:} Die \textbf{Anordnung} ist eine \textbf{kostenneutrale} Optimierung (keine Mehrkosten), sofern derselbe Wandler genutzt wird.
+            \item \textbf{Trade-off:} Kompensierte Wandler liefern die stabilsten Ergebnisse bei hohen Strömen, sind aber deutlich teurer.
+            \item \textbf{Praktischer Schluss:} Für Anwendungen bis ~2--3\,kA kann \textbf{Parallel} bei Standard-Wandlern ein sehr gutes Preis/Leistungs-Verhältnis liefern.
+        \end{itemize}
+    }
+\end{frame}

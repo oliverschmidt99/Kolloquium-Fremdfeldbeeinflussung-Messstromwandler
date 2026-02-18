@@ -20,7 +20,7 @@ FONT_TICK_LABEL = 16
 FONT_BAR_LABEL = 12
 FONT_LEGEND = 16
 BASE_HEIGHT_BAR = 10
-FIXED_BAR_WIDTH = 0.25 # Schmaler, da wir jetzt 3 Balken pro Eintrag haben könnten
+FIXED_BAR_WIDTH = 0.25 
 
 # --- FARB DEFINITIONEN ---
 COLOR_MBS_STD = "#d62728"    
@@ -70,27 +70,31 @@ def calculate_layout_adjustments(data, base_height, ncol=2):
     bottom_fraction = min(0.60, max(0.25, bottom_fraction))
     return total_height, bottom_fraction
 
-def format_label_text(row):
+def format_label_text(row, include_geo=True):
     h = str(row.get("hersteller", "")).strip()
     m = str(row.get("modell", "")).strip()
     if m.lower() in ["nan", "none", ""]: m = ""
     t = str(row.get("technologie", "")).strip()
     geo = str(row.get("geometrie", "")).strip()
     label = f"{h} {m} | {t}"
-    if geo: label += f" ({geo})"
+    if include_geo and geo: 
+        label += f" ({geo})"
     return re.sub(r"\s+", " ", label).strip()
 
-def create_dynamic_legend_handles(data, color_col="color"):
+def create_dynamic_legend_handles(data, color_col="color", include_geo=True):
     legend_dict = {}
     if "nennstrom_num" in data.columns:
         data = data.sort_values(by=["nennstrom_num", "hersteller"])
     for _, row in data.iterrows():
         color = row.get(color_col, "#7f7f7f")
         geo = str(row.get("geometrie", "")).lower()
-        is_tri = "dreieck" in geo
+        # Schraffur nur wenn Geometrie relevant ist (also include_geo True ist)
+        is_tri = "dreieck" in geo and include_geo
         hatch = "///" if is_tri else None
         edge_color = "white" if (is_tri and is_dark_color(color)) else "black"
-        label = format_label_text(row)
+        
+        label = format_label_text(row, include_geo=include_geo)
+        
         if label not in legend_dict:
             legend_dict[label] = Patch(facecolor=color, hatch=hatch, edgecolor=edge_color, label=label)
     return list(legend_dict.values())
@@ -176,7 +180,7 @@ def plot_unified_bars(data, x_col, y_col, color_col, title, ylabel, filename):
     print(f"Gespeichert {filename}")
     plt.close()
 
-def plot_horizontal_generic(data, value_col, title, x_label, filename, is_cost=False):
+def plot_horizontal_generic(data, value_col, title, x_label, filename):
     if "nennstrom_num" in data.columns:
         data = data.sort_values(by=["nennstrom_num", "hersteller", "modell", "geometrie"])
     
@@ -213,7 +217,7 @@ def plot_horizontal_generic(data, value_col, title, x_label, filename, is_cost=F
     max_val = max(values) if values else 1
     for bar, val in zip(bars, values):
         if pd.isna(val): continue
-        label_text = f"{val:.2f} €" if is_cost else format_value(val)
+        label_text = format_value(val)
         ax.text(bar.get_width() + (max_val * 0.01), bar.get_y() + bar.get_height()/2, label_text, va='center', fontsize=14, fontweight='bold')
 
     ax.invert_yaxis()
@@ -229,9 +233,108 @@ def plot_horizontal_generic(data, value_col, title, x_label, filename, is_cost=F
     print(f"Gespeichert {filename}")
     plt.close()
 
+def plot_costs_vertical(data, title, filename):
+    """
+    NEU: Plottet Kosten vertikal mit lokaler Legende unter jeder Gruppe.
+    """
+    # 1. Duplikate entfernen
+    df_costs = data.drop_duplicates(subset=["hersteller", "modell", "nennstrom", "technologie"]).copy()
+    if df_costs.empty: return
+
+    # Sortieren
+    if "nennstrom_num" in df_costs.columns:
+        df_costs = df_costs.sort_values(by=["nennstrom_num", "sort_idx", "modell"])
+
+    groups = df_costs["nennstrom"].unique()
+    
+    # --- Layout Berechnung für den unteren Platz ---
+    # Wir müssen wissen, wie viele Zeilen Text wir unter die Achse schreiben müssen
+    max_items_per_group = 0
+    for g in groups:
+        count = len(df_costs[df_costs["nennstrom"] == g])
+        if count > max_items_per_group: max_items_per_group = count
+    
+    # Dynamischer unterer Rand: Basis + Platz pro Zeile Text
+    # 0.2 ist Platz für Achsenbeschriftung, 0.04 pro Legendenzeile
+    needed_bottom = 0.15 + (max_items_per_group * 0.05) 
+    # Begrenzen, damit der Plot nicht nur aus Rand besteht (max 50%)
+    needed_bottom = min(0.6, needed_bottom)
+    
+    # Gesamthöhe des Bildes etwas anpassen, damit die Balken nicht gestaucht werden
+    total_height = 10 + (max_items_per_group * 0.5)
+
+    plt.figure(figsize=(20, total_height))
+    ax = plt.gca()
+
+    x_positions = []
+    x_labels = []
+
+    # Iteration durch Nennstrom-Gruppen
+    for i, group_val in enumerate(groups):
+        sub = df_costs[df_costs["nennstrom"] == group_val]
+        n_bars = len(sub)
+        if n_bars == 0: continue
+
+        bar_w = 0.35
+        current_group_width = n_bars * bar_w
+        group_start_x = i - (current_group_width / 2)
+
+        # Transformation für Text unter der Achse (x=Data, y=Axes-Relative)
+        trans = ax.get_xaxis_transform()
+
+        for j in range(n_bars):
+            row = sub.iloc[j]
+            val = row["Preis (€)"]
+            color = row["color"]
+            
+            # Balken zeichnen
+            if not pd.isna(val) and val != 0:
+                x_pos = group_start_x + (j * bar_w) + (bar_w / 2)
+                ax.bar(x_pos, val, width=bar_w * 0.9, color=color, edgecolor="black", linewidth=1.0)
+                
+                # Preis über dem Balken
+                txt_price = f"{val:.2f} €"
+                ax.text(x_pos, val + (val * 0.01), txt_price, ha='center', va='bottom', 
+                        fontsize=FONT_BAR_LABEL, fontweight='bold')
+
+            # --- LOKALE LEGENDE UNTER DER ACHSE ---
+            # Wir schreiben den Modellnamen direkt unter die Gruppe
+            # y=0 ist die x-Achse. Wir gehen für jeden Eintrag weiter runter.
+            # -0.08 ist der Startabstand, 0.05 ist der Zeilenabstand
+            y_txt_pos = -0.12 - (j * 0.06) 
+            
+            label_text = format_label_text(row, include_geo=False)
+            
+            # Text zentriert unter der Gruppe (x = i)
+            # Wir färben den Text in der Balkenfarbe für schnelle Zuordnung
+            ax.text(i, y_txt_pos, label_text, color=color, transform=trans, 
+                    ha='center', va='top', fontsize=14, fontweight='bold')
+
+        x_positions.append(i)
+        x_labels.append(f"{group_val} A")
+
+    ax.set_xticks(x_positions)
+    ax.set_xticklabels(x_labels, fontsize=FONT_TICK_LABEL, fontweight='bold')
+    ax.tick_params(axis='y', labelsize=FONT_TICK_LABEL)
+    ax.set_ylabel("Preis [€]", fontsize=FONT_AXIS_LABEL)
+    ax.set_title(title, fontsize=FONT_TITLE, fontweight='bold', pad=20)
+    ax.grid(axis="y", linestyle="--", alpha=0.5)
+
+    # Limits setzen, damit oben genug Platz für Labels ist
+    ax.set_ylim(bottom=0, top=ax.get_ylim()[1] * 1.05)
+
+    # Keine globale Legende mehr nötig!
+    
+    plt.tight_layout()
+    # Manuelles Setzen des unteren Randes nach tight_layout, um Platz für Text zu sichern
+    plt.subplots_adjust(bottom=needed_bottom)
+    
+    plt.savefig(filename, dpi=300)
+    print(f"Gespeichert {filename}")
+    plt.close()
+
 def plot_range_analysis(data):
     """Erstellt gruppierte Balkendiagramme für Nieder-, Nenn- und Überlastfehler."""
-    # Wir brauchen die Spalten
     req_cols = ["Nieder_Ges", "Nenn_Ges", "Ueber_Ges"]
     if not all(c in data.columns for c in req_cols):
         print("Spalten für Bereichsanalyse fehlen.")
@@ -243,32 +346,24 @@ def plot_range_analysis(data):
         print(f"Erstelle Bereichs-Analyse für {current} A...")
         df_curr = data[data["nennstrom"] == current].copy()
         
-        # Sortieren
         if "sort_idx" in df_curr.columns:
             df_curr = df_curr.sort_values(by=["sort_idx", "modell"])
         
-        # Layout berechnen
         calc_height, calc_bottom = calculate_layout_adjustments(df_curr, 8, ncol=3)
         plt.figure(figsize=(20, max(10, calc_height)))
         ax = plt.gca()
 
         y_indices = np.arange(len(df_curr))
-        height = 0.25 # Höhe eines Einzelbalkens
+        height = 0.25 
 
-        # Daten holen
         v_low = df_curr["Nieder_Ges"].values
         v_nom = df_curr["Nenn_Ges"].values
         v_high = df_curr["Ueber_Ges"].values
-        
-        # Balken zeichnen (Gruppiert um y_index)
-        # Überlast oben, Nenn mitte, Nieder unten (oder umgekehrt, je nach Geschmack)
-        # Wir machen: Oben=Nieder, Mitte=Nenn, Unten=Überlast -> Y-Achse ist invertiert, also 0 oben.
         
         rects1 = ax.barh(y_indices - height, v_low, height, label='Niederlast (5-50% In)', color=COLOR_RANGE_LOW, edgecolor='black')
         rects2 = ax.barh(y_indices, v_nom, height, label='Nennlast (80-100% In)', color=COLOR_RANGE_NOM, edgecolor='black')
         rects3 = ax.barh(y_indices + height, v_high, height, label='Überlast (120% In)', color=COLOR_RANGE_HIGH, edgecolor='black')
 
-        # Labels bauen
         y_labels = []
         for _, row in df_curr.iterrows():
              y_labels.append(format_label_text(row))
@@ -278,7 +373,6 @@ def plot_range_analysis(data):
         ax.set_xlabel("Mittlerer Fehler", fontsize=FONT_AXIS_LABEL)
         ax.set_title(f"Fehleranalyse nach Lastbereich ({current} A)", fontsize=FONT_TITLE, fontweight='bold', pad=20)
         
-        # Werte anschreiben
         def label_bars(rects):
             for rect in rects:
                 width = rect.get_width()
@@ -293,10 +387,9 @@ def plot_range_analysis(data):
         label_bars(rects2)
         label_bars(rects3)
 
-        ax.invert_yaxis() # Damit erster Eintrag oben ist
+        ax.invert_yaxis() 
         ax.grid(axis="x", linestyle="--", alpha=0.5)
         
-        # Legende
         ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.1), ncol=3, fontsize=14)
 
         plt.tight_layout()
@@ -315,7 +408,6 @@ def plot_line_curves_presentation(data):
         df_curr = data[data["nennstrom"] == current].copy()
         
         fig, axes = plt.subplots(1, 3, figsize=(24, 14), sharey=True)
-        # TITEL NEU
         fig.suptitle(f"Genauigkeitsmessung bei {current} A (Klasse {GENAUIGKEITSKLASSE})", fontsize=FONT_TITLE, fontweight='bold', y=0.96)
         phases = ["L1", "L2", "L3"]
         
@@ -394,21 +486,18 @@ def lade_und_plotte_alle():
 
     # 2. Horizontal: Gesamtfehler
     if "Gesamtfehler" in df.columns:
-        # TITEL NEU
         plot_horizontal_generic(df, "Gesamtfehler", "Gesamter absoluter Fehler der Messung", "Total Error", "diag0_wahre_fehler.png")
 
-    # 3. Horizontal: Kosten
+    # 3. VERTIKAL: Kosten (NEU)
     if "Preis (€)" in df.columns:
-        # TITEL NEU
-        plot_horizontal_generic(df, "Preis (€)", "Übersicht der Kosten der Wandler", "Kosten [€]", "diag_kosten.png", is_cost=True)
+        plot_costs_vertical(df, "Übersicht der Kosten der Wandler", "diag_kosten.png")
 
     # 4. Vertikal: Verbesserung Dreieck
     if "Verbesserung Dreick" in df.columns:
-        # TITEL NEU
         plot_unified_bars(df, "nennstrom", "Verbesserung Dreick", "color", 
                           "Parallel vs Dreieck", "Verbesserung [%]", "diag1_dreieck_pct.png")
     
-    # 5. NEU: Bereichsanalyse (Nieder, Nenn, Über)
+    # 5. Bereichsanalyse (Nieder, Nenn, Über)
     plot_range_analysis(df)
 
 if __name__ == "__main__":
