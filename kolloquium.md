@@ -89,12 +89,21 @@ Für die Foliengrafik findest du die zugehörigen Zeichnungen im Projekt.
 
 ## Folie 7 Technologievergleich
 
-<img src="03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.png" alt="Aufbau Wandler kompensiert" style="width:45%; height:auto;">
+<div style="display:flex; gap:18px; align-items:flex-start;">
+  <img src="03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.png"
+       alt="Aufbau Wandler kompensiert"
+       style="width:50%; height:auto; max-height:320px; object-fit:contain;">
 
-<img src="03_Ressourcen/Bilder/wandler-ffp-redur-patent.png" alt="Patentgrafik Fremdfeldprotektion" style="width:45%; height:auto;">
+  <img src="03_Ressourcen/Bilder/wandler-ffp-redur-patent.png"
+       alt="Patentgrafik Fremdfeldprotektion"
+       style="width:50%; height:auto; max-height:320px; object-fit:contain;">
+</div>
 
-<img src="03_Ressourcen/Bilder/kupferschinen_gesamtaufbau_3d.png" alt="Realisierung Dreieck Leiterführung" style="width:45%; height:auto;">
-
+<div style="margin-top:14px; display:flex; justify-content:center;">
+  <img src="03_Ressourcen/Bilder/kupferschinen_gesamtaufbau_3d.png"
+       alt="Realisierung Dreieck Leiterführung"
+       style="width:72%; height:auto; max-height:240px; object-fit:contain;">
+</div>
 Ich habe drei Hebel verglichen, die auf unterschiedlichen Ebenen ansetzen.
 
 Der erste Hebel ist der kompensierte Wandler. Hier wird das Wandlerdesign so ausgelegt, dass äußere Einflüsse besser unterdrückt werden. Das ist technisch sehr stark und besonders stabil über den Lastbereich. Der Nachteil ist meist der deutlich höhere Preis und die geringere Flexibilität bei Beschaffung und Variantenvielfalt.
