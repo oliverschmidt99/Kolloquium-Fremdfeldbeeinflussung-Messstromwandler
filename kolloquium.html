@@ -1,0 +1,520 @@
+<!DOCTYPE html><html><head>
+      <title>kolloquium</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////home/oliver/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.20/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="skript-kolloquium">Skript Kolloquium </h1>
+<h2 id="fremdfeldbeeinflussung-auf-messstromwandler-in-niederspannungsschaltanlagen">Fremdfeldbeeinflussung auf Messstromwandler in Niederspannungsschaltanlagen </h2>
+<p>Oliver-Luca Schmidt</p>
+<hr>
+<h2 id="folie-1-titel">Folie 1 Titel </h2>
+<p>Moin zusammen und herzlich willkommen zu meinem Kolloquium.<br>
+Mein Name ist Oliver Schmidt und ich stelle heute meine Bachelorarbeit vor, die ich bei der Rolf Janssen Elektrotechnische Werke GmbH erstellt habe.</p>
+<p>Das Thema lautet: <strong>Fremdfeldbeeinflussung auf Messstromwandlern in Niederspannungsschaltanlagen</strong>.</p>
+<p>Im Mittelpunkt steht die Frage, wie magnetische Felder benachbarter Leiter die Strommessung verfälschen und welche Gegenmaßnahmen technisch und wirtschaftlich sinnvoll sind.</p>
+<hr>
+<h2 id="sprechertext-langsam-zum-üben">Sprechertext (langsam zum Üben) </h2>
+<p>Moin zusammen.<br>
+Schön, dass Sie heute da sind.</p>
+<p>Ich bin Oliver Schmidt.<br>
+Meine Bachelorarbeit habe ich bei der Firma Rolf Janssen in Aurich geschrieben.</p>
+<p>In kompakten Niederspannungsschaltanlagen liegen Sammelschienen und Messstromwandler sehr dicht beieinander.<br>
+Dadurch können sich Magnetfelder der Außenleiter überlagern.<br>
+Das führt in der Praxis zu systematischen Messabweichungen, besonders bei der mittleren Phase L2.</p>
+<p>Das ist relevant, weil Strommesswerte heute nicht nur für Punktuelle Überwachung genutzt werden.<br>
+Sie werden auch für Energiemonitoring und teilweise für Abrechnung verwendet.</p>
+<p>Gleichzeitig gibt es einen klaren Trend.<br>
+Mehr Leistungsdichte auf weniger Bauraum.<br>
+Höhere Ströme bei kleineren Leiterabständen.<br>
+Und damit stärkere Fremdfeldkopplung.</p>
+<p>Ziel meiner Arbeit war es, Maßnahmen zu bewerten, die die Messung unter Fremdfeldeinfluss robuster machen.<br>
+Dabei habe ich verschiedene Ansätze verglichen, zum Beispiel Wandlertechnologien, Schirmungsmaßnahmen und die Leitergeometrie.</p>
+<hr>
+<h2 id="optionale-ergänzungen-für-die-titelfolie">Optionale Ergänzungen für die Titelfolie </h2>
+<p>Wenn auf der Folie noch Platz ist, können zwei kurze Zeilen ergänzt werden:</p>
+<ul>
+<li><strong>Leitfrage:</strong> Wie wird die Strommessung auf L2 fremdfeldrobust bei vertretbaren Kosten</li>
+<li><strong>Vergleich:</strong> Standardwandler vs kompensiert vs Fremdfeldprotektion und Leitergeometrie</li>
+</ul>
+<hr>
+<h2 id="folie-2-agenda">Folie 2 Agenda </h2>
+<h3 id="text-für-die-folie">Text für die Folie </h3>
+<p><strong>Agenda</strong></p>
+<ol>
+<li>Motivation und Problemstellung</li>
+<li>Zielsetzung der Arbeit</li>
+<li>Grundlagen: Messstromwandler und Fehlermechanismus</li>
+<li>Versuchsaufbau und Messmethodik</li>
+<li>Ergebnisse und Empfehlung</li>
+</ol>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-1">Sprechertext (langsam zum Üben) </h3>
+<p>Ich gliedere den Vortrag in fünf Teile.</p>
+<p>Erstens zeige ich die Motivation und die Problemstellung.<br>
+Warum Fremdfelder in Niederspannungsschaltanlagen heute ein Problem sind.</p>
+<p>Zweitens formuliere ich die Zielsetzung der Arbeit.<br>
+Also welche Fragen ich beantworten will und was am Ende bewertet werden soll.</p>
+<p>Drittens gebe ich kurz die Grundlagen zum Messstromwandler.<br>
+So weit, dass klar wird, wie der Fehler durch Fremdfeldkopplung entsteht.</p>
+<p>Viertens zeige ich den Versuchsaufbau am Hochstrom-Prüfstand und die Messmethodik.<br>
+Wie die Leiterschienen angeordnet waren, wie gemessen wurde und welche Größen ausgewertet wurden.</p>
+<p>Und fünftens zeige ich exemplarische Ergebnisse.<br>
+Daraus leite ich eine Empfehlung ab, einmal für neue Konstruktionen und einmal für Bestandsanlagen.</p>
+<hr>
+<h2 id="folie-3-motivation-und-problemstellung">Folie 3 Motivation und Problemstellung </h2>
+<img src="03_Ressourcen/Bilder/schaltschrank_front.jpg" alt="Kompakte Feldverteilung im Schaltschrank" style="width:65%; height:auto;">
+<h3 id="text-für-die-folie-1">Text für die Folie </h3>
+<p>Auf dem Bild sehen Sie eine typische Situation in einer kompakten Niederspannungsschaltanlage.<br>
+Oben sitzen die Messstromwandler, darunter verlaufen die Sammelschienen dicht nebeneinander.</p>
+<p>Drei Entwicklungen verstärken die Fremdfeldbeeinflussung</p>
+<ul>
+<li>höhere Leistungsdichte durch kompaktere Anlagen</li>
+<li>höhere Primärströme bei kleinen Leiterabständen</li>
+<li>stärkere magnetische Kopplung zwischen den Phasen</li>
+</ul>
+<p>Wenn Messwerte für Energiemonitoring, Betriebsführung oder Abrechnung genutzt werden, sind systematische Abweichungen kein Detail mehr, sondern ein funktionales und wirtschaftliches Risiko.</p>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-2">Sprechertext (langsam zum Üben) </h3>
+<p>Auf dem Bild sehen Sie eine typische Situation in einer kompakten Niederspannungsschaltanlage.<br>
+Oben sind die Messstromwandler angeordnet.<br>
+Darunter laufen die Sammelschienen sehr dicht nebeneinander.</p>
+<p>In dieser Anordnung stecken drei Entwicklungen, die heute häufig zusammenkommen.</p>
+<ul>
+<li>
+<p><strong>Erstens</strong>.<br>
+Die Anlagen werden kompakter, weil Platz in Technikräumen knapp ist.<br>
+Dadurch steigt die Leistungsdichte.</p>
+</li>
+<li>
+<p><strong>Zweitens</strong>.<br>
+Die Primärströme werden größer, aber die Abstände der Schienen bleiben oft klein.<br>
+Das liegt an Bauraum und Kosten.</p>
+</li>
+<li>
+<p><strong>Drittens</strong>.<br>
+Wenn Leiter dicht beieinander liegen, steigt automatisch die magnetische Kopplung zwischen den Phasen.<br>
+Damit steigt auch die Wahrscheinlichkeit, dass Fremdfelder den Messstromwandler beeinflussen.</p>
+</li>
+</ul>
+<p>Das ist nicht nur ein theoretisches Problem.<br>
+Sobald die Messwerte für Energiemonitoring oder Betriebsführung genutzt werden, ist eine Abweichung bereits kritisch.<br>
+Und wenn Messwerte sogar in Richtung Abrechnung gehen, wird aus einem Messfehler ein echtes wirtschaftliches Risiko.</p>
+<p>Die zentrale Frage ist deshalb.<br>
+Wie groß ist dieser Einfluss in typischen Anordnungen.<br>
+Und welche Maßnahmen reduzieren ihn zuverlässig.</p>
+<hr>
+<h2 id="folie-4-messabweichung-und-wirtschaftliche-relevanz">Folie 4 Messabweichung und wirtschaftliche Relevanz </h2>
+<h3 id="text-für-die-folie-2">Text für die Folie </h3>
+<ul>
+<li>
+<p><strong>Typisches Muster</strong><br>
+L2 ist am stärksten betroffen, weil die Felder von L1 und L3 überlagern</p>
+</li>
+<li>
+<p><strong>Beispiel bei hoher Last</strong><br>
+Referenz: Abweichung praktisch 0<br>
+Prüfling: L2 zeigt deutlich zu wenig, ca. <strong>-3 Prozent</strong></p>
+</li>
+<li>
+<p><strong>Wirtschaftliche Relevanz</strong><br>
+Bei Dauerlast und Nutzung für Kostenverteilung oder Abrechnung kann ein Messfehler spürbare Beträge verursachen<br>
+Beispielrechnung: Größenordnung <strong>≈ 50.000 Euro pro Jahr</strong></p>
+</li>
+</ul>
+<hr>
+<h3 id="bilder-und-quellen">Bilder und Quellen </h3>
+<ul>
+<li>Referenz</li>
+</ul>
+<img src="03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Referenz.png" width="18%">
+<img src="03_Ressourcen/pac/PAC_Anzeige-4000A-Parallel-100p-Pruefling.png" width="18%">
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-3">Sprechertext (langsam zum Üben) </h3>
+<p>Ich möchte die Größenordnung früh klar machen.</p>
+<p>In meinen Messreihen zeigt sich ein Muster besonders häufig.<br>
+Die mittlere Phase L2 fällt am stärksten auf.<br>
+Sie liegt zwischen L1 und L3 und wird von beiden Nachbarphasen magnetisch überlagert.<br>
+Damit befindet sie sich im ungünstigsten Feldbereich.</p>
+<p>Hier sehen Sie ein Beispiel bei hoher Last.<br>
+Die Referenzmessung liegt praktisch bei null Abweichung.<br>
+Der Prüfling zeigt in L2 dagegen deutlich zu wenig.<br>
+In diesem Fall liegt die Abweichung bei ungefähr minus drei Prozent.</p>
+<p>Wenn man so einen Fehler über lange Zeit betrachtet, zum Beispiel bei Dauerlast, kann das wirtschaftlich relevant werden.<br>
+Vor allem dann, wenn die Messwerte für Kostenverteilung oder Abrechnung genutzt werden.</p>
+<p>Die Beispielrechnung auf der Folie zeigt eine Größenordnung von ungefähr fünfzigtausend Euro pro Jahr.<br>
+Das ist eine Beispielzahl, aber sie macht klar, warum sich eine konstruktiv saubere Lösung lohnen kann.</p>
+<hr>
+<h2 id="folie-5-zielsetzung-der-arbeit">Folie 5 Zielsetzung der Arbeit </h2>
+<h3 id="text-für-die-folie-3">Text für die Folie </h3>
+<p><strong>Leitfrage</strong><br>
+Wie wird die Strommessung im kompakten Drehstromsystem, Worst Case L2, <strong>fremdfeldrobust</strong> bei vertretbaren Kosten und Bauraum</p>
+<p><strong>Ziele der Arbeit</strong></p>
+<ol>
+<li>
+<p><strong>Analyse</strong><br>
+Fehlermechanismen und Einflussgrößen im Drehstromsystem</p>
+</li>
+<li>
+<p><strong>Vergleich</strong><br>
+Standardwandler vs kompensierte Wandler vs Lösungen mit Fremdfeldprotektion und Geometrien</p>
+</li>
+<li>
+<p><strong>Empfehlung</strong><br>
+Entscheidungsgrundlage für Neukonstruktion und realistische Maßnahmen für Bestandsanlagen</p>
+</li>
+</ol>
+<p><strong>Bewertungskriterien</strong><br>
+Normkonformität, Fremdfeldrobustheit, Bauraum, Kosten, Verfügbarkeit</p>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-4">Sprechertext (langsam zum Üben) </h3>
+<p>Auf Basis der Motivation ergeben sich drei konkrete Ziele.</p>
+<p>Erstens analysiere ich die Fehler im Drehstromsystem systematisch.<br>
+Ich betrachte alle drei Phasen unter gleichen Bedingungen und vergleiche die Abweichungen direkt.<br>
+So wird sichtbar, welche Phase besonders kritisch ist und welche Einflussgrößen dominieren.</p>
+<p>Zweitens vergleiche ich verschiedene technische Lösungsansätze.<br>
+Im Fokus stehen Standardwandler, kompensierte Wandler und eine Lösung mit Fremdfeldprotektion.<br>
+Zusätzlich spielt die Leitergeometrie eine Rolle, weil sie die Feldverteilung direkt beeinflusst.</p>
+<p>Drittens leite ich daraus eine Handlungsempfehlung ab.<br>
+Die Empfehlung soll für eine Neukonstruktion praktikabel sein.<br>
+Und sie soll gleichzeitig zeigen, was im Bestand realistisch nachrüstbar ist.</p>
+<p>Bewertet habe ich die Lösungen anhand von fünf Kriterien.<br>
+Normkonformität, Fremdfeldrobustheit, Bauraum, Kosten und Verfügbarkeit.</p>
+<hr>
+<h2 id="folie-6-funktionsprinzip-und-aufbau">Folie 6 Funktionsprinzip und Aufbau </h2>
+<img src="03_Ressourcen/zeichnungen/aufbau_wandler.drawio.png" alt="Prinzipieller Aufbau eines Aufsteckstromwandlers" style="width:60%; height:auto;">
+<h3 id="text-für-die-folie-4">Text für die Folie </h3>
+<p><strong>Aufgaben des Messstromwandlers</strong></p>
+<ul>
+<li>Transformation hoher Primärströme auf 1 A oder 5 A</li>
+<li>Galvanische Trennung zwischen Leistungspfad und Messkette</li>
+<li>Bündelung des magnetischen Flusses im Eisenkern für eine proportionale Messung</li>
+</ul>
+<p><strong>Kernaussage für den Fehlermechanismus</strong></p>
+<ul>
+<li>Der Kern sieht nicht nur den Nutzfluss des eigenen Primärleiters</li>
+<li>Benachbarte Leiter koppeln Störfluss ein</li>
+<li>Nutzfluss und Störfluss überlagern sich lokal</li>
+<li>Frühe Teilsättigung führt zu kleinerem Sekundärstrom, Anzeige zeigt zu wenig</li>
+</ul>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-5">Sprechertext (langsam zum Üben) </h3>
+<p>Als Grundlage brauche ich kurz das Funktionsprinzip.</p>
+<p>Ein Messstromwandler ist im Kern ein Stromtransformator.<br>
+Er transformiert hohe Primärströme auf einen standardisierten Sekundärstrom, typischerweise 1 Ampere oder 5 Ampere.<br>
+Zusätzlich trennt er galvanisch, also der Leistungsteil ist elektrisch von der Messkette getrennt.<br>
+Und er bündelt den magnetischen Fluss im Eisenkern, damit der Sekundärstrom proportional zum Primärstrom bleibt.</p>
+<p>Der kritische Punkt ist die magnetische Aussteuerung des Kerns.<br>
+Der Kern sieht nicht nur den Nutzfluss, der durch den eigenen Primärleiter entsteht.<br>
+Wenn benachbarte Leiter nahe genug sind, koppelt Störfluss ein.</p>
+<p>Nutzfluss und Störfluss überlagern sich lokal im Kern.<br>
+Dadurch kann ein Teil des Kerns früher in Sättigung geraten.</p>
+<p>Sobald Sättigung einsetzt, steigt der Magnetisierungsanteil.<br>
+Dann leidet die Proportionalität.<br>
+Und der Sekundärstrom wird kleiner als ideal.</p>
+<p>Praktisch bedeutet das.<br>
+Die Anzeige zeigt zu wenig an.</p>
+<hr>
+<h2 id="folie-7-technologievergleich">Folie 7 Technologievergleich </h2>
+<div style="display:flex; gap:18px; align-items:flex-start;">
+  <img src="03_Ressourcen/zeichnungen/aufbau_wandler_kompensiert.drawio.png" alt="Aufbau Wandler kompensiert" style="width:50%; height:auto; max-height:120px; object-fit:contain;">
+<p><img src="03_Ressourcen/Bilder/wandler-ffp-redur-patent.png" alt="Patentgrafik Fremdfeldprotektion" style="width:50%; height:auto; max-height:320px; object-fit:contain;"></p>
+</div>
+<div style="margin-top:14px; display:flex; justify-content:center;">
+  <img src="03_Ressourcen/zeichnungen/aufbau_wandler_FFP.1.drawio.png" alt="Realisierung Dreieck Leiterführung" style="width:40%; height:auto; max-height:240px; object-fit:contain;">
+</div>
+<h3 id="text-für-die-folie-5">Text für die Folie </h3>
+<p><strong>Drei Hebel zur Reduktion der Fremdfeldbeeinflussung</strong></p>
+<ol>
+<li>
+<p><strong>Kompensierter Wandler</strong><br>
+Wandlerdesign unterdrückt äußere Magnetfelder, sehr stabil über den Lastbereich<br>
+Nachteile: höhere Kosten, geringere Varianten und Beschaffungsflexibilität</p>
+</li>
+<li>
+<p><strong>FFP, Fremdfeldprotektion</strong><br>
+zusätzlicher magnetischer Weg lenkt Störfluss um oder schwächt ihn ab<br>
+geeignet für Bestandsanlagen, weil die Leiterführung nicht zwingend neu aufgebaut werden muss<br>
+Nachteile: Bauraum, Montage und Ausrichtung beeinflussen die Wirkung</p>
+</li>
+<li>
+<p><strong>Geometrie, Dreieck mit Standardwandler</strong><br>
+Standardwandler bleibt, aber Leiterführung wird so geändert, dass die Feldüberlagerung bei L2 sinkt<br>
+Vorteile: systemischer Effekt, oft wirtschaftlich<br>
+Hinweis: abhängig von Einbauraum und konstruktiven Randbedingungen</p>
+</li>
+</ol>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-6">Sprechertext (langsam zum Üben) </h3>
+<p>Ich habe drei Hebel verglichen, die auf unterschiedlichen Ebenen ansetzen.</p>
+<p>Der erste Hebel ist der kompensierte Wandler.<br>
+Hier wird das Wandlerdesign so ausgelegt, dass äußere Magnetfelder besser unterdrückt werden.<br>
+Das ist technisch sehr stark und bleibt über den Lastbereich meist sehr stabil.<br>
+Der typische Nachteil ist der deutlich höhere Preis.<br>
+Und oft gibt es weniger Flexibilität bei Varianten und Beschaffung.</p>
+<p>Der zweite Hebel ist die Fremdfeldprotektion, kurz FFP.<br>
+Dabei wird ein zusätzlicher magnetischer Weg bereitgestellt, der Störfluss abschwächt oder umlenkt.<br>
+Das ist besonders interessant für Bestandsanlagen, weil man nicht zwingend die komplette Leiterführung neu bauen muss.<br>
+Der Nachteil liegt häufig im zusätzlichen Bauraum und in der Montageabhängigkeit.<br>
+Wenn die Ausrichtung nicht reproduzierbar ist, kann die Wirkung streuen.</p>
+<p>Der dritte Hebel ist die Geometrie.<br>
+Hier bleibt der Wandler ein Standardwandler, aber die Leiter werden nicht parallel geführt, sondern in einer Dreiecksanordnung.<br>
+Dadurch verändert sich die Feldüberlagerung im Bereich der mittleren Phase L2.<br>
+Und die kritische Einkopplung kann deutlich sinken.<br>
+Das ist attraktiv, weil die Lösung systemisch wirkt und oft wirtschaftlich ist.</p>
+<hr>
+<h2 id="folie-8-physikalisches-problem-fremdfeldeinfluss">Folie 8 Physikalisches Problem Fremdfeldeinfluss </h2>
+<img src="03_Ressourcen/Bilder/sim_2500A_magnetfelder.png" alt="Simulation Feldstärkeverteilung" style="width:75%; height:auto;">
+<h3 id="text-für-die-folie-6">Text für die Folie </h3>
+<p><strong>Ursache: Räumliche Nähe</strong></p>
+<ul>
+<li>Starke Magnetfelder der Nachbarleiter koppeln in den Wandlerbereich ein</li>
+<li>Worst Case im Drehstromsystem häufig <strong>L2</strong>, weil Überlagerung von beiden Seiten</li>
+</ul>
+<p><strong>Wirkung: Partielle Sättigung</strong></p>
+<ul>
+<li>Nutzfluss plus Störfluss erhöhen lokal die Aussteuerung</li>
+<li>Effektive Permeabilität sinkt, Magnetisierungsanteil steigt</li>
+<li>Proportionalität zwischen Primär und Sekundär verschlechtert sich</li>
+</ul>
+<p><strong>Resultat</strong></p>
+<ul>
+<li>Sekundärstrom sinkt</li>
+<li>Messung zeigt zu wenig an, typischerweise als Untererfassung in L2</li>
+</ul>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-7">Sprechertext (langsam zum Üben) </h3>
+<p>Diese Folie zeigt den Mechanismus in einem Bild.</p>
+<p>Die Ursache ist räumliche Nähe.<br>
+Die Magnetfelder der Nachbarleiter koppeln in den Bereich des Messstromwandlers ein.<br>
+Im Drehstromsystem ist die mittlere Phase L2 häufig der Worst Case,<br>
+weil sie zwischen den beiden anderen Phasen liegt und damit von beiden Seiten überlagert wird.</p>
+<p>Die Wirkung ist eine partielle Sättigung im Eisenkern.<br>
+Der Kern sieht nicht nur den Nutzfluss des eigenen Primärleiters.<br>
+Zusätzlich kommt Störfluss dazu.<br>
+Nutzfluss und Störfluss addieren sich lokal,<br>
+dadurch steigt die Aussteuerung in einem Kernbereich überproportional.</p>
+<p>Wenn das passiert, sinkt die effektive Permeabilität.<br>
+Der Magnetisierungsanteil steigt<br>
+und die Messkette verliert Proportionalität.</p>
+<p>Das Ergebnis ist eindeutig.<br>
+Der Sekundärstrom wird kleiner als ideal.<br>
+Damit zeigt die Messung zu wenig an.<br>
+Genau deshalb tritt der Fehler in der Praxis häufig als Untererfassung in L2 auf.</p>
+<h2 id="folie-9-versuchsaufbau-hochstrom-prüfstand">Folie 9 Versuchsaufbau Hochstrom Prüfstand </h2>
+<img src="03_Ressourcen/zeichnungen/aufbau_hochstrom_pruefstand_neu.png" alt="Versuchsaufbau Hochstrom Prüfstand" style="width:90%; height:auto;">
+<h3 id="text-für-die-folie-7">Text für die Folie </h3>
+<p><strong>Prinzip: direkte Vergleichsmessung</strong></p>
+<ul>
+<li>gleicher Primärstrompfad</li>
+<li><strong>Referenzmessung</strong> parallel zur <strong>Prüflingsmessung</strong></li>
+<li>Abweichung wird direkt aus beiden Messwerten bestimmt, ohne indirekte Annahmen</li>
+</ul>
+<p><strong>Messprogramm</strong></p>
+<ul>
+<li>definierte Stromstufen, typischer Bereich <strong>2000 bis 4000 A</strong></li>
+<li>reproduzierbares Anfahren der Lastpunkte für vergleichbare Kennlinien</li>
+<li>Auswertung phasenweise, um Unterschiede zwischen L1, L2 und L3 sichtbar zu machen</li>
+</ul>
+<hr>
+<h3 id="sprechertext-langsam-zum-üben-8">Sprechertext (langsam zum Üben) </h3>
+<p>Ich komme zur Methodik.</p>
+<p>Die Messungen habe ich an einem Hochstrom-Prüfstand durchgeführt.<br>
+Wichtig ist dabei das Prinzip der direkten Vergleichsmessung.</p>
+<p>Der gleiche Primärstrom läuft durch eine definierte Leiteranordnung.<br>
+Diesen Strom erfasse ich parallel auf zwei Wegen.<br>
+Einmal über die Referenzmessung.<br>
+Und gleichzeitig über die Prüflingsmessung, also Messstromwandler plus Messgerät.</p>
+<p>Damit kann ich die Abweichung direkt bestimmen.<br>
+Ich brauche keine indirekten Annahmen und keine Umrechnung über externe Modelle.<br>
+Der Vergleich passiert im gleichen Strompfad und zum gleichen Zeitpunkt.</p>
+<p>Die Messreihen laufen über definierte Stromstufen, typischerweise im Bereich von 2000 bis 4000 Ampere.<br>
+Die Lastpunkte werden reproduzierbar angefahren, damit Kennlinien wirklich vergleichbar sind.</p>
+<p>So kann ich erkennen, ab wann Nichtlinearitäten auftreten.<br>
+Und ich kann auswerten, ob sich diese Effekte phasenabhängig zeigen, also ob L2 systematisch stärker abweicht als L1 und L3.</p>
+<h2 id="folie-10-exemplarisches-messergebnis-ffp">Folie 10 Exemplarisches Messergebnis FFP </h2>
+<img src="03_Ressourcen/diagramme/redur_2000A_special.png" alt="FFP Ergebnis bei 2000 A" style="width:75%; height:auto;">
+<h3 id="text-für-die-folie-8">Text für die Folie </h3>
+<ul>
+<li><strong>FFP reduziert die Abweichungen</strong> im relevanten Lastbereich deutlich</li>
+<li><strong>L2 bleibt am empfindlichsten</strong>, weil sie im Feldzentrum liegt</li>
+<li>Für den <strong>Bestand</strong> attraktiv, da ohne komplette neue Leiterführung umsetzbar</li>
+<li>Wichtig in der Praxis<br>
+Positionierung und Montage müssen reproduzierbar sein, sonst streut die Wirkung</li>
+</ul>
+<h3 id="sprechertext-langsam-zum-üben-9">Sprechertext (langsam zum Üben) </h3>
+<p>Hier zeige ich ein Beispiel für die Fremdfeldprotektion.</p>
+<p>Man sieht, dass sich die Abweichungen im relevanten Bereich deutlich reduzieren lassen.<br>
+Gleichzeitig bleibt L2 der empfindlichste Kanal.<br>
+Das passt zur physikalischen Erklärung, weil L2 im Feldzentrum liegt und von beiden Nachbarphasen überlagert wird.</p>
+<p>Für Bestandsanlagen ist dieser Ansatz interessant.<br>
+Man kann eine deutliche Verbesserung erreichen, ohne die komplette Leiterführung neu aufzubauen.</p>
+<p>In der Praxis ist aber entscheidend, dass die Protektion korrekt positioniert wird.<br>
+Und dass die Montage reproduzierbar ist.<br>
+Sonst kann die Wirkung von Anlage zu Anlage schwanken.</p>
+<hr>
+<h2 id="folie-11-standard-im-dreieck-gegen-kompensiert">Folie 11 Standard im Dreieck gegen kompensiert </h2>
+<img src="03_Ressourcen/diagramme/verlauf_4000A_presentation.png" alt="Vergleich bei 4000 A" style="width:75%; height:auto;">
+<h3 id="text-für-die-folie-9">Text für die Folie </h3>
+<ul>
+<li>
+<p><strong>Kompensierter Wandler</strong><br>
+sehr nah an idealer Übersetzung, robust über großen Lastbereich<br>
+geeignet bei maximaler Genauigkeit und breitem Betriebsbereich<br>
+Nachteil: höhere Kosten, oft weniger Varianten</p>
+</li>
+<li>
+<p><strong>Standardwandler in Dreieck-Geometrie</strong><br>
+Messgüte wird über Leitergeometrie stabilisiert<br>
+Standardkomponenten bleiben nutzbar, wirtschaftlich für Neukonstruktion<br>
+systemischer Effekt, reduziert die kritische L2 Einkopplung</p>
+</li>
+</ul>
+<h3 id="sprechertext-langsam-zum-üben-10">Sprechertext (langsam zum Üben) </h3>
+<p>Jetzt kommt der Kernvergleich, weil er direkt zur Empfehlung führt.</p>
+<p>Die kompensierte Variante bleibt über einen großen Bereich sehr nahe an der idealen Übersetzung.<br>
+Sie ist technisch robust, auch wenn die Last steigt oder die Umgebung magnetisch ungünstig ist.<br>
+Diese Lösung ist besonders geeignet, wenn maximale Genauigkeit gefordert ist oder wenn ein breiter Betriebsbereich abgesichert werden muss.</p>
+<p>Die Dreiecksanordnung mit Standardwandlern zeigt aber ebenfalls einen starken Effekt.<br>
+Der entscheidende Vorteil ist, dass die Messgüte über Geometrie stabilisiert wird, ohne den Wandler selbst zum Spezialteil zu machen.<br>
+Das ist für eine Neukonstruktion attraktiv, weil es Kosten und Risiko senkt und gleichzeitig die Messung verbessert.</p>
+<hr>
+<h2 id="folie-12-bewertung-der-lösungsansätze">Folie 12 Bewertung der Lösungsansätze </h2>
+<h3 id="text-für-die-folie-10">Text für die Folie </h3>
+<p><strong>Entscheidung nach Einsatzfall</strong></p>
+<ul>
+<li>
+<p><strong>Maximale Genauigkeit</strong><br>
+kompensierte Wandler<br>
+beste Kennlinien, aber höhere Kosten</p>
+</li>
+<li>
+<p><strong>Bestand, Nachrüstung</strong><br>
+FFP<br>
+starke Verbesserung ohne komplette neue Leiterführung<br>
+Montage muss robust und reproduzierbar sein</p>
+</li>
+<li>
+<p><strong>Neukonstruktion, Wirtschaftlichkeit</strong><br>
+Standardwandler plus Dreieck<br>
+sehr guter Kompromiss aus Messgüte und Kosten<br>
+Standardkomponenten bleiben nutzbar, besonders gut im Nennlastbereich</p>
+</li>
+</ul>
+<p><strong>Gemeinsamkeit</strong><br>
+Alle Ansätze reduzieren die L2 Verzerrung<br>
+Unterschiede liegen in Kosten, Bauraum und Integrationsaufwand</p>
+<h3 id="sprechertext-langsam-zum-üben-11">Sprechertext (langsam zum Üben) </h3>
+<p>Ich fasse die Bewertung als Entscheidung nach Einsatzfall zusammen.</p>
+<p>Wenn höchste Genauigkeit im Vordergrund steht, sind kompensierte Wandler die technisch beste Wahl.<br>
+Sie liefern die stabilsten Kennlinien.<br>
+Der Nachteil ist der Preis, der in der Praxis oft deutlich höher liegt als bei Standardwandlern.</p>
+<p>Wenn eine Nachrüstung im Bestand gefragt ist, ist FFP häufig die pragmatischste Lösung.<br>
+Sie kann starke Verbesserungen bringen, ohne dass die gesamte Leiterführung neu konstruiert werden muss.<br>
+Wichtig ist dabei eine robuste Montage, damit die Wirkung konstant bleibt.</p>
+<p>Wenn es um neue Felder geht, ist die Dreiecksanordnung mit Standardwandlern der Preis Leistungs Sieger.<br>
+Die Messgüte wird über eine systemische Maßnahme erreicht.<br>
+Dadurch bleiben Standardkomponenten nutzbar und die Konstruktion kann trotzdem normnah messen, besonders im Nennlastbereich.</p>
+<p>Der gemeinsame Nenner ist.<br>
+Alle drei Ansätze reduzieren die L2 Verzerrung.<br>
+Die Unterschiede liegen vor allem in Kosten, Bauraum und Integrationsaufwand.</p>
+<hr>
+<h2 id="folie-13-customer-win-standardwandler-plus-dreieck">Folie 13 Customer Win Standardwandler plus Dreieck </h2>
+<div style="display:flex; gap:18px; align-items:flex-start; justify-content:center;">
+  <img src="03_Ressourcen/Bilder/kupferschinen_gesamtaufbau_3d.png" alt="Dreieck Leiterführung" style="width:46%; height:auto;">
+  <img src="03_Ressourcen/diagramme/diag_kosten.png" alt="Kostenübersicht" style="width:46%; height:auto;">
+</div>
+<h3 id="text-für-die-folie-11">Text für die Folie </h3>
+<ul>
+<li>
+<p><strong>Standardwandler bleiben Standard</strong><br>
+keine Spezialteile, weniger Beschaffungsrisiko</p>
+</li>
+<li>
+<p><strong>Kostenwirkung</strong><br>
+Einsparpotenzial in der Größenordnung von <strong>≈ 1000 Euro pro dreiphasigem Feld</strong><br>
+je nach Ausführung und Stückzahlen</p>
+</li>
+<li>
+<p><strong>Messgüte im Nennbereich</strong><br>
+deutliche Verbesserung trotz Fremdfeld<br>
+besonders relevant bei typischer Betriebszeit um <strong>80 bis 100 Prozent Last</strong></p>
+</li>
+<li>
+<p><strong>Nutzen für Serie</strong><br>
+senkt Kosten und verbessert Messqualität gleichzeitig</p>
+</li>
+</ul>
+<h3 id="sprechertext-langsam-zum-üben-12">Sprechertext (langsam zum Üben) </h3>
+<p>Diese Folie übersetzt die technische Empfehlung in Nutzenargumente.</p>
+<p>Wenn Standardwandler beibehalten werden können und die Leiterführung in Dreieck ausgeführt wird, gibt es zwei Effekte.</p>
+<p>Erstens sinken die Stückkosten.<br>
+Man benötigt keine Spezialwandler.<br>
+In der Folie ist dafür eine Größenordnung von rund 1000 Euro pro dreiphasigem Feld angegeben.</p>
+<p>Zweitens verbessert sich die Messgüte im Nennbereich deutlich, obwohl Fremdfelder vorhanden sind.<br>
+Das ist relevant, weil viele Anlagen den Großteil ihrer Betriebszeit genau in diesem Bereich verbringen, grob zwischen 80 und 100 Prozent Last.</p>
+<p>Damit wird die Lösung interessant für Serienkonstruktionen.<br>
+Sie senkt Kosten und verbessert die Messqualität gleichzeitig.</p>
+<hr>
+<h2 id="folie-14-abschluss">Folie 14 Abschluss </h2>
+<h3 id="text-für-die-folie-12">Text für die Folie </h3>
+<ol>
+<li>Magnetische Fremdfelder in kompakten Niederspannungsschaltanlagen erzeugen systematische Messfehler, besonders in L2</li>
+<li>Kompensierte Wandler beherrschen den Effekt technisch sehr gut, aber mit höheren Kosten</li>
+<li>FFP ist eine starke Option für Bestandsanlagen, wenn Bauraum und Montage reproduzierbar sind</li>
+<li>Standardwandler plus Dreieck ist die bevorzugte Empfehlung für Neukonstruktionen, wegen gutem Kompromiss aus Messgüte und Wirtschaftlichkeit</li>
+</ol>
+<p>Vielen Dank für Ihre Aufmerksamkeit.<br>
+Ich stehe jetzt gern für Fragen zur Verfügung.</p>
+<h3 id="sprechertext-langsam-zum-üben-13">Sprechertext (langsam zum Üben) </h3>
+<p>Ich fasse die Kernaussagen in vier Sätzen zusammen.</p>
+<p>Erstens.<br>
+Magnetische Fremdfelder in kompakten Niederspannungsschaltanlagen können zu systematischen Messfehlern führen, besonders in L2.</p>
+<p>Zweitens.<br>
+Der Effekt lässt sich durch kompensierte Wandler technisch sehr gut beherrschen, allerdings zu höheren Kosten.</p>
+<p>Drittens.<br>
+FFP ist eine starke Option für Bestandsanlagen, wenn Bauraum vorhanden ist und die Montage reproduzierbar umgesetzt werden kann.</p>
+<p>Viertens.<br>
+Die Dreiecksanordnung mit Standardwandlern ist die bevorzugte Empfehlung für neue Konstruktionen, weil sie einen sehr guten Kompromiss aus Messgüte und Wirtschaftlichkeit bietet.</p>
+<p>Vielen Dank für Ihre Aufmerksamkeit.<br>
+Ich stehe jetzt gern für Fragen zur Verfügung.</p>
+<h1 id="anhang-für-die-fragerunde">Anhang für die Fragerunde </h1>
+<h2 id="überblick-über-mehrere-stromniveaus">Überblick über mehrere Stromniveaus </h2>
+<img src="03_Ressourcen/Bilder/verlauf_gesamt.png" alt="Gesamtverlauf" style="width:45%; height:auto;">
+<h2 id="kennlinien-für-einzelne-stromstufen">Kennlinien für einzelne Stromstufen </h2>
+<img src="03_Ressourcen/diagramme/verlauf_2000A_presentation.png" alt="2000 A" style="width:45%; height:auto;">  
+<img src="03_Ressourcen/diagramme/verlauf_2500A_presentation.png" alt="2500 A" style="width:45%; height:auto;">  
+<img src="03_Ressourcen/diagramme/verlauf_3000A_presentation.png" alt="3000 A" style="width:45%; height:auto;">  
+<img src="03_Ressourcen/diagramme/verlauf_4000A_presentation.png" alt="4000 A" style="width:45%; height:auto;">
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
