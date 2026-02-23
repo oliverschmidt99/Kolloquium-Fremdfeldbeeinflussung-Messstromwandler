@@ -28,29 +28,6 @@
 \end{frame}
 
 
-% --- Folie 6: Messstrecke ---
-\begin{frame}{Wandler}
-
-    \begin{center}
-        \includegraphics[height=0.75\textheight, width=0.95\textwidth, keepaspectratio]{03_Ressourcen/zeichnungen/aufbaz_hochstrom_pruefstand_neu.drawio}
-    \end{center}
-
-    \slidetime{08:00}{08:50}
-    \keynote{
-        \begin{itemize}
-            \item Referenz -> Trafo -> 4kA
-            \item Synchrone Messung
-            \item WinCC Erfassung
-        \end{itemize}
-    }
-    \note{
-        \begin{itemize}
-            \item \textbf{Ziel:} Reproduzierbare, \textbf{synchrone} Vergleichsmessung (gleicher Strom, gleiche Bedingungen).
-            \item \textbf{Messkette:} Referenz (PAC 4220) vs. Prüfling (PAC 3220 + Wandler) \(\Rightarrow\) direkte Abweichung \(\varepsilon\) gegen \textbf{Klasse~1}.
-            \item \textbf{Automatisierung:} SPS/WinCC steuert Stromstufen und Haltezeiten \(\Rightarrow\) Einbrüche sind \textbf{physikalisch} (Sättigung), kein Messartefakt.
-        \end{itemize}
-}
-\end{frame}
 
 
 
