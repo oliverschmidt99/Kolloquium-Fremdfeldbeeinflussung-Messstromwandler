@@ -5,79 +5,64 @@
 
 I**ch** bin **Oliver Schmidt**⏸  
 🔊 ==**H**eute stelle ich meine Bachelorarbeit mit dem Titel **Fremdfeldbeeinflussung auf Messstromwandlern in Niederspannungsschaltanlagen** vor== 🔈⏸  
-**G**eschrieben habe ich die Arbeit bei der Firma **Rolf Janssen** in Aurich⏸⏸
+**E**ntstanden ist die Arbeit bei der Firma **Rolf Janssen** in Aurich⏸⏸
 
-**I**n kompakten **Niederspannungsschaltanlagen** liegen **Sammelschienen** und **Messstromwandler** sehr dicht beieinander⏸  
-**D**adurch überlagern sich die **Magnetfelder** der Außenleiter⏸  
-🔊 ==**D**as führt in der Praxis zu systematischen **Messabweichungen**, besonders bei der mittleren Phase **L2**== 🔈⏸⏸
+**D**as Kerngeschäft von **Rolf Janssen** ist die Fertigung von **Niederspannungsschaltanlagen** mit hoher **Kundenflexibilität** ⏸
 
-**D**as ist relevant, weil **Strommesswerte** heute nicht nur für punktuelle Überwachung genutzt werden⏸  
-**S**ie werden auch für **Energiemonitoring** und teilweise für **Abrechnung** verwendet⏸⏸
+**B**ei vielen Kunden geht der Trend klar in Richtung kompakterer Anlagen⏸  
+**T**echnikräume werden kleiner und gleichzeitig steigen die zu übertragenden Ströme⏸⏸
 
-**G**leichzeitig gibt es einen klaren Trend⏸⏸
-
-- **M**ehr **Leistungsdichte** auf weniger **Bauraum**⏸  
-- **H**öhere Ströme bei kleineren **Leiterabständen**⏸  
-- **U**nd damit stärkere **Fremdfeldkopplung**⏸⏸
-
-🔊 ==**Z**iel meiner Arbeit war es, Maßnahmen zu bewerten, die die Messung unter **Fremdfeldeinfluss** robuster machen== 🔈⏸  
-**D**azu habe ich verschiedene Ansätze verglichen, zum Beispiel **Wandlertechnologien**, **Schirmungsmaßnahmen** und die **Leitergeometrie**⏸⏸
+🔊 ==**Z**iel meiner Arbeit war es, Maßnahmen zu bewerten, die die Strommessung unter **Fremdfeldeinfluss** robuster machen== 🔈⏸  
+**D**azu habe ich verschiedene Ansätze verglichen, zum Beispiel **Wandlertechnologien**, **Schirmungsmaßnahmen** und die **Leitergeometrie** ⏸⏸
 
 ---
 
 ## Folie 2 Agenda Sprechertext
 
-🔊 ==I**ch** **gl**iedere den Vortrag in fünf Teile== 🔈⏸⏸
+🔊 ==Ich gliedere den Vortrag in fünf Teile== 🔈⏸⏸
 
-- **Erstens**⏸  
-  **I**ch zeige die Motivation und die Problemstellung⏸  
-  **W**arum **Fremdfelder** in **Niederspannungsschaltanlagen** heute praktisch relevant sind⏸⏸
+**E**rstens starte ich mit der **Einleitung** und der **Problemstellung** ⏸  
+Dazu zeige ich kurz die Situation in kompakten **Niederspannungsschaltanlagen**, die typische **Messabweichung** und warum das wirtschaftlich relevant ist ⏸⏸  
+Anschließend formuliere ich die Zielsetzung und die Leitfrage ⏸⏸
 
-- **Zweitens**⏸  
-  **I**ch formuliere die Zielsetzung der Arbeit⏸  
-  **W**elche Fragen ich beantworte und was am Ende bewertet wird⏸⏸
+**Z**weitens folgen die **Lösungsansätze** ⏸  
+Ich erläutere das **Funktionsprinzip des Messstromwandlers**, stelle die Varianten gegenüber, etwa **kompensiert**, **FFP** und **Dreieckanordnung**, und erkläre den zentralen Mechanismus der **Fremdfeldeinkopplung** mit partieller Sättigung ⏸⏸
 
-- **Drittens**⏸  
-  **I**ch gebe kurz die Grundlagen zum **Messstromwandler**⏸  
-  **S**o weit, dass der Fehlermechanismus durch **Fremdfeldkopplung** klar wird⏸⏸
+**D**rittens komme ich zum **Versuchsaufbau und zur Durchführung** ⏸  
+Ich stelle den **Hochstrom Prüfstand** vor, die **Messkette** aus Referenz und Prüfling, die Leiteranordnung, die Positionierung der Wandler und den Messablauf ⏸⏸
 
-- **Viertens**⏸  
-  **I**ch zeige den Versuchsaufbau am **Hochstrom-Prüfstand** und die **Messmethodik**⏸  
-  **W**ie die Leiter angeordnet sind, wie gemessen wird und wie ausgewertet wird⏸⏸
+**V**iertens zeige ich **exemplarische Messergebnisse** ⏸  
+Wir schauen uns den Vergleich der Varianten an, inklusive **Parallel vs Dreieck**, sowie den Kostenvergleich als Einordnung für die technische Bewertung ⏸⏸
 
-- **Fünftens**⏸  
-  **I**ch zeige exemplarische Ergebnisse⏸  
-  🔊 ==**D**araus leite ich eine Empfehlung ab, einmal für neue Konstruktionen und einmal für Bestandsanlagen== 🔈⏸⏸
+**F**ünftens fasse ich im **Fazit und Ausblick** zusammen ⏸  
+🔊 ==Daraus leite ich eine Empfehlung ab, getrennt für **Neuanlagen** und **Bestandsanlagen**, und schließe mit einem kurzen Ausblick== 🔈⏸⏸
 
 ---
 
 ## Folie 3 Motivation und Problemstellung Sprechertext
 
-A**uf** dem Bild sehen Sie eine typische Situation in einer kompakten **Niederspannungsschaltanlage**⏸  
-O**b**en sind die **Messstromwandler** angeordnet⏸  
-**D**arunter laufen die **Sammelschienen** sehr dicht nebeneinander⏸⏸
+A**uf** dem Bild sehen Sie eine typische Situation in einer kompakten **Niederspannungsschaltanlage** ⏸  
+O**b**en sind die **Messstromwandler** angeordnet ⏸  
+D**ar**unter verlaufen die **Sammelschienen** sehr dicht nebeneinander ⏸⏸
 
-I**n** dieser Anordnung stecken drei Entwicklungen, die heute häufig zusammenkommen⏸⏸
+I**n** dieser Anordnung treffen drei Entwicklungen zusammen, die heute häufig gleichzeitig auftreten ⏸⏸
 
-- **Erstens**⏸  
-  **D**ie Anlagen werden kompakter, weil Platz in Technikräumen knapp ist⏸  
-  **D**adurch steigt die **Leistungsdichte**⏸⏸
+- **Erstens** ⏸  
+  Die Anlagen werden kompakter, weil der Platz in Technikräumen knapper wird ⏸
 
-- **Zweitens**⏸  
-  **D**ie **Primärströme** werden größer, aber die Abstände bleiben oft klein⏸  
-  **D**as hängt direkt mit **Bauraum** und **Kosten** zusammen⏸⏸
+- **Zweitens** ⏸  
+  Die **Primärströme** steigen, aber die Leiterabstände bleiben oft nahezu unverändert ⏸⏸
 
-- **Drittens**⏸  
-  **W**enn Leiter so dicht beieinander liegen, steigt automatisch die **magnetische Kopplung** zwischen den Phasen⏸  
-  **D**amit steigt auch die Wahrscheinlichkeit, dass **Fremdfelder** den **Messstromwandler** beeinflussen⏸⏸
+- **Drittens** ⏸  
+  Durch die geringen Abstände nimmt die **magnetische Kopplung** zwischen den Phasen zu ⏸⏸
 
-🔊 ==**D**as ist nicht nur ein theoretisches Problem== 🔈⏸  
-**S**obald Messwerte für **Energiemonitoring** oder **Betriebsführung** genutzt werden, ist eine Abweichung bereits kritisch⏸  
-**U**nd wenn Messwerte in Richtung **Abrechnung** gehen, wird aus dem Messfehler ein echtes wirtschaftliches Risiko⏸⏸
+🔊 ==Das ist nicht nur ein theoretischer Effekt== 🔈⏸  
+S**oba**ld Messwerte für **Energiemonitoring** oder **Betriebsführung** genutzt werden, sind Abweichungen kritisch ⏸  
+U**nd** sobald Messwerte in Richtung **Abrechnung** gehen, wird aus einem Messfehler ein wirtschaftliches Risiko ⏸⏸
 
-🔊 ==**D**ie zentrale Frage ist deshalb== 🔈⏸  
-**W**ie groß ist der Einfluss in typischen Anordnungen⏸  
-**U**nd welche Maßnahmen reduzieren ihn zuverlässig⏸⏸
+🔊 ==Die zentrale Frage ist deshalb== 🔈⏸  
+W**ie** groß ist der Einfluss in typischen Anordnungen ⏸  
+U**nd** welche Maßnahmen reduzieren ihn zuverlässig ⏸⏸
 
 ---
 
@@ -85,45 +70,54 @@ I**n** dieser Anordnung stecken drei Entwicklungen, die heute häufig zusammenko
 
 🔊 ==I**ch** möchte die Größenordnung früh klar machen== 🔈⏸⏸
 
-I**n** meinen Messreihen zeigt sich ein Muster besonders häufig⏸  
-**D**ie mittlere Phase **L2** fällt am stärksten auf⏸  
-**S**ie liegt zwischen **L1** und **L3** und wird von beiden Nachbarphasen magnetisch überlagert⏸  
-🔊 ==**D**amit befindet sie sich im ungünstigsten Feldbereich== 🔈⏸⏸
+H**i**er auf der Folie sehen Sie zwei Messungen im direkten Vergleich ⏸  
+L**i**nks ist die **Referenzmessung** ⏸  
+I**ch** habe Hochpräzisionswandler eingesetzt ⏸  
+S**i**e waren mit großem Abstand zueinander positioniert  
+sodass sie praktisch ohne Fremdfeldbeeinflussung arbeiten ⏸⏸
 
-**H**ier sehen Sie ein Beispiel bei hoher Last⏸  
-**D**ie **Referenzmessung** liegt praktisch bei null Abweichung⏸  
-**D**er **Prüfling** zeigt in **L2** dagegen deutlich zu wenig⏸  
-🔊 ==I**n** diesem Fall liegt die Abweichung bei ungefähr minus drei Prozent== 🔈⏸⏸
+R**e**chts sehen Sie den **Prüfling** ⏸  
+D**a**s ist ein **Standardwandler** in **paralleler Anordnung**  
+🔊 ==also unter realistischen Bedingungen mit **Fremdfeldeinfluss**== 🔈⏸⏸
 
-**W**enn man so einen Fehler über längere Zeit betrachtet, zum Beispiel bei **Dauerlast**, kann das wirtschaftlich relevant werden⏸  
-**V**or allem dann, wenn Messwerte für **Kostenverteilung** oder **Abrechnung** genutzt werden⏸⏸
+B**e**i einem Nennstrom von **4000 A** liegt die Referenzmessung nahezu exakt am Sollwert ⏸  
+I**m** Worst Case in der mittleren Phase **L2** beträgt die Abweichung nur etwa **2 A** ⏸⏸
 
-🔊 ==**D**ie Beispielrechnung auf der Folie zeigt eine Größenordnung von ungefähr fünfzigtausend Euro pro Jahr== 🔈⏸  
-**D**as ist eine Beispielzahl, aber sie zeigt, warum sich eine konstruktiv saubere Lösung lohnen kann⏸⏸
+B**e**im Prüfling ist das Bild deutlich anders ⏸  
+G**e**rade in **L2**, also zwischen **L1** und **L3**, wird das Magnetfeld überlagert  
+🔊 ==und der Wandler misst spürbar zu wenig== 🔈⏸  
+H**i**er liegt der Messwert um rund **130 A** unter dem Realwert  
+🔊 ==das entspricht etwa **minus 3,24 Prozent**== 🔈⏸⏸
 
----
+W**e**nn man diese Abweichung auf **Dauerlast** hochrechnet, wird die Relevanz schnell klar ⏸  
+🔊 ==Ü**b**er ein Jahr entspricht das allein in **L2** einer Größenordnung von etwa **50 Tausend Euro**== 🔈⏸  
+d**i**e in der Messung nicht erfasst werden ⏸⏸
+
+W**i**tz optional: M**a**n könnte das ironisch als „Sparfunktion“ verkaufen weil der Zähler scheinbar weniger anzeigt ⏸  
+🔊 ==I**n** der Realität ist es ein Messfehler und damit ein wirtschaftliches Risiko== 🔈⏸⏸
+
+## U**n**d je mehr Schaltschränke oder Abgänge man betrachtet, desto stärker skaliert der Gesamtschaden ⏸⏸
 
 ## Folie 5 Zielsetzung der Arbeit Sprechertext
 
-A**uf** Basis der Motivation ergeben sich drei konkrete Ziele⏸⏸
+A**us** der Motivation ergeben sich für meine Arbeit drei klare Ziele ⏸⏸
 
-- **Erstens**⏸  
-  I**ch** analysiere die Fehler im **Drehstromsystem** systematisch⏸  
-  I**ch** betrachte alle drei Phasen unter gleichen Bedingungen und vergleiche die Abweichungen direkt⏸  
-  🔊 ==**S**o wird sichtbar, welche Phase besonders kritisch ist und welche Einflussgrößen dominieren== 🔈⏸⏸
+- **Erstens** ⏸  
+  I**ch** quantifiziere die **Messabweichung im Drehstromsystem** ⏸  
+  D**a**zu betrachte ich **L1**, **L2** und **L3** unter identischen Randbedingungen und vergleiche die Abweichungen direkt ⏸  
+  🔊 ==S**o** wird sichtbar, welche Phase im Praxisaufbau am kritischsten ist und welche Einflussgrößen den Fehler bestimmen== 🔈⏸⏸
 
-- **Zweitens**⏸  
-  I**ch** vergleiche verschiedene technische Lösungsansätze⏸  
-  I**m** Fokus stehen **Standardwandler**, **kompensierte Wandler** und eine Lösung mit **Fremdfeldprotektion**⏸  
-  **Z**usätzlich betrachte ich die **Leitergeometrie**, weil sie die Feldverteilung direkt beeinflusst⏸⏸
+- **Zweitens** ⏸  
+  I**ch** vergleiche technische **Gegenmaßnahmen** zur Reduzierung der **Fremdfeldbeeinflussung** ⏸  
+  I**m** Fokus stehen **Standardwandler**, **kompensierte Wandler** und Wandler mit **Fremdfeldschutz** ⏸  
+  Z**u**sätzlich untersuche ich die **Leiteranordnung** ⏸⏸
 
-- **Drittens**⏸  
-  I**ch** leite daraus eine Handlungsempfehlung ab⏸  
-  **D**ie Empfehlung soll für eine Neukonstruktion praktikabel sein⏸  
-  🔊 ==**U**nd sie soll gleichzeitig zeigen, was im Bestand realistisch nachrüstbar ist== 🔈⏸⏸
+- **Drittens** ⏸  
+  A**us** den Ergebnissen leite ich eine **Handlungsempfehlung** ab ⏸  
+  🔊 ==D**i**ese Empfehlung soll für **Neuanlagen** konstruktiv sinnvoll und umsetzbar sein== 🔈⏸⏸
 
-**B**ewertet habe ich die Lösungen anhand von fünf Kriterien⏸  
-**N**ormkonformität, **Fremdfeldrobustheit**, **Bauraum**, **Kosten** und **Verfügbarkeit**⏸⏸
+B**e**wertet habe ich die Varianten anhand von fünf Kriterien ⏸  
+N**o**rmkonformität, **Fremdfeldrobustheit**, **Kosten** und **Verfügbarkeit** ⏸⏸
 
 ---
 
@@ -213,7 +207,7 @@ I**ch** komme zur Methodik⏸⏸
 **D**er gleiche Primärstrom läuft durch eine definierte Leiteranordnung⏸  
 **D**iesen Strom erfasse ich parallel auf zwei Wegen⏸⏸
 
-- E**in**mal über die **Referenzmessung**⏸  
+- E**in**mal über die **Referenzmessung** ⏸
 - U**nd** gleichzeitig über die **Prüflingsmessung**, also **Messstromwandler** plus Messgerät⏸⏸
 
 🔊 ==**D**amit kann ich die Abweichung direkt bestimmen== 🔈⏸  
@@ -230,7 +224,7 @@ I**ch** brauche keine indirekten Annahmen und keine Umrechnung über externe Mod
 
 ## Folie 10 Exemplarisches Messergebnis FFP Sprechertext
 
-**H**ier zeige ich ein Beispiel für die **Fremdfeldprotektion**⏸⏸
+**H**ier zeige ich ein Beispiel für die **Fremdfeldprotektion** ⏸⏸
 
 🔊 ==**M**an sieht, dass sich die Abweichungen im relevanten Bereich deutlich reduzieren lassen== 🔈⏸  
 **G**leichzeitig bleibt **L2** der empfindlichste Kanal⏸  
@@ -279,7 +273,7 @@ U**nd** dass die Montage reproduzierbar ist⏸
 
 **D**er gemeinsame Nenner ist⏸  
 🔊 ==A**lle** drei Ansätze reduzieren die **L2** Verzerrung== 🔈⏸  
-**D**ie Unterschiede liegen vor allem in **Kosten**, **Bauraum** und **Integrationsaufwand**⏸⏸
+**D**ie Unterschiede liegen vor allem in **Kosten**, **Bauraum** und **Integrationsaufwand** ⏸⏸
 
 ---
 
@@ -296,7 +290,7 @@ U**nd** dass die Montage reproduzierbar ist⏸
 
 - **Zweitens**⏸  
   🔊 ==**Zweitens** verbessert sich die Messgüte im Nennbereich deutlich, obwohl Fremdfelder vorhanden sind== 🔈⏸  
-  **D**as ist relevant, weil viele Anlagen den Großteil ihrer Betriebszeit genau in diesem Bereich verbringen, grob zwischen **80 und 100 Prozent Last**⏸⏸
+  **D**as ist relevant, weil viele Anlagen den Großteil ihrer Betriebszeit genau in diesem Bereich verbringen, grob zwischen **80 und 100 Prozent Last** ⏸⏸
 
 **D**amit wird die Lösung interessant für Serienkonstruktionen⏸  
 🔊 ==**S**ie senkt Kosten und verbessert die Messqualität gleichzeitig== 🔈⏸⏸
@@ -308,7 +302,7 @@ U**nd** dass die Montage reproduzierbar ist⏸
 🔊 ==I**ch** fasse die Kernaussagen in vier Sätzen zusammen== 🔈⏸⏸
 
 - **Erstens**⏸  
-  **M**agnetische **Fremdfelder** in kompakten **Niederspannungsschaltanlagen** können zu systematischen Messfehlern führen, besonders in **L2**⏸⏸
+  **M**agnetische **Fremdfelder** in kompakten **Niederspannungsschaltanlagen** können zu systematischen Messfehlern führen, besonders in **L2** ⏸⏸
 
 - **Zweitens**⏸  
   **D**er Effekt lässt sich durch **kompensierte Wandler** technisch sehr gut beherrschen, allerdings zu höheren Kosten⏸⏸

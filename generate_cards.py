@@ -2,6 +2,12 @@ import re
 import markdown
 from weasyprint import HTML
 
+# --- KONFIGURATION (HIER ANPASSEN) ---
+SCHRIFTGROESSE_TITEL = "10pt"  # Größe der Überschriften (h2)
+SCHRIFTGROESSE_TEXT = "9pt"    # Größe des normalen Textes (p, li)
+KARTEN_INNENABSTAND = "10mm"   # Rand innerhalb der Karteikarte
+# -------------------------------------
+
 def erstelle_karteikarten(input_md, output_pdf):
     # Lese die Markdown-Datei ein
     with open(input_md, 'r', encoding='utf-8') as f:
@@ -11,54 +17,55 @@ def erstelle_karteikarten(input_md, output_pdf):
     slides = re.split(r'\n---\s*\n', content)
 
     # HTML-Grundgerüst mit CSS für die exakte Halb-A4-Aufteilung
-    html_content = """
+    # Die Variablen aus der Konfiguration werden hier per f-string eingefügt
+    html_content = f"""
     <!DOCTYPE html>
     <html>
     <head>
     <meta charset="utf-8">
     <style>
-        @page {
+        @page {{
             size: A4 portrait;
             margin: 0;
-        }
-        body {
+        }}
+        body {{
             font-family: Arial, "Noto Color Emoji", sans-serif;
             margin: 0;
             padding: 0;
             background-color: white;
-        }
-        .slide {
+        }}
+        .slide {{
             width: 210mm;
             height: 148.5mm; /* Exakt eine halbe A4-Seite */
             box-sizing: border-box;
-            padding: 10mm; /* Rand von 15mm auf 10mm reduziert */
+            padding: {KARTEN_INNENABSTAND}; 
             border-bottom: 1px dashed #ccc;
             overflow: hidden;
-        }
+        }}
         /* Seitenumbruch nach jeder zweiten Folie und Linie entfernen */
-        .slide:nth-child(2n) {
+        .slide:nth-child(2n) {{
             border-bottom: none;
             page-break-after: always;
-        }
-        h2 {
-            font-size: 13pt; /* Von 16pt auf 13pt reduziert */
+        }}
+        h2 {{
+            font-size: {SCHRIFTGROESSE_TITEL};
             color: #000;
             margin-top: 0;
-            margin-bottom: 4mm; /* Abstand verkleinert */
-        }
-        p, li {
-            font-size: 10.5pt; /* Von 13pt auf 10.5pt reduziert */
+            margin-bottom: 3mm;
+        }}
+        p, li {{
+            font-size: {SCHRIFTGROESSE_TEXT};
             line-height: 1.3;
-            margin-bottom: 2.5mm; /* Abstand verkleinert */
-        }
-        mark {
+            margin-bottom: 2mm;
+        }}
+        mark {{
             background-color: #ffff00;
             font-weight: bold;
-        }
-        ul {
+        }}
+        ul {{
             margin-top: 0;
-            padding-left: 6mm; /* Einzug der Aufzählungszeichen reduziert */
-        }
+            padding-left: 5mm;
+        }}
     </style>
     </head>
     <body>

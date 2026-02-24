@@ -107,43 +107,47 @@
     \setbeamercolor{stepbox}{bg=cHSblue!10, fg=black}
 
     % Leitfrage (oben, 1 Satz)
-    \begin{beamercolorbox}[wd=\linewidth, sep=0.7em, rounded=true, shadow=true]{goalbox}
+    \begin{beamercolorbox}[wd=\linewidth, sep=0.6em, rounded=true, shadow=true]{goalbox}
         \small \textbf{Leitfrage:}
         Wie wird die Strommessung im kompakten Drehstromsystem
         (Worst Case: \textbf{L2}) \textbf{fremdfeldrobust} – bei vertretbaren Kosten/Bauraum?
     \end{beamercolorbox}
 
-    \vspace{0.6em}
+    \vspace{1em} % Etwas mehr vertikaler Abstand zur Trennung
 
     % 3-Schritt-Logik als Kacheln
+    % Breite auf 0.30 reduziert und \hfill eingefügt für mehr Zwischenraum
     \begin{columns}[T,onlytextwidth]
-        \begin{column}{0.32\textwidth}
-            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+        \begin{column}{0.30\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.6em, center, rounded=true, shadow=true]{stepbox}
                 \textbf{1 \,Analyse}\par
+                \vspace{0.2em}
                 {\scriptsize Fehlermechanismen \& Einflussgrößen}
             \end{beamercolorbox}
         \end{column}
-
-        \begin{column}{0.32\textwidth}
-            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+        \hfill
+        \begin{column}{0.30\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.6em, center, rounded=true, shadow=true]{stepbox}
                 \textbf{2 \,Vergleich}\par
+                \vspace{0.2em}
                 {\scriptsize Standard / kompensiert / Spezial \& Geometrien}
             \end{beamercolorbox}
         \end{column}
-
-        \begin{column}{0.32\textwidth}
-            \begin{beamercolorbox}[wd=\linewidth, sep=0.8em, center, rounded=true, shadow=true]{stepbox}
+        \hfill
+        \begin{column}{0.30\textwidth}
+            \begin{beamercolorbox}[wd=\linewidth, sep=0.6em, center, rounded=true, shadow=true]{stepbox}
                 \textbf{3 \,Empfehlung}\par
+                \vspace{0.2em}
                 {\scriptsize Entscheidungsvorlage für die Neukonstruktion}
             \end{beamercolorbox}
         \end{column}
     \end{columns}
 
-    \vspace{0.5em}
+    \vspace{1em}
 
     % Kriterien (unten als „Footline“ der Folie)
     \begin{beamercolorbox}[wd=\linewidth, sep=0.5em, rounded=true]{alerted text}
-        \scriptsize \textbf{Bewertung:} Normkonformität \(\cdot\) Fremdfeldrobustheit \(\cdot\) Bauraum \(\cdot\) Kosten \(\cdot\) Verfügbarkeit
+        \scriptsize \textbf{Bewertung:} Normkonformität \(\cdot\) Fremdfeldrobustheit \(\cdot\) Kosten \(\cdot\) Verfügbarkeit
     \end{beamercolorbox}
 
     % Zeit: 30s (04:00 - 04:30)
